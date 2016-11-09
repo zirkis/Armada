@@ -3,10 +3,7 @@ import Ember from 'ember';
 import AuthenticatedRouteMixin
   from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-const {service} = Ember.inject;
-
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
-  sessionAccount: service('session-account'),
   title: 'Create user',
   actions: {
     createUser(credentials) {
@@ -17,7 +14,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       });
       user.save()
         .then(() => {
-          this.transitionTo('index');
+          this.transitionTo('profile');
         });
     }
   }

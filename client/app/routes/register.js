@@ -6,6 +6,13 @@ import UnauthenticatedRouteMixin from
 export default Ember.Route.extend(UnauthenticatedRouteMixin, {
   title: 'Register',
   model() {
-    return this.get('store').createRecord('user', {});
+    return this.store.createRecord('user', {
+      role: 'user'
+    });
+  },
+  actions: {
+    register(user) {
+      //user.save(); + auth
+    }
   }
 });

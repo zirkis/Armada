@@ -4,14 +4,13 @@ import Ember from 'ember';
 const {computed, defineProperty} = Ember;
 
 export default Ember.Component.extend({
-  tagName: '',
+  label: '',
   model: null,
   value: null,
   type: 'text',
   valuePath: '',
   placeholder: '',
   validation: null,
-  isTyping: false,
 
   hasContent: computed.notEmpty('value'),
   isInvalid: computed.and('hasContent', 'validation.isInvalid'),

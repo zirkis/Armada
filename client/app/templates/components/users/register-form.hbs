@@ -1,0 +1,47 @@
+<form class="ui form">
+	<div class="field">
+		{{validated-input
+			id='name'
+			type='text'
+			placeholder='Enter Name'
+			label='Name'
+			value=user.name
+			valuePath='name'
+			icon='user'
+			model=user
+		}}
+	</div>
+	<div class="field">
+		{{validated-input
+			id='password'
+			type='password'
+			placeholder='Enter Password'
+			label='Password'
+			value=user.password
+			valuePath='password'
+			icon='lock'
+			model=user
+		}}
+	</div>
+	<div class="field">
+		{{validated-input
+			id='confirmPassword'
+			type='password'
+			placeholder='Confirm Password'
+			label='Confirm Password'
+			value=user.passwordConfirmation
+			valuePath='passwordConfirmation'
+			icon='lock'
+			model=user
+		}}
+	</div>
+	<button
+		type="submit"
+		class="ui orange button"
+		disabled={{user.validations.isInvalid}}
+		{{action (route-action 'register' user)}}>
+		Register
+	</button>
+</form>
+
+{{yield}}

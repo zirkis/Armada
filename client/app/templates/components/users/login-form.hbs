@@ -1,0 +1,31 @@
+<form class="ui form">
+	<div class="field">
+		<label for="name">Name</label>
+		<div class="ui input">
+			{{input id='name'
+			placeholder='Enter Name'
+			value=name
+			required=true}}
+		</div>
+	</div>
+	<div class="field">
+		<label for="password">Password</label>
+		<div class="ui input">
+			{{input id='password'
+			placeholder='Enter Password'
+			type='password'
+			value=password
+			required=true
+			}}
+		</div>
+	</div>
+	<button type="submit" class="ui green button"
+		{{action 'authenticate'}}>
+		Login
+	</button>
+	{{#if errorMessage}}
+		<p>{{errorMessage}}</p>
+	{{/if}}
+</form>
+
+{{yield}}

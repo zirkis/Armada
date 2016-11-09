@@ -1,15 +1,6 @@
-<div class="ui centered grid">
-	<div class="height wide column">
-
-		<h2 class="ui icon header">
-			<i class="add user icon"></i>
-			<div class="content">
-				<div class="sub header">
-					Si t'es un vrai, tu ne t'arrêtes pas à ton inscription et tu nous rejoins !
-				</div>
-			</div>
-		</h2>
-		{{users.register-component user=model}}
-	</div>
+<div class="ui raised very padded text container segment">
+		{{users.register-form
+			user=model
+		}}
 </div>
 {{outlet}}

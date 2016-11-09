@@ -1,11 +1,14 @@
-<div class="required field {{if isInvalid 'error' ''}}">
+<label>{{label}}</label>
+<div class="required field {{if isInvalid 'error'}}">
 	{{#if icon}}
 		<div class="ui left icon input">
 			<i class="{{icon}} icon"></i>
 			{{input type=type placeholder=placeholder value=value name=valuePath}}
 		</div>
 	{{else}}
-		{{input type=type placeholder=placeholder value=value name=valuePath}}
+		<div class="ui input">
+			{{input type=type placeholder=placeholder value=value name=valuePath}}
+		</div>
 	{{/if}}
 </div>
 
