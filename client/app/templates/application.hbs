@@ -1,0 +1,13 @@
+<div class="menu">
+	{{#if session.isAuthenticated}}
+		<a {{action 'logout'}}>Logout</a>
+		{{#link-to 'user.create'}}Create user{{/link-to}}
+	{{else}}
+		{{#if (not-eq currentRouteName 'login')}}
+			{{#link-to 'login'}}Login{{/link-to}}
+		{{/if}}
+	{{/if}}
+</div>
+<div class="main">
+	{{outlet}}
+</div>

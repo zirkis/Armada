@@ -1,0 +1,48 @@
+<div class="ui raised very padded text container segment">
+	<h2 class="ui header">
+		<div class="ui grid container">
+			<div class="eight wide column">
+				{{#link-to 'login'}}
+						<div class="fluid ui button">
+							Login
+						</div>
+				{{/link-to}}
+			</div>
+			<div class="eight wide column">
+				{{#link-to 'register'}}
+					<div class="fluid ui button">
+						Register
+					</div>
+				{{/link-to}}
+			</div>
+		</div>
+	</h2>
+
+	<form {{action 'authenticate' on='submit'}} class="ui form">
+		<div class="field">
+			<label for="name">Name</label>
+			<div class="ui input">
+				{{input id='name' placeholder='Enter Name' value=name required=true}}
+			</div>
+		</div>
+		<div class="field">
+			<label for="password">Password</label>
+			<div class="ui input">
+				{{input id='password'
+					placeholder='Enter Password'
+					type='password'
+					value=password
+					required=true
+				}}
+			</div>
+		</div>
+		<button type="submit" class="ui green button">
+			Login
+		</button>
+		{{#if errorMessage}}
+			<p>{{errorMessage}}</p>
+		{{/if}}
+	</form>
+</div>
+
+{{outlet}}
