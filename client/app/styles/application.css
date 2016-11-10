@@ -1,0 +1,35 @@
+.bloc_title
+{
+	border-bottom: 2px rgb(242,203,48) solid;
+	background-color: rgb(23,23,23);
+
+}
+
+.header_h1
+{
+	color: rgb(160,245,240);
+	text-align: center;
+	font-family: 'Tr2n';
+	font-size: 6em;
+	margin-top: 30px;
+	margin-bottom: 10px;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.3);
+}
+
+.header_h2
+{
+	text-align: center;
+	color: white;
+	font-family: 'ONEDAY';
+	font-size: 1em;
+}
+
+.yellowbike, .bluebike
+{
+	width: 20%;
+}
+
+.yellowbike, .header_h1
+{
+	display: inline-block;
+}

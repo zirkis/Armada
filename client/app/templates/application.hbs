@@ -1,21 +1,15 @@
 <header>
-	<div id="bloc_title">
-		<img src="/assets/images/yellowbike.jpg" id="yellowbike">
-		<h1 id="header_h1">Armada</h1>
-		<img src="/assets/images/bluebike.jpg" id="bluebike">
+	<div local-class="bloc_title">
+		<img src="/assets/images/yellowbike.jpg" local-class="yellowbike">
+		<h1 local-class="header_h1">Armada</h1>
+		<img src="/assets/images/bluebike.jpg" local-class="bluebike">
 	</div>
-	<h2 id="header_h2">Manage your fleet from a touch</h2>
+	<h2 local-class="header_h2">Manage your fleet from a touch</h2>
 </header>
-<div class="menu">
-	{{#if session.isAuthenticated}}
-		<a {{action 'logout'}}>Logout</a>
-		{{#link-to 'user.create'}}Create user{{/link-to}}
-	{{else}}
-		{{#if (not-eq currentRouteName 'login')}}
-			{{#link-to 'login'}}Login{{/link-to}}
-		{{/if}}
-	{{/if}}
-</div>
-
 
 {{outlet}}
+
+<footer>
+	<hr>
+	<p>Copyright<i>&copy</i>  2016 <u>HAOUI Benjamin</u> <i>&</i> <u>DIDELOT Kevin</u></p>
+</footer>

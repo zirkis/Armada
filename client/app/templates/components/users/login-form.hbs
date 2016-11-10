@@ -1,14 +1,13 @@
 <section id="login_box">
-	<img src="/assets/images/homescreen.jpg" id="homescreen">
-	<form method="post" action="traitement.php" id="login_form">
-		<p class="center" id="welcome">Welcome</p>
+	<img src="/assets/images/homescreen.jpg" local-class="homescreen">
+	<form method="post" action="traitement.php" local-class="login_form">
+		<p local-class="center welcome">Welcome</p>
 		<p>
-			<div local-class="myred"> Yoooooooo</div>
 			<label for="name">Name</label><br>
 			{{input id='name'
 				placeholder='Enter Name'
 				value=name
-				class='input_fields'
+				class=(local-class 'input_fields')
 				required=true
 			}}
 		</p>
@@ -18,16 +17,17 @@
 				placeholder='Enter Password'
 				type='password'
 				value=password
-				class='input_fields'
+			class=(local-class 'input_fields')
 				required=true
 			}}
 		</p>
-		<p class="center">
-			<input type="submit" value="Sign In" id="login_button"
+		<p local-class="center">{{errorMessage}}</p>
+		<p local-class="center">
+			<input type="submit" value="Sign In" local-class="login_button"
 			{{action 'authenticate'}}>
 		</p>
-		<p class="center"><img src="/assets/images/loginfacebook.jpg" id="bouton_facebook"></p>
-		<p id="register_link">New user ? {{#link-to 'register'}}<a>Register</a>{{/link-to}}</p>
+		<p local-class="center"><img src="/assets/images/loginfacebook.jpg" local-class="bouton_facebook"></p>
+		<p local-class="register_link">New user ? {{#link-to 'register'}}<a>Register</a>{{/link-to}}</p>
 	</form>
 </section>
 

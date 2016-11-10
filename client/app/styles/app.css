@@ -12,119 +12,10 @@ body
 {
 	background-color: black;
 }
-#header_h1
-{
-	color: rgb(160,245,240);
-	text-align: center;
-	font-family: 'Tr2n';
-	font-size: 6em;
-	margin-top: 30px;
-	margin-bottom: 10px;
-	text-shadow: 1px 1px 1px rgba(255,255,255,0.3);
-}
-#header_h2, footer
-{
-	text-align: center;
-	color: white;
-	font-family: 'ONEDAY';
-	font-size: 1em;
-}
 
-#yellowbike, #bluebike
-{
-	width: 20%;
-}
-
-#yellowbike, #header_h1
-{
-	display: inline-block;
-}
 header
 {
 	text-align: center;
-}
-#bloc_title
-{
-	border-bottom: 2px rgb(242,203,48) solid;
-	background-color: rgb(23,23,23);
-
-}
-#homescreen
-{
-	width: 100%;
-	position: absolute;
-	top: 185px;
-	z-index: 1;
-}
-#login_form
-{
-	position: absolute;
-	top: 230px;
-	left: 22%;
-	z-index: 2;
-	background-color: rgba(255,255,255,0.92);
-	width: 280px;
-	height: 430px;
-	border-radius: 10px;
-	padding: 20px;
-	padding-top: 0px;
-	padding-left: 40px;
-	font-family: 'ONEDAY';
-	box-shadow: 0 8px 16px 0 rgba(255,255,255,0.4), 0 6px 20px 0 rgba(255,255,255,0.39);
-}
-#welcome
-{
-	margin-bottom: 15px;
-	font-size: 2em;
-	font-weight: bold;
-}
-
-#bouton_facebook
-{
-	background-image: url('img/loginfacebook.jpg');
-	width: 200px;
-	border-radius: 8px;
-	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-	margin-bottom: 30px;
-
-}
-#login_button
-{
-	width: 200px;
-	border-radius: 8px;
-	height: 39px;
-	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-	font-family: 'ONEDAY';
-	font-size: 1.2em;
-	padding-top: 7px;
-	background-color: rgb(190,84,80);
-	color: white;
-	border: none;
-	margin-top: 10px;
-
-}
-.input_fields
-{
-	height: 25px;
-	width: 260px;
-	margin-top: 5px;
-	border-radius: 3px;
-	margin-bottom: 10px;
-	font-family: 'verdana';
-	font-size: 0.9em;
-	padding-left: 5px;
-}
-.center
-{
-	text-align: center;
-}
-#register_link a:visited
-{
-	color: blue;
-}
-#register_link a:hover
-{
-	color: rgb(242,203,48);
 }
 
 i
@@ -135,6 +26,10 @@ i
 
 footer
 {
+	text-align: center;
+	color: white;
+	font-family: 'ONEDAY';
+	font-size: 1em;
 	position: relative;
 	top: 570px;
 }
