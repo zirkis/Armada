@@ -6,11 +6,11 @@
 	</div>
 	<h2 local-class="header_h2">Manage your fleet from a touch</h2>
 </header>
-{{#if session.isAuthenticated}}
-	<a {{action 'logout'}}>Logout</a>
-{{/if}}
 <div local-class="content">
 	<div local-class="content-inside">
+		{{#if session.isAuthenticated}}
+			<a {{action 'logout'}}>Logout</a>
+		{{/if}}
 		{{outlet}}
 	</div>
 </div>
