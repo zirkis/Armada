@@ -1,4 +1,6 @@
-# Tp-Vroum-Vroum
+# Armada
+
+## Manage your fleet from a touch
 
 ## Installation
 
