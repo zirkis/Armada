@@ -1,15 +1,22 @@
 <header>
 	<div local-class="bloc_title">
 		<img src="/assets/images/yellowbike.jpg" local-class="yellowbike">
-		<h1 local-class="header_h1">Armada</h1>
+		<div local-class="header_h1">Armada</div>
 		<img src="/assets/images/bluebike.jpg" local-class="bluebike">
 	</div>
 	<h2 local-class="header_h2">Manage your fleet from a touch</h2>
 </header>
+{{#if session.isAuthenticated}}
+	<a {{action 'logout'}}>Logout</a>
+{{/if}}
+<div local-class="content">
+	<div local-class="content-inside">
+		{{outlet}}
+	</div>
+</div>
 
-{{outlet}}
-
-<footer>
-	<hr>
-	<p>Copyright<i>&copy</i>  2016 <u>HAOUI Benjamin</u> <i>&</i> <u>DIDELOT Kevin</u></p>
+<footer local-class="center">
+	<p local-class="copyright">
+		Copyright<i>&copy</i>  2016 <u>HAOUI Benjamin</u> <i>&</i> <u>DIDELOT Kevin</u>
+	</p>
 </footer>

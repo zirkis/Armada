@@ -1,6 +1,6 @@
-<section id="login_box">
-	<img src="/assets/images/homescreen.jpg" local-class="homescreen">
-	<form method="post" action="traitement.php" local-class="login_form">
+<section local-class="login_box">
+	<img src="/assets/images/homescreen.jpg" id="homescreen">
+	<form local-class="login_form">
 		<p local-class="center welcome">Welcome</p>
 		<p>
 			<label for="name">Name</label><br>
@@ -21,7 +21,7 @@
 				required=true
 			}}
 		</p>
-		<p local-class="center">{{errorMessage}}</p>
+		<p local-class="center red">{{errorMessage}}</p>
 		<p local-class="center">
 			<input type="submit" value="Sign In" local-class="login_button"
 			{{action 'authenticate'}}>

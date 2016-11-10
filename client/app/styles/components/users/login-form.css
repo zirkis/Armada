@@ -1,9 +1,14 @@
+.red
+{
+	color: red;
+}
+
 .homescreen
 {
 	width: 100%;
 	position: absolute;
-	top: 185px;
-	z-index: 1;
+	top: 195px;
+	z-index: 2;
 }
 .center
 {
@@ -13,24 +18,28 @@
 .login_form
 {
 	position: absolute;
-	top: 230px;
+	top: 190px;
+	height: 200px;
 	left: 22%;
 	z-index: 2;
 	background-color: rgba(255,255,255,0.92);
-	width: 280px;
+	width: 350px;
+	height: 50%;
 	height: 430px;
+	padding-top: 15px;
+	padding-right: 30px;
+	padding-left: 30px;
+	padding-bottom: 0px;
+	margin: 0px;
 	border-radius: 10px;
-	padding: 20px;
-	padding-top: 0px;
-	padding-left: 40px;
 	font-family: 'ONEDAY';
 	box-shadow: 0 8px 16px 0 rgba(255,255,255,0.4), 0 6px 20px 0 rgba(255,255,255,0.39);
 }
 
 .input_fields
 {
-	height: 25px;
-	width: 260px;
+	height: 30px;
+	width: 100%;
 	margin-top: 5px;
 	border-radius: 3px;
 	margin-bottom: 10px;
@@ -64,14 +73,17 @@
 
 .bouton_facebook
 {
-	background-image: url('img/loginfacebook.jpg');
+	background-image: url('/assets/images/loginfacebook.jpg');
 	width: 200px;
 	border-radius: 8px;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 	margin-bottom: 30px;
 
 }
-
+.register_link{
+	margin: 0px;
+	padding: 0px;
+}
 .register_link a:visited
 {
 	color: blue;

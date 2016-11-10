@@ -1,35 +1,44 @@
-.bloc_title
-{
+.content {
+	min-height: 100%;
+}
+.content-inside {
+}
+.bloc_title {
 	border-bottom: 2px rgb(242,203,48) solid;
 	background-color: rgb(23,23,23);
-
+	margin: 0px;
+	padding: 0px;
 }
-
-.header_h1
-{
+.header_h1 {
+	vertical-align: center;
 	color: rgb(160,245,240);
 	text-align: center;
 	font-family: 'Tr2n';
-	font-size: 6em;
-	margin-top: 30px;
-	margin-bottom: 10px;
+	font-size: 7em;
+	margin-top: 50px;
+	margin-bottom: 40px;
 	text-shadow: 1px 1px 1px rgba(255,255,255,0.3);
 }
-
-.header_h2
-{
+.header_h2 {
 	text-align: center;
 	color: white;
 	font-family: 'ONEDAY';
 	font-size: 1em;
 }
-
-.yellowbike, .bluebike
-{
+.yellowbike, .bluebike {
+	vertical-align: text-bottom;
 	width: 20%;
+	padding: 0px;
+	margin: 0px;
 }
-
 .yellowbike, .header_h1
 {
 	display: inline-block;
+}
+
+.copyright{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
