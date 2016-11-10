@@ -1,9 +1,6 @@
-<div class="ui raised very padded text container segment">
-	{{users.login-form
-		action='authenticate'
-		errorMessage = errorMessage
-	}}
-	New ? {{#link-to 'register'}}<a>Register</a>{{/link-to}}
-</div>
+{{users.login-form
+	action='authenticate'
+	errorMessage = errorMessage
+}}
 
 {{outlet}}

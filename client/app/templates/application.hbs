@@ -1,3 +1,11 @@
+<header>
+	<div id="bloc_title">
+		<img src="/assets/images/yellowbike.jpg" id="yellowbike">
+		<h1 id="header_h1">Armada</h1>
+		<img src="/assets/images/bluebike.jpg" id="bluebike">
+	</div>
+	<h2 id="header_h2">Manage your fleet from a touch</h2>
+</header>
 <div class="menu">
 	{{#if session.isAuthenticated}}
 		<a {{action 'logout'}}>Logout</a>
@@ -8,6 +16,6 @@
 		{{/if}}
 	{{/if}}
 </div>
-<div class="main">
-	{{outlet}}
-</div>
+
+
+{{outlet}}

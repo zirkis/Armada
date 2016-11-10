@@ -1,31 +1,34 @@
-<form class="ui form">
-	<div class="field">
-		<label for="name">Name</label>
-		<div class="ui input">
+<section id="login_box">
+	<img src="/assets/images/homescreen.jpg" id="homescreen">
+	<form method="post" action="traitement.php" id="login_form">
+		<p class="center" id="welcome">Welcome</p>
+		<p>
+			<div local-class="myred"> Yoooooooo</div>
+			<label for="name">Name</label><br>
 			{{input id='name'
-			placeholder='Enter Name'
-			value=name
-			required=true}}
-		</div>
-	</div>
-	<div class="field">
-		<label for="password">Password</label>
-		<div class="ui input">
-			{{input id='password'
-			placeholder='Enter Password'
-			type='password'
-			value=password
-			required=true
+				placeholder='Enter Name'
+				value=name
+				class='input_fields'
+				required=true
 			}}
-		</div>
-	</div>
-	<button type="submit" class="ui green button"
-		{{action 'authenticate'}}>
-		Login
-	</button>
-	{{#if errorMessage}}
-		<p>{{errorMessage}}</p>
-	{{/if}}
-</form>
+		</p>
+		<p>
+			<label for="pass">Password</label><br>
+			{{input id='password'
+				placeholder='Enter Password'
+				type='password'
+				value=password
+				class='input_fields'
+				required=true
+			}}
+		</p>
+		<p class="center">
+			<input type="submit" value="Sign In" id="login_button"
+			{{action 'authenticate'}}>
+		</p>
+		<p class="center"><img src="/assets/images/loginfacebook.jpg" id="bouton_facebook"></p>
+		<p id="register_link">New user ? {{#link-to 'register'}}<a>Register</a>{{/link-to}}</p>
+	</form>
+</section>
 
 {{yield}}
