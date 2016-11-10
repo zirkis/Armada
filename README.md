@@ -1,6 +1,5 @@
 # Armada
-
-## Manage your fleet from a touch
+Manage your fleet from a touch.
 
 ## Installation
 
