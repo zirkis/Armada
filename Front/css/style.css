@@ -18,8 +18,8 @@ body
 	text-align: center;
 	font-family: 'Tr2n';
 	font-size: 6em;
-	margin-top: 30px;
-	margin-bottom: 10px;
+	margin-top: 15px;
+	margin-bottom: 0px;
 	text-shadow: 1px 1px 1px rgba(255,255,255,0.3);
 }
 #header_h2, footer
@@ -39,10 +39,7 @@ body
 {
 	display: inline-block;
 }
-header
-{
-	text-align: center;
-}
+
 #bloc_title
 {
 	border-bottom: 2px rgb(242,203,48) solid;
@@ -53,13 +50,13 @@ header
 {
 	width: 100%;
 	position: absolute;
-	top: 185px;
+	top: 160px;
 	z-index: 1;
 }
 #login_form
 {
 	position: absolute;
-	top: 230px;
+	top: 205px;
 	left: 22%;
 	z-index: 2;
 	background-color: rgba(255,255,255,0.92);
