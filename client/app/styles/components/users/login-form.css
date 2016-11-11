@@ -1,31 +1,28 @@
-.red
-{
+.red {
 	color: red;
 }
-
-.homescreen
-{
-	width: 100%;
-	position: absolute;
-	top: 195px;
-	z-index: 2;
+.login_box {
+	position: relative;
 }
-.center
-{
+.container-image {
+	text-align: center;
+	background: black;
+}
+.homescreen {
+	height: calc(100vh - 200px);
+}
+.center {
 	text-align: center;
 }
-
-.login_form
-{
+.login_form {
 	position: absolute;
-	top: 190px;
-	height: 200px;
+	top: 30px;
 	left: 22%;
 	z-index: 2;
 	background-color: rgba(255,255,255,0.92);
 	width: 350px;
 	height: 50%;
-	height: 430px;
+	height: 400px;
 	padding-top: 15px;
 	padding-right: 30px;
 	padding-left: 30px;
@@ -35,9 +32,7 @@
 	font-family: 'ONEDAY';
 	box-shadow: 0 8px 16px 0 rgba(255,255,255,0.4), 0 6px 20px 0 rgba(255,255,255,0.39);
 }
-
-.input_fields
-{
+.input_fields {
 	height: 30px;
 	width: 100%;
 	margin-top: 5px;
@@ -47,9 +42,7 @@
 	font-size: 0.9em;
 	padding-left: 5px;
 }
-
-.login_button
-{
+.login_button {
 	width: 200px;
 	border-radius: 8px;
 	height: 39px;
@@ -63,16 +56,12 @@
 	margin-top: 10px;
 
 }
-
-.welcome
-{
+.welcome {
 	margin-bottom: 15px;
 	font-size: 2em;
 	font-weight: bold;
 }
-
-.bouton_facebook
-{
+.bouton_facebook {
 	background-image: url('/assets/images/loginfacebook.jpg');
 	width: 200px;
 	border-radius: 8px;
@@ -80,15 +69,14 @@
 	margin-bottom: 30px;
 
 }
-.register_link{
-	margin: 0px;
+.register_link {
+	margin: -15px;
+	margin-left: 10px;
 	padding: 0px;
 }
-.register_link a:visited
-{
+.register_link a:visited {
 	color: blue;
 }
-.register_link a:hover
-{
+.register_link a:hover {
 	color: rgb(242,203,48);
 }
