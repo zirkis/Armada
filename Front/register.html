@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/register.css" />
         <title>Armada</title>
     </head>
     
@@ -17,10 +17,19 @@
                 <h2 id="header_h2">Manage your fleet from a touch</h2>
             </header>
            
-            <section id="login_box">
-                <img src="img/homescreen.jpg" id="homescreen">
-                <form method="post" action="traitement.php" id="login_form">
-                    <p class="center" id="welcome">Welcome</p>
+            <section id="register_box">
+                <img src="img/register2.jpg" id="registerscreen">
+                <a href="index.html"><img src="img/back.png" id="back"/></a>
+                <form method="post" action="traitement.php" id="register_form">
+                    <p class="center" id="welcome">Register</p>
+                    <p>
+                       <label for="surname">Surname</label><br>
+                       <input type="text" name="surname" id="surname" class="fields"/>           
+                    </p>
+                    <p>
+                       <label for="name">Name</label><br>
+                       <input type="name" name="name" id="name" class="fields"/>           
+                    </p>
                     <p>
                        <label for="email">Email</label><br>
                        <input type="email" name="email" id="email" class="fields"/>           
@@ -29,9 +38,11 @@
                        <label for="pass">Password</label><br>
                        <input type="password" name="pass" id="pass" class="fields"/>       
                     </p>
-                    <p class="center"><input type="submit" value="Sign In" id="login_button"></p>
-                    <p class="center"><img src="img/loginfacebook.jpg" id="bouton_facebook"></p>
-                    <p id="register_link">New user ? <a href="register.html">Register</a></p>
+                    <p>
+                       <label for="pass">Confirm Password</label><br>
+                       <input type="password" name="pass" id="pass" class="fields"/>       
+                    </p>
+                    <p class="center"><input type="submit" value="Sign Up" id="register_button"></p>
                 </form>
             </section>
             

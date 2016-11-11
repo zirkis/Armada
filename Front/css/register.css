@@ -46,18 +46,20 @@ body
 	background-color: rgb(23,23,23);
 
 }
-#homescreen
+#registerscreen
 {
-	width: 100%;
+	width: 55%;
 	position: absolute;
-	top: 160px;
+	top: 210px;
+	left: 4%;
 	z-index: 1;
+	
 }
-#login_form
+#register_form
 {
 	position: absolute;
 	top: 205px;
-	left: 22%;
+	right: 22%;
 	z-index: 2;
 	background-color: rgba(255,255,255,0.92);
 	width: 280px;
@@ -76,16 +78,7 @@ body
 	font-weight: bold;
 }
 
-#bouton_facebook
-{
-    background-image: url('img/loginfacebook.jpg');
-    width: 200px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    margin-bottom: 30px;
-
-}
-#login_button
+#register_button
 {
 	width: 200px;
     border-radius: 8px;
@@ -97,16 +90,16 @@ body
     background-color: rgb(190,84,80);
     color: white;
     border: none;
-    margin-top: 10px;
+    margin-top: 0px;
 
 }
 .fields
 {
 	height: 25px;
 	width: 260px;
-	margin-top: 5px;
+	margin-top: 0px;
 	border-radius: 3px;
-	margin-bottom: 10px;
+	margin-bottom: 0px;
 	font-family: 'verdana';
     font-size: 0.9em;
     padding-left: 5px;
@@ -115,15 +108,16 @@ body
 {
 	text-align: center;
 }
-#register_link a:visited
+#back
 {
-	color: blue;
-}
-#register_link a:hover
-{
-	color: rgb(242,203,48);
-}
+	position: relative;
+	top: -10px;
+	left: 30px;
+	z-index: 2;
+	width: 50px;
+	height: 50px;
 
+}
 i
 {
 	font-family: 'verdana';
@@ -133,7 +127,7 @@ i
 footer
 {
 	position: relative;
-	top: 570px;
+	top: 508px;
 }
 footer hr
 {
