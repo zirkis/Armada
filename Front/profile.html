@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="css/profile.css" />
+        <title>Armada</title>
+    </head>
+    
+    <body>
+        <div id="bloc_page">
+            <header class="center">
+                <div id="bloc_title">
+                    <img src="img/yellowbike.jpg" id="yellowbike">
+                    <h1 id="header_h1">Armada</h1>
+                    <img src="img/bluebike.jpg" id="bluebike">
+                </div>
+                <h2 id="header_h2">Manage your fleet from a touch</h2>
+            </header>
+           
+            <section id="register_box">
+                <a href="dashboard.html"><img src="img/back.png" id="back"/></a>
+
+                <div id="profile_form">
+                  <form method="post" action="traitement.php" id="profile_edit">
+                      <p class="center" id="welcome">Edit</p>
+                      <p>
+                         <label for="surname">Surname</label><br>
+                         <input type="text" name="surname" id="surname" class="fields"/>           
+                      </p>
+                      <p>
+                         <label for="name">Name</label><br>
+                         <input type="name" name="name" id="name" class="fields"/>           
+                      </p>
+                      <p>
+                         <label for="email">Email</label><br>
+                         <input type="email" name="email" id="email" class="fields"/>           
+                      </p>
+                      <p>
+                         <label for="pass">Old Password</label><br>
+                         <input type="password" name="pass" id="pass" class="fields"/>       
+                      </p>
+                      <p>
+                         <label for="pass">New Password</label><br>
+                         <input type="password" name="pass" id="pass" class="fields"/>       
+                      </p>
+                      <p class="center"><input type="submit" value="Save" id="edit_button"></p>
+                  </form>
+
+                  <form id="profile_show">
+                      <p class="center" id="profile_title">Profile</p>
+                      <img src="img/profilepicture.jpg" id= "profilepic" class="profile_info">
+                      <p class="profile_info" id="profile_name">HAOUI</p>
+                      <p class="profile_info" id="profile_surname">Benjamin</p>
+                      <p class="profile_info" id="profile_email">benjamin.haoui@free.fr</p>   
+                  </form>
+                </div>
+
+            </section>
+            
+            <footer>
+                <hr>
+                <p>Copyright<i>&copy</i>  2016 <u>HAOUI Benjamin</u> <i>&</i> <u>DIDELOT Kevin</u></p>
+            </footer>
+
+        </div>
+    </body>
+</html>

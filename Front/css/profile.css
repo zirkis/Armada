@@ -1,0 +1,185 @@
+@font-face {
+    font-family: 'Tr2n';
+    src: url('font/Tr2n.ttf');
+}
+
+@font-face { 
+    font-family: 'ONEDAY';
+    src: url('font/ONEDAY.ttf');
+}
+
+body
+{
+	background-color: black;
+}
+#header_h1
+{
+	color: rgb(160,245,240);
+	text-align: center;
+	font-family: 'Tr2n';
+	font-size: 6em;
+	margin-top: 15px;
+	margin-bottom: 0px;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.3);
+}
+#header_h2, footer
+{
+	text-align: center;
+	color: white;
+	font-family: 'ONEDAY';
+	font-size: 1em;
+}
+
+#yellowbike, #bluebike
+{
+	width: 20%;
+}
+
+#yellowbike, #header_h1
+{
+	display: inline-block;
+}
+
+#bloc_title
+{
+	border-bottom: 2px rgb(242,203,48) solid;
+	background-color: rgb(23,23,23);
+}
+#profilescreen
+{
+	width: 80%;
+	position: absolute;
+	top: 240px;
+	left: 10%;
+	z-index: 1;
+	
+}
+#profile_form
+{
+	position: absolute;
+	top: 205px;
+	left: 20%;
+	z-index: 2;
+	background-color: rgba(255,255,255,0.92);
+	width: 700px;
+	height: 430px;
+	border-radius: 10px;
+	padding: 20px;
+	padding-top: 0px;
+	padding-left: 40px;
+	font-family: 'ONEDAY';
+	box-shadow: 0 8px 16px 0 rgba(255,255,255,0.4), 0 6px 20px 0 rgba(255,255,255,0.39);
+}
+#profile_show
+{
+	width: 49%;
+	text-align: center;
+	padding-left: 1%;
+
+}
+#profile_edit, #profile_show
+{
+	display: inline-block;
+	vertical-align: top;
+
+}
+#profile_edit
+{
+	width: 49%;
+	border-right: 2px solid black;
+}
+#welcome
+{
+	margin-bottom: 15px;
+	font-size: 2em;
+	font-weight: bold;
+}
+#profile_title
+{
+	margin-bottom: 15px;
+	font-size: 2em;
+	font-weight: bold;
+}
+#profilepic
+{
+	width: 180px;
+	border-radius: 100px;
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+#edit_button
+{
+	width: 170px;
+    border-radius: 8px;
+    height: 39px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    font-family: 'ONEDAY';
+    font-size: 1.2em;
+    padding-top: 7px;
+    background-color: rgb(190,84,80);
+    color: white;
+    border: none;
+    margin-top: 0px;
+}
+.fields
+{
+	height: 25px;
+	width: 260px;
+	margin-top: 0px;
+	border-radius: 3px;
+	margin-bottom: 0px;
+	font-family: 'verdana';
+    font-size: 0.9em;
+    padding-left: 5px;
+}
+.profile_info
+{
+	text-align: center;
+	margin-bottom: -20px;
+}
+#profile_name
+{
+	font-size: 1.3em;
+}
+#profile_surname
+{
+	font-size: 1.5em;
+	font-weight: bold;
+}
+#profile_email
+{
+	margin-top: 25px;
+}
+#email
+{
+	font-size: 0.5em;
+}
+.center
+{
+	text-align: center;
+}
+#back
+{
+	position: relative;
+	top: -10px;
+	left: 30px;
+	z-index: 2;
+	width: 50px;
+	height: 50px;
+
+}
+i
+{
+	font-family: 'verdana';
+	font-style: normal;
+}
+
+footer
+{
+	position: relative;
+	top: 508px;
+}
+footer hr
+{
+	width: 150px;
+}
