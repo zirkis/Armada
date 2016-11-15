@@ -2,13 +2,31 @@ import DS from 'ember-data';
 import {validator, buildValidations} from 'ember-cp-validations';
 
 const Validations = buildValidations({
-  name: {
-    description: 'Nname',
+  surname: {
+    description: 'Surname',
     validators: [
       validator('presence', true),
       validator('length', {
         min: 3,
         max: 15
+      })
+    ]
+  },
+  name: {
+    description: 'Name',
+    validators: [
+      validator('presence', true),
+      validator('length', {
+        min: 3,
+        max: 15
+      })
+    ]
+  },
+  email: {
+    validators: [
+      validator('presence', true),
+      validator('format', {
+        type: 'email'
       })
     ]
   },
@@ -38,8 +56,10 @@ const Validations = buildValidations({
 });
 
 export default DS.Model.extend(Validations, {
+  surname: DS.attr('string'),
   name: DS.attr('string'),
+  email: DS.attr('string'),
   password: DS.attr('string'),
   role: DS.attr('string'),
-  fleet: DS.belongsTo('fleet')
+  money: DS.attr('number')
 });

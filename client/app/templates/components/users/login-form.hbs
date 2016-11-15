@@ -26,9 +26,12 @@
 		<p local-class="center red">{{errorMessage}}</p>
 		<p local-class="center">
 			<input type="submit" value="Sign In" local-class="login_button"
-			{{action 'authenticate'}}>
+			{{action 'simpleLogin'}}>
 		</p>
-		<p local-class="center"><img src="/assets/images/loginfacebook.jpg" local-class="bouton_facebook"></p>
+		<p local-class="center">
+				<img src="/assets/images/loginfacebook.jpg" local-class="bouton_facebook"
+				{{action 'facebookLogin'}}>
+		</p>
 		<p local-class="register_link">New user ? {{#link-to 'register'}}<a>Register</a>{{/link-to}}</p>
 	</form>
 </section>

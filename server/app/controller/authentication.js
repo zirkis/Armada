@@ -13,7 +13,9 @@ module.exports = {
       .then(doc => {
         if (doc) {
           res.status(200).send({
+            // eslint-disable-next-line camelcase
             account_id: doc.id,
+            // eslint-disable-next-line camelcase
             access_token: token
           });
         } else {

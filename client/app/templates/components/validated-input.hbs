@@ -1,15 +1,14 @@
 <label>{{label}}</label>
-<div class="required field {{if isInvalid 'error'}}">
-	{{#if icon}}
-		<div class="ui left icon input">
-			<i class="{{icon}} icon"></i>
-			{{input type=type placeholder=placeholder value=value name=valuePath}}
-		</div>
-	{{else}}
-		<div class="ui input">
-			{{input type=type placeholder=placeholder value=value name=valuePath}}
-		</div>
-	{{/if}}
-</div>
+{{input
+placeholder=placeholder
+type=type
+value=value
+class=(local-class (if isInvalid 'input_fields error' 'input_fields'))
+}}
+{{#if showErrorMessage}}
+	<div local-class='message_error'>
+		{{v-get model valuePath 'message'}}
+	</div>
+{{/if}}
 
 {{yield}}

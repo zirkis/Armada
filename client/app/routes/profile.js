@@ -11,6 +11,5 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       .then(name => {
         document.title = name;
       });
-    return 'Profile';
   }
 });

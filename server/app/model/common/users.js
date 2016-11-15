@@ -1,19 +1,23 @@
 'use strict';
 const mongoose = require('mongoose');
+// eslint-disable-next-line import/no-unassigned-import
+require('mongoose-type-email');
 mongoose.Promise = require('bluebird');
 
 const Schema = mongoose.Schema;
-const ObjectId = Schema.Types.ObjectId;
+const Email = mongoose.SchemaTypes.Email;
 const self = process.env.SERVER_IP;
 // const helpers = require('../helpers');
 // const winston = require('winston');
 
 // eslint-disable-next-line new-cap
 const userSchema = new Schema({
-  name: {type: String, required: true, unique: true},
-  password: {type: String, required: true},
+  surname: {type: String, required: true},
+  name: {type: String, required: true},
+  email: {type: Email, required: true, unique: true},
+  password: {type: String/* , set: Data.prototype.saltySha1 */},
   role: {type: String, enum: ['admin', 'user'], required: true},
-  fleet: {type: ObjectId, ref: 'Fleet'},
+  money: {type: Number, required: true},
   token: {type: String}
 });
 

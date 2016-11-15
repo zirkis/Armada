@@ -3,7 +3,8 @@
 require('dotenv').config();
 const winston = require('winston');
 const app = require('./controller/express-server.js');
-const db = require("./db_init.js");
+const db = require('./db-init.js');
+
 winston.level = process.env.LOG_LEVEL;
 
 const server = app.listen(process.env.PORT, () => {

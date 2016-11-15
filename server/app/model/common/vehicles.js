@@ -7,7 +7,8 @@ const self = process.env.SERVER_IP;
 
 // eslint-disable-next-line new-cap
 const vehicleSchema = new Schema({
-  name: {type: String, required: true, unique: true}
+  name: {type: String, required: true},
+  speed: {type: Number, required: true}
 });
 
 const model = mongoose.model('Vehicle', vehicleSchema);

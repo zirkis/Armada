@@ -1,8 +1,13 @@
+'use strict';
 const User = require('./model/common/users').model;
 
 const db = {
   init() {
-    User.findOne({'name': 'Admin'}, (err, user) => {
+    User.findOne({name: 'Admin'}, (err, user) => {
+      if (err) {
+        console.log(err);
+      }
+
       if (!user) {
         const admin = new User({
           name: 'Admin',
@@ -12,7 +17,6 @@ const db = {
         admin.save();
       }
     });
-
   }
 };
 

@@ -11,8 +11,11 @@ export default Ember.Component.extend({
     };
   }),
   actions: {
-    authenticate() {
-      this.sendAction('action', this.get('creds'));
+    simpleLogin() {
+      this.sendAction('simpleLogin', this.get('creds'));
+    },
+    facebookLogin() {
+      this.sendAction('facebookLogin');
     }
   }
 });

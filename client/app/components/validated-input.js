@@ -11,9 +11,14 @@ export default Ember.Component.extend({
   valuePath: '',
   placeholder: '',
   validation: null,
+  showValidation: false,
 
   hasContent: computed.notEmpty('value'),
   isInvalid: computed.and('hasContent', 'validation.isInvalid'),
+
+  notValidating: computed.not('validation.isValidating').readOnly(),
+
+  showErrorMessage: computed.and('isInvalid', 'showValidation'),
 
   init() {
     this._super(...arguments);
@@ -21,5 +26,13 @@ export default Ember.Component.extend({
     defineProperty(this, 'validation',
       computed.oneWay(`model.validations.attrs.${valuePath}`));
     defineProperty(this, 'value', computed.alias(`model.${valuePath}`));
+  },
+  focusIn() {
+    this._super(...arguments);
+    this.set('showValidation', false);
+  },
+  focusOut() {
+    this._super(...arguments);
+    this.set('showValidation', true);
   }
 });

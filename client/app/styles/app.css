@@ -40,7 +40,7 @@ h2 {
 
 footer
 {
-	border-top: 2px rgb(242,203,48) solid;
+	position: relative;
 	background-color: black! important;
 	color: white;
 	font-family: 'ONEDAY';
@@ -50,5 +50,4 @@ footer
 	height: 50px;
 	width: 100%;
 	z-index: 1;
-	position: relative;
 }

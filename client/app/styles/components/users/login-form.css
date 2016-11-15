@@ -3,26 +3,25 @@
 }
 .login_box {
 	position: relative;
+	height: calc(100vh - 100px);
 }
 .container-image {
 	text-align: center;
 	background: black;
 }
 .homescreen {
-	height: calc(100vh - 200px);
+	width: calc(100vw - 50px);
 }
 .center {
 	text-align: center;
 }
 .login_form {
 	position: absolute;
-	top: 30px;
+	top: 50px;
 	left: 22%;
 	z-index: 2;
 	background-color: rgba(255,255,255,0.92);
-	width: 350px;
-	height: 50%;
-	height: 400px;
+	width: 300px;
 	padding-top: 15px;
 	padding-right: 30px;
 	padding-left: 30px;
@@ -53,8 +52,7 @@
 	background-color: rgb(190,84,80);
 	color: white;
 	border: none;
-	margin-top: 10px;
-
+	margin-top: 0px;
 }
 .welcome {
 	margin-bottom: 15px;
@@ -67,12 +65,13 @@
 	border-radius: 8px;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 	margin-bottom: 30px;
-
+}
+.bouton_facebook:hover {
+	cursor: pointer;
 }
 .register_link {
-	margin: -15px;
-	margin-left: 10px;
-	padding: 0px;
+	margin-top: -30px;
+	padding: 10px;
 }
 .register_link a:visited {
 	color: blue;
