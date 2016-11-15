@@ -116,7 +116,7 @@ body
     font-family: 'ONEDAY';
     font-size: 1.2em;
     padding-top: 7px;
-    background-color: rgb(190,84,80);
+    background-color: #D80027;
     color: white;
     border: none;
     margin-top: 0px;
@@ -149,6 +149,7 @@ body
 #profile_email
 {
 	margin-top: 25px;
+	font-family: verdana;
 }
 #email
 {
