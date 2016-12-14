@@ -3,15 +3,17 @@ const User = require('./model/common/users').model;
 
 const db = {
   init() {
-    User.findOne({name: 'Admin'}, (err, user) => {
+    User.findOne({role: 'admin'}, (err, user) => {
       if (err) {
         console.log(err);
       }
 
       if (!user) {
         const admin = new User({
-          name: 'Admin',
+          surname: 'admin',
+          name: 'admin',
           role: 'admin',
+          email: 'admin@admin.admin',
           password: 'admin'
         });
         admin.save();
