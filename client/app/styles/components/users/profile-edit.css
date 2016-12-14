@@ -1,0 +1,114 @@
+.profilescreen
+{
+	width: 80%;
+	position: absolute;
+	top: 240px;
+	left: 10%;
+	z-index: 1;
+
+}
+.profile_form
+{
+	position: absolute;
+	top: 205px;
+	left: 20%;
+	z-index: 2;
+	background-color: rgba(255,255,255,0.92);
+	width: 700px;
+	border-radius: 10px;
+	padding: 20px;
+	padding-top: 0px;
+	padding-left: 40px;
+	font-family: 'ONEDAY';
+	box-shadow: 0 8px 16px 0 rgba(255,255,255,0.4), 0 6px 20px 0 rgba(255,255,255,0.39);
+}
+.profile_show
+{
+	width: 49%;
+	text-align: center;
+	padding-left: 1%;
+
+}
+.profile_edit, .profile_show
+{
+	display: inline-block;
+	vertical-align: top;
+
+}
+.profile_edit
+{
+	width: 49%;
+	border-right: 2px solid black;
+	padding-right: 30px;
+}
+.welcome
+{
+	margin-bottom: 15px;
+	font-size: 2em;
+	font-weight: bold;
+}
+.profile_title
+{
+	margin-bottom: 15px;
+	font-size: 2em;
+	font-weight: bold;
+}
+.profilepic
+{
+	width: 180px;
+	border-radius: 100px;
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+.edit_button
+{
+	width: 170px;
+	border-radius: 8px;
+	height: 39px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	font-family: 'ONEDAY';
+	font-size: 1.2em;
+	padding-top: 7px;
+	background-color: #D80027;
+	color: white;
+	border: none;
+	margin-top: 0px;
+}
+.fields
+{
+	height: 30px;
+	width: 100%;
+	margin-top: 5px;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	font-family: 'verdana';
+	font-size: 0.9em;
+	padding-left: 5px;
+}
+.profile_info
+{
+	text-align: center;
+	margin-bottom: -20px;
+}
+.profile_name
+{
+	font-size: 1.3em;
+}
+.profile_surname
+{
+	font-size: 1.5em;
+	font-weight: bold;
+}
+.profile_email
+{
+	margin-top: 25px;
+	font-family: verdana;
+}
+.email
+{
+	font-size: 0.5em;
+}
+.center
+{
+	text-align: center;
+}

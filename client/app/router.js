@@ -7,7 +7,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('profile', {path: '/'});
+  this.route('dashboard' , {path: '/'});
 
   this.route('login');
   this.route('register');
@@ -16,8 +16,12 @@ Router.map(function() {
     this.route('create');
   });
 
+  this.route('profile');
+
   this.route('users');
-  this.route('vehicles');
+  this.route('vehicles', function() {
+    this.route('store');
+  });
   this.route('fleets');
 
   this.route('404', {path: '/*path'});

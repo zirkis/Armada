@@ -1,0 +1,6 @@
+{{#each model as |vehicle|}}
+	<div local-class="red">
+		{{ vehicle.name }}: {{ vehicle.price }}€ Speed: {{ vehicle.speed }}
+	</div>
+{{/each}}
+{{outlet}}

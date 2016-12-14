@@ -63,7 +63,8 @@ export default ToriiAuthenticator.extend({
         role: 'user',
         name: user.name,
         surname: user.name,
-        email: user.email
+        email: user.email,
+        money: 12000
       });
       userRecord.save()
         .then(usr => {

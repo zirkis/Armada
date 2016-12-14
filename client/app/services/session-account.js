@@ -15,7 +15,6 @@ export default Ember.Service.extend({
       return this.get('session.data.user_id');
   }),
   loadCurrentUser() {
-    console.log(this.get('session.data'));
     return new RSVP.Promise((resolve, reject) => {
       const userId = this.get('userId');
       if (!isEmpty(userId)) {

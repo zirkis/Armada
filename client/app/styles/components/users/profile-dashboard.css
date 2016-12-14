@@ -1,0 +1,136 @@
+.dashboard_box {
+	background: black!important;
+}
+.head_name {
+	text-align: center;
+	color: white;
+	font-family: 'ONEDAY';
+	font-size: 3em;
+}
+.settings_icon, .logout_icon {
+	height: 40px;
+	border : 1px black solid;
+	border-radius: 40px;
+}
+.profilepicture {
+	border-radius: 50px;
+	border : 1px rgb(160,245,240) solid;
+	width: 80px;
+	height: 80px;
+	margin-top: -10px;
+}
+.clock {
+	background-color: rgba(255,255,255,0.9);
+	border-radius: 5px;
+	border : 1px rgb(160,245,240) solid;
+	height: 100px;
+}
+.clock p {
+	font-size: 4em;
+	text-align: center;
+	font-family: 'ONEDAY';
+}
+.total_cars {
+	background-color: rgba(255,255,255,0.9);
+	border-radius: 5px;
+	border : 1px rgb(160,245,240) solid;
+	height: 100px;
+}
+.number_cars {
+	font-size: 6.5em;
+	font-family: 'ONEDAY';
+}
+.number_cars_key {
+	font-size: 2em;
+	font-family: 'ONEDAY';
+}
+span.number_cars_key {
+	background-color: red;
+	text-align: center;
+	border-radius: 0px 5px 5px 0px;
+}
+.unused_cars {
+	background-color: rgba(255,255,255,0.9);
+	border-radius: 5px;
+	border : 1px rgb(160,245,240) solid;
+	height: 100px;
+}
+.number_unused_cars
+{
+	font-size: 4em;
+	font-family: 'ONEDAY';
+}
+.number_unused_cars_key
+{
+	font-size: 1.3em;
+	font-family: 'ONEDAY';
+}
+.plan_trip
+{
+	text-align: center;
+	background-color: red;
+	font-size: 2.6em;
+	font-family: 'ONEDAY';
+}
+.used_cars {
+	background-color: rgba(255,255,255,0.9);
+	border-radius: 5px;
+	border : 1px rgb(160,245,240) solid;
+	height: 100px;
+}
+.number_used_cars {
+	font-size: 4em;
+	font-family: 'ONEDAY';
+}
+.number_used_cars_key {
+	font-size: 1.3em;
+	font-family: 'ONEDAY';
+}
+.view_rides {
+	text-align: center;
+	background-color: red;
+	font-size: 2.6em;
+	font-family: 'ONEDAY';
+	border-radius: 0px 5px 5px 0px;
+}
+.money {
+	background-color: rgba(255,255,255,0.9);
+	border-radius: 5px;
+	border : 1px rgb(160,245,240) solid;
+	height: 100px;
+}
+.bank_amount_key {
+	background-color: red;
+	text-align: center;
+	border-radius: 5px 0px 0px 5px;
+	font-size: 2em;
+	font-family: 'ONEDAY';
+	height: 100%;
+	width: 40%;
+}
+.bank_amount {
+	font-size: 3.1em;
+	font-family: 'ONEDAY';
+	text-align: center;
+	height: 100%;
+	width: 50%;
+}
+.buy {
+	background-color: rgba(255,255,255,0.9);
+	border-radius: 5px;
+	border : 1px rgb(160,245,240) solid;
+	height: 100px;
+}
+.buy p {
+	font-size: 2em;
+	text-align: center;
+	font-family: 'ONEDAY';
+	text-decoration: none;
+}
+.plan_trip:hover, .view_rides:hover, .buy:hover {
+	background-color: rgb(242,203,48);
+}
+.unused_cars a:visited, .used_cars a:visited{
+	text-decoration: none;
+	color: black;
+}

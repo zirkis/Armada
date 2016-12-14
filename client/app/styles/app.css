@@ -2,42 +2,33 @@
 	font-family: 'Tr2n';
 	src: url('/assets/font/Tr2n.ttf');
 }
-
 @font-face {
 	font-family: 'ONEDAY';
 	src: url('/assets/font/ONEDAY.ttf');
 }
-
 html, body {
 	height: 100%;
 	width: 100%;
 	margin: 0;
 }
-body
-{
+body {
 	position: relative;
-	background-color: black;
+	background-color: black !important;
 }
-
-header
-{
+header {
 	text-align: center;
 	margin: 0px;
 	padding: 0px;
 }
-
-i
-{
+i {
 	font-family: 'verdana';
 	font-style: normal;
 }
-
 h2 {
 	padding-bottom: 10px;
 	padding-top: 12px;
 	margin: 0px;
 }
-
 footer
 {
 	position: relative;

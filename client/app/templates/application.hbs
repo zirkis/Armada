@@ -8,9 +8,6 @@
 </header>
 <div local-class="content">
 	<div local-class="content-inside">
-		{{#if session.isAuthenticated}}
-			<a {{action 'logout'}}>Logout</a>
-		{{/if}}
 		{{outlet}}
 	</div>
 </div>

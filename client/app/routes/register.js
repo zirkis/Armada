@@ -7,7 +7,8 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
   title: 'Register',
   model() {
     return this.store.createRecord('user', {
-      role: 'user'
+      role: 'user',
+      money: 12000
     });
   }
 });

@@ -33,7 +33,7 @@ module.exports = environment => {
     },
     'ember-simple-auth': {
       authenticationRoute: 'login',
-      routeAfterAuthentication: 'profile'
+      routeAfterAuthentication: 'dashboard'
     }
   };
 

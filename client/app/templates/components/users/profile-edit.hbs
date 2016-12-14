@@ -1,0 +1,42 @@
+<section local-class="register_box">
+	{{#link-to 'dashboard'}}
+		<img src="/assets/images/back.png" local-class="back"/>
+	{{/link-to}}
+
+	<div local-class="profile_form">
+		<form method="post" local-class="profile_edit">
+			<p class="center" local-class="welcome">Edit</p>
+			<p>
+				<label for="surname">Surname</label><br>
+				<input type="text" name="surname" id="surname" local-class="fields"/>
+			</p>
+			<p>
+				<label for="name">Name</label><br>
+				<input type="name" name="name" id="name" local-class="fields"/>
+			</p>
+			<p>
+				<label for="email">Email</label><br>
+				<input type="email" name="email" id="email" local-class="fields"/>
+			</p>
+			<p>
+				<label for="pass">Old Password</label><br>
+				<input type="password" name="pass" id="pass" local-class="fields"/>
+			</p>
+			<p>
+				<label for="pass">New Password</label><br>
+				<input type="password" name="pass" id="pass" local-class="fields"/>
+			</p>
+			<p class="center"><input type="submit" value="Save" local-class="edit_button"></p>
+		</form>
+
+		<form local-class="profile_show">
+			<p class="center" local-class="profile_title">Profile</p>
+			<img src="/assets/images/profilepicture.jpg" local-class= "profilepic" class="profile_info">
+			<p class="profile_info" local-class="profile_name">HAOUI</p>
+			<p class="profile_info" local-class="profile_surname">Benjamin</p>
+			<p class="profile_info" local-class="profile_email">benjamin.haoui@free.fr</p>
+		</form>
+	</div>
+</section>
+
+{{yield}}

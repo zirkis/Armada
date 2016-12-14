@@ -1,0 +1,76 @@
+<section local-class="dashboard_box" class="ui raised padded text container segment">
+	<!-- <img src="/assets/images/dashboard.jpg" local-class="dashboardscreen">
+	-->
+	<div class="ui padded grid">
+		<div class="two wide column">
+			{{#link-to 'profile'}}
+				<img src="/assets/images/settings.png" local-class="settings_icon">
+			{{/link-to}}
+		</div>
+		<div class="twelve wide column">
+			<div local-class="head_name">
+				<img src="/assets/images/profilepicture.jpg" local-class="profilepicture">
+				{{ user.name }}
+			</div>
+		</div>
+		<div class="two wide column">
+			<img src="/assets/images/logout.png" local-class="logout_icon" {{action 'logout'}}>
+		</div>
+
+		<div class="four wide column">
+			<div local-class="clock">
+				<p>18:35</p>
+			</div>
+		</div>
+		<div class="twelve wide column">
+			<div local-class="total_cars">
+				<p>
+				<div local-class="number_cars">{{ fleetInfo.numberOfVehicles }}</div>
+				<div local-class="number_cars_key">Total<br>  Fleet</div>
+				</p>
+			</div>
+		</div>
+
+		<div class="eight wide column">
+			<div local-class="unused_cars">
+				<p>
+				<div local-class="number_unused_cars">{{ fleetInfo.availableVehicles }}</div>
+				<div local-class="number_unused_cars_key">Unused<br>  Vehicules</div>
+				<a href="#"><div local-class="plan_trip">Plan a trip</div></a>
+				</p>
+			</div>
+		</div>
+		<div class="eight wide column">
+			<div local-class="used_cars">
+				<p>
+				<div local-class="number_used_cars">{{ fleetInfo.usedVehicles }}</div>
+				<div local-class="number_used_cars_key">used<br>  Vehicules</div>
+				<a href="#">
+					<div local-class="view_rlocal-classes">View Rlocal-classes</div>
+				</a>
+				</p>
+			</div>
+		</div>
+		<div class="eight wide column">
+			<div local-class="money">
+				<p>
+				<div local-class="bank_amount_key">
+					Total<br>Money
+				</div>
+				<div local-class="bank_amount">
+					{{user.money}}€
+				</div>
+				</p>
+			</div>
+		</div>
+		<div class="eight wide column">
+			{{#link-to 'vehicles.store'}}
+				<div local-class="buy">
+					<p>Buy <br> more Vehicules</p>
+				</div>
+			{{/link-to}}
+		</div>
+	</div>
+</section>
+
+{{yield}}

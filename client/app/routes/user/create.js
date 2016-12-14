@@ -10,8 +10,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       const user = this.store.createRecord('user', {
         name: credentials.name,
         role: credentials.role,
-        password: credentials.password
+        password: credentials.password,
+        money: 12000
       });
+      console.log('coucou');
+      console.log(user.get('money'));
       user.save()
         .then(() => {
           this.transitionTo('profile');
