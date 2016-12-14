@@ -5,9 +5,8 @@
 	<form local-class="login_form">
 		<p local-class="center welcome">Welcome</p>
 		<p>
-			<label for="name">Name</label><br>
+			<label for="name">Email</label><br>
 			{{input id='name'
-				placeholder='Enter Name'
 				value=name
 				class=(local-class 'input_fields')
 				required=true
@@ -16,7 +15,6 @@
 		<p>
 			<label for="pass">Password</label><br>
 			{{input id='password'
-				placeholder='Enter Password'
 				type='password'
 				value=password
 			class=(local-class 'input_fields')

@@ -24,7 +24,7 @@
 	text-align: center;
 	color: white;
 	font-family: 'ONEDAY';
-	font-size: 1em;
+	font-size: 1.15em;
 }
 .yellowbike, .bluebike {
 	vertical-align: text-bottom;
@@ -42,4 +42,9 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+  font-size: 1.15em;
+}
+.copyright hr {
+  width: 150px;
+  margin-bottom: 15px;
 }
