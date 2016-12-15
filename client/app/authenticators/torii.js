@@ -49,6 +49,7 @@ export default ToriiAuthenticator.extend({
         }
       })
         .then(users => {
+          console.log(users);
           if (users.get('length')) {
             resolve(users.get('firstObject').get('id'));
           } else {
