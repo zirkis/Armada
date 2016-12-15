@@ -1,6 +1,49 @@
-{{#each model as |vehicle|}}
-	<div local-class="red">
-		{{ vehicle.name }}: {{ vehicle.price }}€ Speed: {{ vehicle.speed }}
-	</div>
-{{/each}}
+<div local-class="container">
+	{{#if error}}
+		<div class="ui black message">
+			<div class="header">
+				Error
+			</div>
+			<p>	{{error}}
+			</p>
+		</div>
+	{{/if}}
+	<table class="ui inverted table">
+		<thead>
+		<tr>
+			<th>Name</th>
+			<th>Price</th>
+			<th>Speed</th>
+			<th></th>
+		</tr>
+		</thead>
+		<tbody>
+		{{#if model}}
+			{{#each model as |vehicle|}}
+				<tr>
+					<td class="middle aligned">{{ vehicle.name }}</td>
+					<td class="middle aligned">{{ vehicle.price }} €</td>
+					<td class="middle aligned">{{ vehicle.speed }} km/h</td>
+					<td class="right aligned">
+						<div class="ui buttons">
+							<button class="ui button">
+								<i class="unhide icon"></i>
+							</button>
+							<button class="ui orange button"
+								{{action "buy" vehicle}}>
+								Buy
+							</button>
+						</div>
+					</td>
+				</tr>
+			{{/each}}
+		{{else}}
+			<tr>
+				<td>No vehicles to buy</td>
+			</tr>
+		{{/if}}
+		</tbody>
+	</table>
+</div>
+
 {{outlet}}
