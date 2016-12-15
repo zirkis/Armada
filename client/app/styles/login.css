@@ -2,7 +2,12 @@
 	position: relative;
 }
 .container-image {
-	position: absolute;
-	text-align: center;
-	background: black;
+
+}
+.homescreen
+{
+  width: 95%;
+  margin-left: 2.5%;
+  text-align: center;
+
 }
