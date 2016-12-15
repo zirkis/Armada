@@ -3,7 +3,7 @@
 	font-size: 6em;
 	text-align: center;
 	font-family: 'ONEDAY';
-	margin-top: 70px;
+  padding-top: 50px;
 }
 .error {
 	font-size: 5em;
@@ -23,7 +23,7 @@
 	color: white;
 	font-size: 2em;
 	font-family: 'ONEDAY';
-	margin-top: 40px;
+	margin-top: -20px;
 }
 .rescue_button:hover {
 	background-color: rgb(242,203,48);
