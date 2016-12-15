@@ -1,14 +1,6 @@
 .red {
   color: red;
 }
-.login_box {
-  position: relative;
-  height: calc(100vh - 100px);
-}
-.container-image {
-  text-align: center;
-  background: black;
-}
 .homescreen {
   width: calc(100vw - 50px);
 }

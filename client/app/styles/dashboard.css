@@ -1,0 +1,8 @@
+.container {
+	position: relative;
+}
+.container-image {
+	position: absolute;
+	text-align: center;
+	background: black;
+}
