@@ -1,3 +1,7 @@
+.dashboard_box
+{
+  min-height: calc(100vh - 40px);
+}
 .header_h1
 {
   color: rgb(160,245,240);
