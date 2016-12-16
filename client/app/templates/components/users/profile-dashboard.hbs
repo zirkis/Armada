@@ -5,7 +5,7 @@
 		{{/link-to}}
 		<img src="/assets/images/profilepicture.jpg" local-class="profilepicture"> {{ user.name }}<img src="/assets/images/logout.png" local-class="logout_icon" {{action 'logout'}}></p>
 	<div local-class="clock">
-		<p>18:35</p>
+		<p>{{ hour }}: {{minutes}}</p>
 	</div>
 	<div local-class="total_cars">
 		<p><span local-class="number_cars">{{ fleetInfo.numberOfVehicles }}</span> <span local-class="number_cars_key">Total<br><br>  Fleet</span></p>

@@ -3,6 +3,8 @@ import Ember from 'ember';
 import FleetInfo from '../../objects/fleet-info';
 
 export default Ember.Component.extend({
+  hour: new Date().getHours(),
+  minutes: new Date().getMinutes(),
   user: null,
   fleet: null,
   fleetInfo: Ember.computed('fleet', function() {
