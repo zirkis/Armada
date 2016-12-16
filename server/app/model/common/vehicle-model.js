@@ -7,20 +7,20 @@ const self = process.env.SERVER_IP;
 
 // eslint-disable-next-line new-cap
 const vehicleSchema = new Schema({
-  name: {type: String, required: true},
+  brand: {type: String, required: true},
   price: {type: Number, required: true},
   speed: {type: Number, required: true}
 });
 
-const model = mongoose.model('Vehicle', vehicleSchema);
+const model = mongoose.model('VehicleModel', vehicleSchema);
 
 module.exports = {
   schema: vehicleSchema,
   model,
   registry: {
     urlTemplates: {
-      self: `${self}/api/vehicles/{id}`,
-      relationship: `${self}/api/vehicles/{ownerId}/relationships/{path}`
+      self: `${self}/api/vehicle-models/{id}`,
+      relationship: `${self}/api/vehicle-models/{ownerId}/relationships/{path}`
     }
   }
 };

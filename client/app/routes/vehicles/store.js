@@ -5,6 +5,6 @@ import AuthenticatedRouteMixin
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   title: 'Vehicles store',
   model() {
-    return this.get('store').findAll('vehicle');
+    return this.get('store').findAll('vehicle-model');
   }
 });

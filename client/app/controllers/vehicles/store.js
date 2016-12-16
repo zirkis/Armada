@@ -8,38 +8,50 @@ export default Ember.Controller.extend({
   error: null,
   actions: {
     buy(vehicle) {
+      let user = null;
+      let vehicleBought = null;
+
       this.get('sessionAccount').getUser()
-        .then(user => {
-          if (!user) {
+        .then(usr => {
+          if (!usr) {
             this.set('error', 'An unexpected error occurred');
             return;
           }
-          if (user.get('money') < vehicle.get('price')) {
+          user = usr;
+          if (usr.get('money') < vehicle.get('price')) {
             this.set('error', 'Not enough money');
             return;
           }
-          this.store.query('fleet',
+          const vBought = this.store.createRecord('vehicle-bought', {
+            owner: usr,
+            model: vehicle
+          });
+
+          return vBought.save();
+        })
+        .then(vBought => {
+          vehicleBought = vBought;
+          return this.store.query('fleet',
             { filter: { simple:
-            { owner: this.get('sessionAccount').get('userId') } } })
-            .then(fleet => {
-              // fleet comes from the store
-              let vehicles = fleet.get('vehicles');
-              if (!vehicles) {
-                vehicles = Ember.A();
-              }
-              //vehicle is also from the store
-              vehicles.pushObject(vehicle);
-              fleet.set('vehicles', vehicles);
-              return fleet.save();
-            })
-            .then(() => {
-              user.set('money', user.get('money') - vehicle.get('price'));
-              user.save();
-              this.get('toast').success('Your car have been added to your fleet');
-            })
-            .catch(err => {
-              console.log(err);
-            });
+            { owner: user.get('id') } }});
+        })
+        .then(fleets => {
+          const fleet = fleets.get('firstObject');
+          let vehicles = fleet.get('vehicles');
+          vehicles.pushObject(vehicleBought);
+          console.log(fleet.data);
+          return fleet.save();
+        })
+        .then(() => {
+          console.log('yooo3');
+          user.set('money', user.get('money') - vehicle.get('price'));
+          return user.save();
+        })
+        .then(() => {
+          this.get('toast').success('Your car have been added to your fleet');
+        })
+        .catch(err => {
+          console.log(err);
         });
     }
   }

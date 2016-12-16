@@ -22,24 +22,27 @@ if (process.env.ENV === 'dev') {
 }
 
 const models = {
-  User: require('../model/common/users').model,
-  Fleet: require('../model/common/fleets').model,
+  User: require('../model/common/user').model,
+  Fleet: require('../model/common/fleet').model,
   Ride: require('../model/common/ride').model,
-  Vehicle: require('../model/common/vehicles').model
+  VehicleModel: require('../model/common/vehicle-model').model,
+  VehicleBought: require('../model/common/vehicle-bought').model
 };
 
 const registryTemplates = {
-  users: require('../model/common/users').registry,
-  fleets: require('../model/common/fleets').registry,
+  users: require('../model/common/user').registry,
+  fleets: require('../model/common/fleet').registry,
   ride: require('../model/common/ride').registry,
-  vehicles: require('../model/common/vehicles').registry
+  'vehicle-models': require('../model/common/vehicle-model').registry,
+  'vehicle-boughts': require('../model/common/vehicle-bought').registry
 };
 
 const opts = [
   'users',
   'fleets',
   'ride',
-  'vehicles'
+  'vehicle-models',
+  'vehicle-boughts'
 ].join('|');
 
 const adapter = new API.dbAdapters.Mongoose(models);
