@@ -12,3 +12,12 @@
   height: 50px;
 
 }
+.button_plus
+{
+  width: 50px;
+}
+.plus_minus_buttons
+{
+  display: inline-block;
+
+}

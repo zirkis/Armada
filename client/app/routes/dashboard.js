@@ -9,7 +9,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   title: function() {
     this.get('sessionAccount').getName()
       .then(name => {
-        document.title = name;
+        document.title = `Armada -  ${name}`;
       });
   },
   model() {

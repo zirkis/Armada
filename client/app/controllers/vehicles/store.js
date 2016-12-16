@@ -5,6 +5,7 @@ const {service} = Ember.inject;
 export default Ember.Controller.extend({
   toast: service(),
   sessionAccount: service('session-account'),
+  
   error: null,
   actions: {
     buy(vehicle) {
