@@ -32,6 +32,7 @@ export default Ember.Service.extend({
           return null;
         });
     }
+    session.invalidate();
     return RSVP.Promise.resolve(null);
   },
   getUser() {
