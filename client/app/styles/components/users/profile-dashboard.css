@@ -289,6 +289,10 @@ span.number_cars_key
   font-family: 'ONEDAY';
   text-decoration: none;
 }
+.buy_link
+{
+  color: black;
+}
 .plan_trip:hover, .view_rides:hover, .buy:hover
 {
   background-color: rgb(242,203,48);
