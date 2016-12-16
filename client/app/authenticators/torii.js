@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import ToriiAuthenticator from 'ember-simple-auth/authenticators/torii';
 
-const {inject: {service}, RSVP} = Ember;
+const {RSVP, inject: {service}} = Ember;
 
 export default ToriiAuthenticator.extend({
   store: service('store'),
@@ -49,12 +49,26 @@ export default ToriiAuthenticator.extend({
         }
       })
         .then(users => {
-          console.log(users);
           if (users.get('length')) {
             resolve(users.get('firstObject').get('id'));
           } else {
             resolve(null);
           }
+        });
+    });
+  },
+  _createFleet(user) {
+    return new RSVP.Promise((resolve, reject) => {
+      const fleetRecord = this.get('store').createRecord('fleet', {
+        name: 'My fleet',
+        owner: user
+      });
+      fleetRecord.save()
+        .then(fleet => {
+          resolve(fleet);
+        })
+        .catch(err => {
+          reject(err);
         });
     });
   },
@@ -69,7 +83,10 @@ export default ToriiAuthenticator.extend({
       });
       userRecord.save()
         .then(usr => {
-          resolve(usr.get('id'));
+          return this._createFleet(usr);
+        })
+        .then(() => {
+          resolve();
         })
         .catch(err => {
           reject(err);

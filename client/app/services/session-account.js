@@ -15,27 +15,24 @@ export default Ember.Service.extend({
       return this.get('session.data.user_id');
   }),
   loadCurrentUser() {
-    return new RSVP.Promise(resolve => {
-      const userId = this.get('userId');
-      if (!isEmpty(userId)) {
-        this.get('store').find('user', userId)
-          .then(user => {
-            if(!user) {
-              this.get('session').invalidate();
-              resolve(null);
-              return;
-            }
-            this.set('user', user);
-            resolve(user);
-          })
-          .catch(() => {
-            this.get('session').invalidate();
-            resolve(null);
-          });
-      } else {
-        resolve(null);
-      }
-    });
+    const userId = this.get('userId');
+    const session = this.get('session');
+    if (!isEmpty(userId)) {
+      return this.get('store').find('user', userId)
+        .then(user => {
+          if (!user) {
+            session.invalidate();
+            return null;
+          }
+          this.set('user', user);
+          return user;
+        })
+        .catch(() => {
+          session.invalidate();
+          return null;
+        });
+    }
+    return RSVP.Promise.resolve(null);
   },
   getUser() {
     return this.loadCurrentUser();

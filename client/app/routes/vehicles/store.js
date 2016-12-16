@@ -3,6 +3,7 @@ import AuthenticatedRouteMixin
   from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
+  title: 'Vehicles store',
   model() {
     return this.get('store').findAll('vehicle');
   }

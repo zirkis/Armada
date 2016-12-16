@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const {service} = Ember.inject;
+const {inject: {service}, RSVP} = Ember;
 
 export default Ember.Controller.extend({
   session: service('session'),
@@ -8,14 +8,32 @@ export default Ember.Controller.extend({
   actions: {
     register(user) {
       user.save()
-        .then(res => {
+        .then(() => {
+          return this.send('_createFleet', user);
+        })
+        .then(() => {
           return this.get('session')
             .authenticate('authenticator:oauth2',
-              res.get('name'), res.get('password'));
+              user.get('name'), user.get('password'));
         })
         .catch(() => {
           this.set('errorMessage', 'This email is already used');
         });
+    },
+    _createFleet(user) {
+      return new RSVP.Promise((resolve, reject) => {
+        const fleetRecord = this.get('store').createRecord('fleet', {
+          name: 'My fleet',
+          owner: user
+        });
+        fleetRecord.save()
+          .then(() => {
+            resolve(user);
+          })
+          .catch(err => {
+            reject(err);
+          });
+      });
     }
   }
 });

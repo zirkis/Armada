@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import {configurable} from 'torii/configuration';
 import FacebookOauth2Provider from 'torii/providers/facebook-oauth2';
 import ENV from 'client/config/environment';
@@ -13,7 +14,7 @@ export default FacebookOauth2Provider.extend({
         // indication that the user hit 'cancel', not 'ok'
         throw new Error('User canceled authorization');
       }
-      return $.get('https://graph.facebook.com/v2.8/oauth/access_token',
+      return Ember.$.get('https://graph.facebook.com/v2.8/oauth/access_token',
         {
           client_id: ENV['torii'].providers['facebook-oauth2'].apiKey,
           redirect_uri: ENV['torii'].providers['facebook-oauth2'].redirectUri,
@@ -21,7 +22,7 @@ export default FacebookOauth2Provider.extend({
           code: authData.authorizationCode
         })
         .then(res => {
-          return $.get("https://graph.facebook.com/me?",
+          return Ember.$.get("https://graph.facebook.com/me?",
             {
               access_token: res.access_token,
               fields: 'email, name'

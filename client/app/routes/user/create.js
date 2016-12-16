@@ -3,22 +3,49 @@ import Ember from 'ember';
 import AuthenticatedRouteMixin
   from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
+const {RSVP, inject: {service}} = Ember;
+
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
+  toast: service(),
   title: 'Create user',
+  model() {
+    return this.store.createRecord('user', {
+      role: 'user',
+      money: 12000
+    });
+  },
   actions: {
-    createUser(credentials) {
-      const user = this.store.createRecord('user', {
-        name: credentials.name,
-        role: credentials.role,
-        password: credentials.password,
-        money: 12000
-      });
-      console.log('coucou');
-      console.log(user.get('money'));
+    createUser(user) {
       user.save()
+        .then(usr => {
+          return this.send('_createFleet', usr);
+        })
         .then(() => {
-          this.transitionTo('profile');
+          this.controllerFor('user.create').set('error', null);
+          const toast = this.get('toast');
+          toast.success('User created');
+        })
+        .catch(() => {
+          console.log('error');
+          user.destroyRecord();
+          this.controllerFor('user.create')
+            .set('error', 'This email already exist');
         });
+    },
+    _createFleet(user) {
+      return new RSVP.Promise((resolve, reject) => {
+        const fleetRecord = this.get('store').createRecord('fleet', {
+          name: 'My fleet',
+          owner: user
+        });
+        fleetRecord.save()
+          .then(fleet => {
+            resolve(fleet);
+          })
+          .catch(err => {
+            reject(err);
+          });
+      });
     }
   }
 });

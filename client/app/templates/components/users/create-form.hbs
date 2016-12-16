@@ -1,38 +1,88 @@
-<form class="ui form">
-	<div class="field">
-		<label>Name</label>
-		{{input
-		id='name_create_user'
-		type='text'
-		value=name
-		}}
-	</div>
-	<div class="field">
-		<label>Password</label>
-		{{input
-		id='password_create_user'
-		type='text'
-		value=password
-		}}
-	</div>
-	<div class="field">
-		<label>Role</label>
-		{{#ui-dropdown class="selection" selected=role onChange=(action 'updateRole')}}
-			<div class="default text">Choose a role ...</div>
-			<i class="dropdown icon"></i>
-			<div class="menu">
-				{{#each roles as |role|}}
-					<div class="item" data-value="{{role}}">
-						{{role}}
-					</div>
-				{{/each}}
+<div local-class="container">
+	{{#if error}}
+		<div class="ui black message">
+			<div class="header">
+				Error
 			</div>
-		{{/ui-dropdown}}
-	</div>
-	<button class="ui button"
-					type="submit"
-		{{action (route-action 'createUser' user)}}>
-		Create new user
-	</button>
-</form>
+			<p>	{{error}}
+			</p>
+		</div>
+	{{/if}}
+	<form class="ui form">
+		<p>
+			{{validated-input
+			id='surname'
+			type='text'
+			label='Surname'
+			value=user.surname
+			valuePath='surname'
+			model=user
+			}}
+		</p>
+		<p>
+			{{validated-input
+			id='name'
+			type='text'
+			label='Name'
+			value=user.name
+			valuePath='name'
+			icon='user'
+			model=user
+			}}
+		</p>
+		<p>
+			{{validated-input
+			id='email'
+			type='email'
+			label='Email'
+			value=user.email
+			valuePath='email'
+			model=user
+			}}
+		</p>
+		<p>
+			{{validated-input
+			id='password'
+			type='password'
+			label='Password'
+			value=user.password
+			valuePath='password'
+			icon='lock'
+			model=user
+			}}
+		</p>
+		<p>
+			{{validated-input
+			id='confirmPassword'
+			type='password'
+			label='Confirm Password'
+			value=user.passwordConfirmation
+			valuePath='passwordConfirmation'
+			icon='lock'
+			model=user
+			}}
+		</p>
+		<div class="field">
+			<label>Role</label>
+			{{#ui-dropdown class="selection" selected=user.role}}
+				<div class="default text">Choose a role ...</div>
+				<i class="dropdown icon"></i>
+				<div class="menu">
+					{{#each roles as |role|}}
+						<div class="item" data-value="{{role}}">
+							{{role}}
+						</div>
+					{{/each}}
+				</div>
+			{{/ui-dropdown}}
+		</div>
+		<div local-class="center">
+			<button class="ui button"
+							type="submit"
+				{{action (route-action 'createUser' user)}}>
+				Create new user
+			</button>
+		</div>
+	</form>
+</div>
 {{yield}}

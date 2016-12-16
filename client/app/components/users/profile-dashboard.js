@@ -1,4 +1,5 @@
 import Ember from 'ember';
+
 import FleetInfo from '../../objects/fleet-info';
 
 export default Ember.Component.extend({

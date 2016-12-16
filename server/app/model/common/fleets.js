@@ -8,7 +8,7 @@ const self = process.env.SERVER_IP;
 
 // eslint-disable-next-line new-cap
 const fleetSchema = new Schema({
-  name: {type: String, required: true, unique: true},
+  name: {type: String, required: true},
   vehicles: [{type: ObjectId, ref: 'Vehicle'}],
   owner: {type: ObjectId, ref: 'User', required: true}
 });
