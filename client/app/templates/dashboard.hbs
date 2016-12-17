@@ -1,10 +1,17 @@
 <div>
 	<img src="/assets/images/dashboard.jpg" local-class="container-image">
-	{{users.profile-dashboard
-	user=model.user
-	fleet=model.fleet.firstObject
-	logout='logout'
-	}}
+
+	{{#if (eq model.user.role 'admin')}}
+		{{users.profile-dashboard.admin
+		logout='logout'
+		}}
+	{{else}}
+		{{users.profile-dashboard.user
+		user=model.user
+		fleet=model.fleet.firstObject
+		logout='logout'
+		}}
+	{{/if}}
 </div>
 
 {{outlet}}

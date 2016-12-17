@@ -8,3 +8,7 @@
   left: 10%;
   z-index: 1;
 }
+.red {
+	height: 200px;
+	background-color: red;
+}
