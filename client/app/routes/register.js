@@ -4,7 +4,7 @@ import UnauthenticatedRouteMixin from
   'ember-simple-auth/mixins/unauthenticated-route-mixin';
 
 export default Ember.Route.extend(UnauthenticatedRouteMixin, {
-  title: 'Register',
+  title: 'Armada - Register',
   model() {
     return this.store.createRecord('user', {
       role: 'user',

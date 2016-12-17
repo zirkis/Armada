@@ -1,3 +1,7 @@
+{{#link-to 'dashboard'}}
+    <img src="/assets/images/back.png" local-class="back"/>
+{{/link-to}}
+
 <div local-class="container">
 	{{#if error}}
 		<div class="ui black message">
@@ -14,7 +18,9 @@
 			<th>Brand</th>
 			<th>Price</th>
 			<th>Speed</th>
-			<th></th>
+        <th>Quantity</th>
+        <th>Unit</th>
+        <th></th>
 		</tr>
 		</thead>
 		<tbody>
@@ -24,7 +30,17 @@
 					<td class="middle aligned">{{ vehicle.brand }}</td>
 					<td class="middle aligned">{{ vehicle.price }} €</td>
 					<td class="middle aligned">{{ vehicle.speed }} km/h</td>
-					<td class="right aligned">
+            <td class="middle aligned">
+                <div class="ui icon buttons">
+                    <button class="ui  button">
+                        +
+                    </button>
+                    <button class="ui grey button">
+                        -
+                    </button>
+                </div>
+            </td>
+            <td class="right aligned">
 						<div class="ui buttons">
 							<button class="ui button">
 								<i class="unhide icon"></i>
@@ -35,6 +51,7 @@
 							</button>
 						</div>
 					</td>
+            <td> </td>
 				</tr>
 			{{/each}}
 		{{else}}
