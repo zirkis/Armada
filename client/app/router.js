@@ -21,6 +21,7 @@ Router.map(function() {
   this.route('users');
   this.route('vehicles', function() {
     this.route('store');
+    this.route('create');
   });
   this.route('fleets');
 

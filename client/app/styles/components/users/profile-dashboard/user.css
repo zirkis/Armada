@@ -1,4 +1,3 @@
-
 .dashboard_box
 {
 	min-height: calc(100vh - 140px);
@@ -255,7 +254,6 @@ span.number_cars_key
 }
 .buy p
 {
-
 	font-size: 2.2em;
 	text-align: center;
 	margin-top: 2px;

@@ -22,19 +22,19 @@ if (process.env.ENV === 'dev') {
 }
 
 const models = {
-  User: require('../model/common/user').model,
-  Fleet: require('../model/common/fleet').model,
-  Ride: require('../model/common/ride').model,
-  VehicleModel: require('../model/common/vehicle-model').model,
-  VehicleBought: require('../model/common/vehicle-bought').model
+  User: require('../models/common/user').model,
+  Fleet: require('../models/common/fleet').model,
+  Ride: require('../models/common/ride').model,
+  VehicleModel: require('../models/common/vehicle-model').model,
+  VehicleBought: require('../models/common/vehicle-bought').model
 };
 
 const registryTemplates = {
-  users: require('../model/common/user').registry,
-  fleets: require('../model/common/fleet').registry,
-  ride: require('../model/common/ride').registry,
-  'vehicle-models': require('../model/common/vehicle-model').registry,
-  'vehicle-boughts': require('../model/common/vehicle-bought').registry
+  users: require('../models/common/user').registry,
+  fleets: require('../models/common/fleet').registry,
+  ride: require('../models/common/ride').registry,
+  'vehicle-models': require('../models/common/vehicle-model').registry,
+  'vehicle-boughts': require('../models/common/vehicle-bought').registry
 };
 
 const opts = [

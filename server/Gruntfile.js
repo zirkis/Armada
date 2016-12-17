@@ -29,7 +29,7 @@ module.exports = function(grunt) {
         src: ['app/*.js', 'app/*/*.js', 'app/*/*/*.js']
       },
       mocha: {
-        src: ['test/model/*.js', 'test/controller/*.js', 'test/preparers/*.js']
+        src: ['test/models/*.js', 'test/controllers/*.js', 'test/preparers/*.js']
       }
     },
     jscs: {
@@ -40,7 +40,7 @@ module.exports = function(grunt) {
         src: ['app/*.js', 'app/*/*.js', 'app/*/*/*.js']
       },
       mocha: {
-        src: ['test/model/*.js', 'test/controller/*.js', 'test/preparers/*.js']
+        src: ['test/models/*.js', 'test/controllers/*.js', 'test/preparers/*.js']
       }
     },
     open: {
