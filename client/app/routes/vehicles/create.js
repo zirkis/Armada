@@ -4,6 +4,7 @@ export default Ember.Route.extend({
   model() {
     const vehicule = this.store.createRecord('vehicle-model', {
       brand: 'Mercedex',
+      make: 'M5',
       price: 50000,
       speed: 250
     });

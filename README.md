@@ -7,7 +7,13 @@ By HAOUI Benjamin & DIDELOT Kevin.
 
 * `git clone <repository-url>` this repository
 * `cd client`
-* `npm install`
-* `bower install`
+* `yarn install` (or `npm`)
 * `cd ../server`
-* `npm install`
+* `yarn install` (or `npm`)
+
+## Run
+
+* `cd client`
+* `yarn start`
+* `cd ../server`
+* `yarn start`
