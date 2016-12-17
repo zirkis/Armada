@@ -1,0 +1,281 @@
+.dashboard_box
+{
+	min-height: calc(100vh - 140px);
+}
+.bloc_title
+{
+	border-bottom: 2px rgb(242,203,48) solid;
+	background-color: rgb(23,23,23);
+}
+.head_bar
+{
+	position: absolute;
+	width: 100%;
+	height: 80px;
+	top: 160px;
+	z-index: 2;
+	text-align: center;
+	display: inline-block;
+	vertical-align: middle;
+	color: white;
+	font-family: 'ONEDAY';
+	font-size: 3.4em;
+}
+.settings_icon, .logout_icon
+{
+	height: 40px;
+	margin-right: 105px;
+	margin-left: 140px;
+	border : 1px black solid;
+	border-radius: 40px;
+}
+.profilepicture
+{
+	border-radius: 50px;
+	border : 1px rgb(160,245,240) solid;
+	width: 80px;
+	height: 80px;
+	margin-top: -10px;
+}
+.profilepicture, .head_bar p
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.clock
+{
+	position: absolute;
+	background-color: rgba(255,255,255,0.9);
+	border-radius: 5px;
+	border : 1px rgb(160,245,240) solid;
+	width: 180px;
+	height: 140px;
+	top: 250px;
+	left: 30%;
+	z-index: 2;
+	vertical-align: middle;
+}
+.clock p
+{
+
+	font-size: 4.5em;
+	text-align: center;
+	margin-top: 35px;
+	font-family: 'ONEDAY';
+
+}
+.total_cars
+{
+	position: absolute;
+	background-color: rgba(255,255,255,0.9);
+	border-radius: 5px;
+	border : 1px rgb(160,245,240) solid;
+	width: 360px;
+	height: 140px;
+	top: 250px;
+	left: 44.8%;
+	z-index: 2;
+	vertical-align: middle;
+	text-align: center;
+
+}
+.number_cars
+{
+	font-size: 7.5em;
+	font-family: 'ONEDAY';
+	margin-top: 70px;
+}
+.number_cars_key
+{
+	font-size: 2.3em;
+	font-family: 'ONEDAY';
+	text-align: right;
+}
+
+.number_cars, .number_cars_key
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+span.number_cars_key
+{
+	background-color: #D80027;
+	float: right;
+	height: 140px;
+	width: 130px;
+	text-align: center;
+	margin-top: -1px;
+	margin-right: -1px;
+	padding-top: 45px;
+	border-radius: 0px 5px 5px 0px;
+}
+.unused_cars
+{
+	position: absolute;
+	background-color: rgba(255,255,255,0.9);
+	border-radius: 5px;
+	border : 1px rgb(160,245,240) solid;
+	width: 548px;
+	height: 80px;
+	top: 400px;
+	left: 30%;
+	z-index: 2;
+	padding-top: 25px;
+}
+.number_unused_cars
+{
+	font-size: 4.4em;
+	font-family: 'ONEDAY';
+	margin-left: 20px;
+}
+.number_unused_cars_key
+{
+	font-size: 1.5em;
+	font-family: 'ONEDAY';
+	margin-left: 2px;
+}
+.number_unused_cars, .number_unused_cars_key, .plan_trip
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+.plan_trip
+{
+	text-align: center;
+	background-color: #D80027;
+	font-size: 3em;
+	font-family: 'ONEDAY';
+	width: 330px;
+	float: right;
+	height: 78px;
+	margin-top: -25px;
+	border-radius: 0px 5px 5px 0px;
+	padding-top: 35px;
+}
+
+.used_cars
+{
+	position: absolute;
+	background-color: rgba(255,255,255,0.9);
+	border-radius: 5px;
+	border : 1px rgb(160,245,240) solid;
+	width: 548px;
+	height: 80px;
+	top: 490px;
+	left: 30%;
+	z-index: 2;
+	padding-top: 25px;
+}
+.number_used_cars
+{
+	font-size: 4.4em;
+	font-family: 'ONEDAY';
+	margin-left: 20px;
+}
+.number_used_cars_key
+{
+	font-size: 1.5em;
+	font-family: 'ONEDAY';
+	margin-left: 2px;
+}
+.number_used_cars, .number_used_cars_key, .view_rides
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+.view_rides
+{
+	text-align: center;
+	background-color: #D80027;
+	font-size: 3em;
+	font-family: 'ONEDAY';
+	width: 330px;
+	float: right;
+	height: 78px;
+	margin-top: -25px;
+	border-radius: 0px 5px 5px 0px;
+	padding-top: 35px;
+}
+.money
+{
+	position: absolute;
+	background-color: rgba(255,255,255,0.9);
+	border-radius: 5px;
+	border : 1px rgb(160,245,240) solid;
+	width: 355px;
+	height: 130px;
+	top: 580px;
+	left: 30%;
+	z-index: 2;
+	padding-top: 40px;
+	text-align: center;
+}
+.bank_amount_key
+{
+	background-color: #D80027;
+	float: left;
+	height: 130px;
+	width: 130px;
+	text-align: center;
+	margin-top: -41px;
+	padding-top: 42px;
+	border-radius: 5px 0px 0px 5px;
+	font-size: 2.3em;
+	font-family: 'ONEDAY';
+	margin-left: -2px;
+}
+.bank_amount
+{
+	font-size: 3.6em;
+	font-family: 'ONEDAY';
+	margin-left: 22px;
+	text-align: center;
+	height: 104px;
+	margin-top: -20px;
+	padding-top: 43px;
+}
+.bank_amount, .bank_amount_key
+{
+	display: inline-block;
+}
+.buy
+{
+	position: absolute;
+	background-color: rgba(255,255,255,0.9);
+	border-radius: 5px;
+	border : 1px rgb(160,245,240) solid;
+	width: 180px;
+	height: 130px;
+	top: 580px;
+	left: 58.5%;
+	z-index: 2;
+	vertical-align: middle;
+}
+.buy p
+{
+	font-size: 2.2em;
+	text-align: center;
+	margin-top: 2px;
+	font-family: 'ONEDAY';
+	text-decoration: none;
+}
+.buy_link
+{
+	color: black;
+}
+.plan_trip:hover, .view_rides:hover, .buy:hover
+{
+	background-color: rgb(242,203,48);
+}
+.unused_cars a:visited, .used_cars a:visited, .buy_link:visited
+{
+	text-decoration: none;
+	color: black;
+}
+.center
+{
+	text-align: center;
+	width: 100%;
+}
+

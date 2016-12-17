@@ -1,5 +1,5 @@
 'use strict';
-const User = require('./model/common/user').model;
+const User = require('./models/common/user').model;
 
 const db = {
   init() {
