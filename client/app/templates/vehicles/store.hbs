@@ -1,9 +1,10 @@
 {{#link-to 'dashboard'}}
 	<img src="/assets/images/back.png" local-class="back"/>
 {{/link-to}}
+<h2 local-class="store_title">Vehicles Store</h2>
+<h3 local-class="store_money">Money: {{model.user.money}} €</h3>
 
 <div local-class="container">
-	{{model.user.money}}
 	{{#if error}}
 		<div class="ui black message">
 			<div class="header">
@@ -20,7 +21,7 @@
 			<th>Model</th>
 			<th>Speed</th>
 			<th>Price</th>
-			<th></th>
+			<th>Picture</th>
 		</tr>
 		</thead>
 		<tbody>
@@ -31,10 +32,10 @@
 					<td class="middle aligned">{{ vehicle.make }}</td>
 					<td class="middle aligned">{{ vehicle.speed }} km/h</td>
 					<td class="middle aligned">{{ vehicle.price }} €</td>
-					<td class="right aligned">
+					<td class="middle aligned">
 						<div class="ui buttons">
 							<button class="ui button">
-								<i class="unhide icon"></i>
+								<img local-class="vehicle_picture" src="{{ vehicle.pictureurl }}">
 							</button>
 							<button class="ui orange button"
 								{{action "buy" vehicle}}>
