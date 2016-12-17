@@ -15,11 +15,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       });
   },
   model() {
-    return this.store.createRecord('vehicle-model', {
-      brand: 'Mercedex',
-      make: 'M5',
-      price: 50000,
-      speed: 250
-    });
+    return this.store.createRecord('vehicle-model');
+  },
+  actions: {
+    createVehicle(vehicle) {
+      vehicle.save();
+    }
   }
 });
