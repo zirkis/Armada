@@ -1,18 +1,15 @@
-<div>
-	<img src="/assets/images/dashboard.jpg" local-class="container-image">
-
-	{{#if (eq model.user.role 'admin')}}
-		{{users.profile-dashboard.admin
-		user=model.user
-		logout='logout'
-		}}
-	{{else}}
-		{{users.profile-dashboard.user
-		user=model.user
-		fleet=model.fleet.firstObject
-		logout='logout'
-		}}
-	{{/if}}
-</div>
+<img src="/assets/images/dashboard.jpg" local-class="container-image">
+{{#if (eq model.user.role 'admin')}}
+	{{users.profile-dashboard.admin
+	user=model.user
+	logout='logout'
+	}}
+{{else}}
+	{{users.profile-dashboard.user
+	user=model.user
+	fleet=model.fleet.firstObject
+	logout='logout'
+	}}
+{{/if}}
 
 {{outlet}}

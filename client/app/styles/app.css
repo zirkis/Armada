@@ -38,9 +38,7 @@ footer
 	font-family: 'ONEDAY';
 	font-size: 1em;
 	text-align: center;
-
-	/*height: 50px;*/
-	width: 100%;
 	z-index: 1;
+	margin-top: 8px;
 }
 

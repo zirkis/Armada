@@ -39,6 +39,12 @@ const Validations = buildValidations({
         gt: 0
       })
     ]
+  },
+  pictureurl: {
+    description: 'Picture Url',
+    validators: [
+      validator('presence', true)
+    ]
   }
 });
 

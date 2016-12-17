@@ -1,6 +1,5 @@
 .register_box {
-	position: relative;
-	height: calc(100vh - 180px);
+	min-height: calc(100vh - 100px);
 }
 .container-image {
 	position: absolute;

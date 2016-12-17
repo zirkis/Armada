@@ -36,7 +36,8 @@ module.exports = environment => {
     },
     'ember-simple-auth': {
       authenticationRoute: 'login',
-      routeAfterAuthentication: 'dashboard'
+      routeAfterAuthentication: 'dashboard',
+      routeIfAlreadyAuthenticated: 'dashboard'
     }
   };
 

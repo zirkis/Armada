@@ -20,7 +20,7 @@ export default Ember.Service.extend({
     if (!isEmpty(userId)) {
       return this.get('store').find('user', userId)
         .then(user => {
-          if (!user) {
+          if (!user && session.get('isAuthenticated')) {
             session.invalidate();
             return null;
           }
@@ -28,11 +28,15 @@ export default Ember.Service.extend({
           return user;
         })
         .catch(() => {
-          session.invalidate();
+          if (session.get('isAuthenticated')) {
+            session.invalidate();
+          }
           return null;
         });
     }
-    session.invalidate();
+    if (session.get('isAuthenticated')) {
+      session.invalidate();
+    }
     return RSVP.Promise.resolve(null);
   },
   getUser() {

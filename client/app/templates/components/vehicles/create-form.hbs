@@ -49,11 +49,21 @@
 			model=vehicle
 			}}
 		</p>
+		<p>
+			{{validated-input
+			id='pictureurl'
+			type='text'
+			label='Picture Url'
+			value=vehicle.pictureurl
+			valuePath='pictureurl'
+			model=vehicle
+			}}
+		</p>
 		<div local-class="center">
 			<button class="ui button"
 							type="submit"
 							disabled={{vehicle.validations.isInvalid}}
-				{{action 'createVehicle' model}}>
+				{{action 'createVehicle'}}>
 				Create new vehicle
 			</button>
 		</div>
