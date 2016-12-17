@@ -3,21 +3,44 @@
 		{{#link-to 'profile'}}
 			<img src="/assets/images/settings.png" local-class="settings_icon">
 		{{/link-to}}
-		<img src="/assets/images/profilepicture.jpg" local-class="profilepicture"> {{ user.name }}<img src="/assets/images/logout.png" local-class="logout_icon" {{action 'logout'}}></p>
+		<img src="/assets/images/profilepicture.jpg" local-class="profilepicture">
+		{{ user.name }}
+		<img src="/assets/images/logout.png" local-class="logout_icon"
+			{{action 'logout'}}>
+	</p>
 	<div local-class="clock">
-		<p>{{ hour }}: {{minutes}}</p>
+		<p>{{moment-format (now) 'hh:mm'
+		locale='fr'
+		timeZone='Europe/Paris'
+		interval=1000
+		allowEmpty=true}}</p>
 	</div>
 	<div local-class="total_cars">
-		<p><span local-class="number_cars">{{ fleetInfo.numberOfVehicles }}</span> <span local-class="number_cars_key">Total<br><br>  Fleet</span></p>
+		<p>
+			<span local-class="number_cars">{{ fleetInfo.numberOfVehicles }}</span>
+			<span local-class="number_cars_key">Total<br><br>  Fleet</span>
+		</p>
 	</div>
 	<div local-class="unused_cars">
-		<p><span local-class="number_unused_cars">{{ fleetInfo.availableVehicles }}</span> <span local-class="number_unused_cars_key">Unused<br>  Vehicules</span> <a href="#"><span local-class="plan_trip">Plan a trip</span></a></p>
+		<p>
+			<span local-class="number_unused_cars">{{ fleetInfo.availableVehicles }}</span>
+			<span local-class="number_unused_cars_key">Unused<br>  Vehicules</span>
+			<a href="#"><span local-class="plan_trip">Plan a trip
+			</span></a>
+		</p>
 	</div>
 	<div local-class="used_cars">
-		<p><span local-class="number_used_cars">{{ fleetInfo.usedVehicles }}</span> <span local-class="number_used_cars_key">used<br>  Vehicules</span> <a href="#"><span local-class="view_rides">View Rides</span></a></p>
+		<p>
+			<span local-class="number_used_cars">{{ fleetInfo.usedVehicles }}</span>
+			<span local-class="number_used_cars_key">used<br>  Vehicules</span>
+			<a href="#"><span local-class="view_rides">View Rides</span></a>
+		</p>
 	</div>
 	<div local-class="money">
-		<p><span local-class="bank_amount_key">Total<br><br>Money</span><span local-class="bank_amount">{{user.money}}€</span></p>
+		<p>
+			<span local-class="bank_amount_key">Total<br><br>Money</span>
+			<span local-class="bank_amount">{{format-money user.money}} €</span>
+		</p>
 	</div>
 	{{#link-to 'vehicles.store'}}
 		<div local-class="buy_link">

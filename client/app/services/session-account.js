@@ -8,12 +8,12 @@ export default Ember.Service.extend({
   store: service(),
   user: null,
   userId: Ember.computed('session.data.user_d',
-    'session.data.authenticated.account_id', function() {
+    'session.data.authenticated.account_id', function () {
       if (this.get('session.data.authenticated.account_id')) {
         return this.get('session.data.authenticated.account_id');
       }
       return this.get('session.data.user_id');
-  }),
+    }),
   loadCurrentUser() {
     const userId = this.get('userId');
     const session = this.get('session');

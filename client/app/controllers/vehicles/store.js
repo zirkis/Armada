@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import Ember from 'ember';
 
 const {service} = Ember.inject;
@@ -32,8 +33,7 @@ export default Ember.Controller.extend({
         .then(vBought => {
           vehicleBought = vBought;
           return this.store.query('fleet',
-            { filter: { simple:
-            { owner: user.get('id') } }});
+            {filter: {simple: {owner: user.get('id') }}});
         })
         .then(fleets => {
           const fleet = fleets.get('firstObject');
