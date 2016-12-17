@@ -12,13 +12,13 @@ Router.map(function() {
   this.route('login');
   this.route('register');
 
-  this.route('user', function() {
-    this.route('create');
-  });
+  this.route('user', function() {});
 
   this.route('profile');
 
-  this.route('users');
+  this.route('users', function() {
+    this.route('create');
+  });
   this.route('vehicles', function() {
     this.route('store');
     this.route('create');

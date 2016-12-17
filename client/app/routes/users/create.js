@@ -6,8 +6,17 @@ import AuthenticatedRouteMixin
 const {RSVP, inject: {service}} = Ember;
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
+  sessionAccount: service('session-account'),
   toast: service(),
   title: 'Create user',
+  beforeModel() {
+    this.get('sessionAccount').getRole()
+      .then(role => {
+        if (role !== 'admin') {
+          this.transitionTo('dashboard');
+        }
+      });
+  },
   model() {
     return this.store.createRecord('user', {
       role: 'user',

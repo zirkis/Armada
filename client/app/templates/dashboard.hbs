@@ -3,6 +3,7 @@
 
 	{{#if (eq model.user.role 'admin')}}
 		{{users.profile-dashboard.admin
+		user=model.user
 		logout='logout'
 		}}
 	{{else}}

@@ -7,13 +7,18 @@ export default Ember.Component.extend({
   user: null,
   fleet: null,
   fleetInfo: Ember.computed('fleet', function () {
+    let fleetInfo;
     if (!this.get('fleet')) {
-      return null;
+      fleetInfo = FleetInfo.create({
+        name: 'error',
+        vehicles: Ember.A()
+      });
+    } else {
+      fleetInfo = FleetInfo.create({
+        name: this.get('fleet').get('name'),
+        vehicles: this.get('fleet').get('vehicles')
+      });
     }
-    const fleetInfo = FleetInfo.create({
-      name: this.get('fleet').get('name'),
-      vehicles: this.get('fleet').get('vehicles')
-    });
     return fleetInfo;
   }),
   actions: {
