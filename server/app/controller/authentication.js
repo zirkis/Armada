@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const uuid = require('uuid');
 const BluebirdPromise = require('bluebird');
-const dbUsers = require('../model/common/users');
+const dbUsers = require('../model/common/user');
 
 const verify = BluebirdPromise.promisify(jwt.verify);
 

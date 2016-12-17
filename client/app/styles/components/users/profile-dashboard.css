@@ -52,8 +52,8 @@
 .settings_icon, .logout_icon
 {
   height: 40px;
-  margin-right: 105px;
-  margin-left: 140px;
+  margin-right: 90px;
+  margin-left: 125px;
   border : 1px black solid;
   border-radius: 40px;
 }

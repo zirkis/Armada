@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import Ember from 'ember';
 import ToriiAuthenticator from 'ember-simple-auth/authenticators/torii';
 
@@ -44,7 +45,7 @@ export default ToriiAuthenticator.extend({
       this.get('store').query('user', {
         filter: {
           simple: {
-            email: email
+            email
           }
         }
       })
@@ -99,5 +100,5 @@ export default ToriiAuthenticator.extend({
     return this.get('torii').close(this._provider, data).then(() => {
       delete this._provider;
     });
-  },
+  }
 });

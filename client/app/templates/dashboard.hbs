@@ -2,7 +2,7 @@
 	<img src="/assets/images/dashboard.jpg" local-class="container-image">
 	{{users.profile-dashboard
 	user=model.user
-	fleet=model.fleet
+	fleet=model.fleet.firstObject
 	logout='logout'
 	}}
 </div>

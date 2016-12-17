@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import Ember from 'ember';
 
 const {inject: {service}, RSVP} = Ember;

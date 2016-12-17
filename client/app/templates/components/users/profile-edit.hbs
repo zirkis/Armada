@@ -32,9 +32,9 @@
 		<form local-class="profile_show">
 			<p class="center" local-class="profile_title">Profile</p>
 			<img src="/assets/images/profilepicture.jpg" local-class= "profilepic" class="profile_info">
-			<p class="profile_info" local-class="profile_name">HAOUI</p>
-			<p class="profile_info" local-class="profile_surname">Benjamin</p>
-			<p class="profile_info" local-class="profile_email">benjamin.haoui@free.fr</p>
+			<p class="profile_info" local-class="profile_name">{{ user.name }}</p>
+			<p class="profile_info" local-class="profile_surname">{{ user.surname }}</p>
+			<p class="profile_info" local-class="profile_email">{{ user.email }}</p>
 		</form>
 
 	</div>

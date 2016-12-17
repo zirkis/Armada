@@ -31,6 +31,9 @@ module.exports = environment => {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
+    moment: {
+      outputFormat: 'L'
+    },
     'ember-simple-auth': {
       authenticationRoute: 'login',
       routeAfterAuthentication: 'dashboard'
