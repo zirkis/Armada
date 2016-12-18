@@ -10,7 +10,6 @@ html, body {
 	width: 100%;
 	min-height: 100%;
 	margin: 0;
-	min-width: 1500px;
 }
 body {
 	background-color: black !important;
@@ -33,11 +32,12 @@ h2 {
 footer
 {
 	position: relative;
-	top: 30px;
+	top: 15px;
 	background-color: black! important;
 	color: white;
 	font-family: 'ONEDAY';
 	text-align: center;
 	margin-right: 50px;
+	margin-bottom: 15px;
 }
 
