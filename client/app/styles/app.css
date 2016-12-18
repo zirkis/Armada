@@ -7,18 +7,17 @@
 	src: url('/assets/font/ONEDAY.ttf');
 }
 html, body {
-	height: 100%;
 	width: 100%;
+	min-height: 100%;
 	margin: 0;
 }
 body {
-	position: relative;
 	background-color: black !important;
 }
 header {
 	text-align: center;
-	margin: 0px;
-	padding: 0px;
+	margin: 0;
+	padding: 0;
 	margin-bottom: -10px;
 }
 i {
@@ -39,6 +38,6 @@ footer
 	font-size: 1em;
 	text-align: center;
 	z-index: 1;
-	margin-top: 8px;
+	margin-top: 20px;
 }
 

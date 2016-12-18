@@ -1,5 +1,4 @@
 .content {
-	border: solid red;
 	min-height: calc(100vh - 200px);
 }
 .content-inside {

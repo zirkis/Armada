@@ -1,5 +1,9 @@
 .container {
-	position: relative;
+	min-height: calc(100vh);
+	background: url("/assets/images/dashboard.jpg");
+	background-size: 100%;
+	background-repeat:no-repeat;
+	max-width: 100%;
 }
 .container-image {
   position: absolute;
@@ -7,8 +11,4 @@
   top: 0px;
   left: 5%;
   z-index: 1;
-}
-.red {
-	height: 200px;
-	background-color: red;
 }

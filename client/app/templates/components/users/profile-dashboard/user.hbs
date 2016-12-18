@@ -1,53 +1,83 @@
-<section class="ui grid container" local-class="dashboard_box">
-	<p local-class="head_bar">
-		{{#link-to 'profile'}}
-			<img src="/assets/images/settings.png" local-class="settings_icon">
-		{{/link-to}}
-		<img src="/assets/images/profilepicture.jpg" local-class="profilepicture">
-		{{ user.name }}
-		<img src="/assets/images/logout.png" local-class="logout_icon"
-			{{action 'logout'}}>
-	</p>
-	<div local-class="clock">
-		<p>{{moment-format (now) 'HH:MM'
-		locale='fr'
-		timeZone='Europe/Paris'
-		interval=1000
-		allowEmpty=true}}</p>
+<section class="container" local-class="container">
+	<div class="row">
+		<div class="col-sm-2">
+			{{#link-to 'profile'}}
+				<div local-class="right_align">
+					<img src="/assets/images/settings.png" local-class="settings_icon">
+				</div>
+			{{/link-to}}
+		</div>
+		<div class="col-sm-8" local-class="white_text">
+			<img src="/assets/images/profilepicture.jpg" local-class="profilepicture">
+			{{ user.name }}
+		</div>
+		<div class="col-sm-2">
+			<img src="/assets/images/logout.png" local-class="logout_icon"
+				{{action 'logout'}}>
+		</div>
 	</div>
-	<div local-class="total_cars">
-		<p>
-			<span local-class="number_cars">{{ fleetInfo.numberOfVehicles }}</span>
-			<span local-class="number_cars_key">Total<br><br>  Fleet</span>
-		</p>
+	<br>
+	<div class="row">
+		<div class="col-sm-3" local-class="clock">
+			{{moment-format (now) 'HH:MM'
+			locale='fr'
+			timeZone='Europe/Paris'
+			interval=1000
+			allowEmpty=true}}
+		</div>
+
+		<div class="col-sm-offset-1 col-sm-3" local-class="total_cars">
+			{{ fleetInfo.numberOfVehicles }}
+		</div>
+		<div class="col-sm-5" local-class="number_cars">
+			Total<br>Fleet
+		</div>
 	</div>
-	<div local-class="unused_cars">
-		<p>
-			<span local-class="number_unused_cars">{{ fleetInfo.availableVehicles }}</span>
-			<span local-class="number_unused_cars_key">Unused<br>  Vehicules</span>
-			<a href="#"><span local-class="plan_trip">Plan a trip
-			</span></a>
-		</p>
-	</div>
-	<div local-class="used_cars">
-		<p>
-			<span local-class="number_used_cars">{{ fleetInfo.usedVehicles }}</span>
-			<span local-class="number_used_cars_key">used<br>  Vehicules</span>
-			<a href="#"><span local-class="view_rides">View Rides</span></a>
-		</p>
-	</div>
-	<div local-class="money">
-		<p>
-			<span local-class="bank_amount_key">Total<br><br>Money</span>
-			<span local-class="bank_amount">{{format-money user.money}} €</span>
-		</p>
-	</div>
-	{{#link-to 'vehicles.store'}}
-		<div local-class="buy_link">
-			<div local-class="buy">
-				<p>Buy <br> more Vehicules</p>
+
+
+	<div class="row">
+		<div local-class="unused_cars">
+			<div class="col-sm-2" local-class="number_unused_cars">
+				{{ fleetInfo.availableVehicles }}
+			</div>
+			<div class="col-sm-3" local-class="number_unused_cars_key">
+				Unused<br>  Vehicules
+			</div>
+			<div class="col-sm-7" local-class="plan_trip">
+				Plan a trip
 			</div>
 		</div>
-	{{/link-to}}
+	</div>
+
+
+	<div class="row">
+		<div local-class="used_cars">
+			<div class="col-sm-2" local-class="number_used_cars">
+				{{ fleetInfo.usedVehicles }}
+			</div>
+			<div class="col-sm-3" local-class="number_used_cars_key">
+				used<br>  Vehicules
+			</div>
+			<div class="col-sm-7" local-class="view_rides">
+				View Rides
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-7" local-class="money">
+			<div local-class="total_money_label">
+				Total<br>Money
+			</div>
+			<div local-class="total_money">
+				{{format-money user.money}} €
+			</div>
+		</div>
+		<div class="col-sm-offset-1 col-sm-4" local-class="buy">
+			{{#link-to 'vehicles.store'}}
+				<p>Buy <br> more Vehicules</p>
+			{{/link-to}}
+		</div>
+	</div>
 </section>
 {{yield}}
