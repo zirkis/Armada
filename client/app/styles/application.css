@@ -1,10 +1,8 @@
 .content {
-	border: solid red;
-	min-height: calc(100vh - 200px);
+	/*min-height: calc(100vh - 200px);*/
 }
 .content-inside {
 	position: relative;
-	height: 100%;
 }
 .bloc_title {
 	border-bottom: 2px rgb(242,203,48) solid;
@@ -40,10 +38,6 @@
 }
 
 .copyright{
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
 	font-size: 1.15em;
 }
 .copyright hr {

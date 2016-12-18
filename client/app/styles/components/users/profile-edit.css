@@ -19,9 +19,7 @@
 }
 .profile_form
 {
-	position: absolute;
-	top: 205px;
-	left: 20%;
+	margin: auto;
 	z-index: 2;
 	background-color: rgba(255,255,255,0.92);
 	width: 750px;
@@ -73,7 +71,7 @@
 	width: 180px;
 	border-radius: 100px;
 	margin-top: 30px;
-	margin-bottom: 20px;
+	margin-bottom: 50px;
 }
 .edit_button
 {

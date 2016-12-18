@@ -1,5 +1,5 @@
-<section class="ui grid container" local-class="dashboard_box">
-	<p local-class="head_bar">
+<section local-class="dashboard_box">
+    <p local-class="head_bar">
 		{{#link-to 'profile'}}
 			<img src="/assets/images/settings.png" local-class="settings_icon">
 		{{/link-to}}
@@ -42,12 +42,13 @@
 			<span local-class="bank_amount">{{format-money user.money}} €</span>
 		</p>
 	</div>
-	{{#link-to 'vehicles.store'}}
 		<div local-class="buy_link">
 			<div local-class="buy">
-				<p>Buy <br> more Vehicules</p>
-			</div>
+    {{#link-to 'vehicles.store'}}
+        <p>Buy <br> more Vehicules</p>
+    {{/link-to}}
+            </div>
 		</div>
-	{{/link-to}}
+    <img src="/assets/images/dashboard.jpg" local-class="container-image">
 </section>
 {{yield}}
