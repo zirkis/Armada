@@ -1,5 +1,5 @@
 .container {
-	width: 50%;
+	width: 45%;
 	min-height: 100%;
 	margin: 0 auto;
 	margin-top: 10px;
@@ -10,8 +10,16 @@
 	font-size: 3.4em;
 	text-align: center;
 }
-.right_align {
-	text-align: right;
+.left_align, .right_align {
+	position: relative;
+}
+.settings_icon {
+	position: absolute;
+	left: 0;
+}
+.logout_icon {
+	position: absolute;
+	right: 0;
 }
 .settings_icon, .logout_icon {
 	height: 40px;
@@ -34,7 +42,7 @@
 }
 .clock {
 	line-height: 100px;
-	font-size: 4.5em;
+	font-size: 4.1em;
 	text-align: center;
 	font-family: 'ONEDAY';
 	margin: 0;
@@ -44,9 +52,6 @@
 	background-color: rgba(255,255,255,0.9);
 	border : 1px rgb(160,245,240) solid;
 	border-radius: 5px;
-}
-.test {
-	border: solid blue;
 }
 .total_cars {
 	line-height: 100px;
@@ -92,7 +97,6 @@
 	margin-bottom: 15px;
 }
 .number_used_cars, .number_unused_cars{
-	text-align: center;
 	line-height: 100px;
 	font-size: 4.4em;
 	font-family: 'ONEDAY';
@@ -133,17 +137,17 @@
 	margin: -2px;
 	margin-left: -8px;
 	padding: 0px;
-	width: 55%;
+	width: 43%;
 	text-align: center;
 	line-height: 50px;
-	font-size: 3em;
+	font-size: 2.5em;
 	font-family: 'ONEDAY';
 	background-color: #D80027;
 	border-radius: 5px 0 0 5px ;
 }
 .total_money {
 	height: 100px;
-	width: 43%;
+	width: 55%;
 	text-align: center;
 	line-height: 100px;
 	font-size: 3.8em;
@@ -177,7 +181,7 @@
 .buy p {
 	text-align: center;
 	line-height: 50px;
-	font-size: 1.8em;
+	font-size: 1.5em;
 	text-align: center;
 	font-family: 'ONEDAY';
 	text-decoration: none;
