@@ -32,7 +32,7 @@ const models = {
 const registryTemplates = {
   users: require('../models/common/user').registry,
   fleets: require('../models/common/fleet').registry,
-  ride: require('../models/common/ride').registry,
+  rides: require('../models/common/ride').registry,
   'vehicle-models': require('../models/common/vehicle-model').registry,
   'vehicle-boughts': require('../models/common/vehicle-bought').registry
 };
@@ -40,7 +40,7 @@ const registryTemplates = {
 const opts = [
   'users',
   'fleets',
-  'ride',
+  'rides',
   'vehicle-models',
   'vehicle-boughts'
 ].join('|');
