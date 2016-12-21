@@ -19,10 +19,12 @@
         80,
         2
       ],
-			"new-cap": [
-				"error",
-				{"capIsNewExceptionPattern": "Router"}
-			]
+      "new-cap": [
+        "error",
+        {
+          "capIsNewExceptionPattern": "Router"
+        }
+      ]
     },
     "ignores": [
       "Gruntfile.js"

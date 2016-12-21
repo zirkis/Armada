@@ -1,67 +1,64 @@
 {{#link-to 'dashboard'}}
-    <img src="/assets/images/back.png" local-class="back"/>
+	<img src="/assets/images/back.png" local-class="back"/>
 {{/link-to}}
 
 <h2 local-class="plan_title">Plan a trip</h2>
 
-
 <div local-class="container">
-    {{#if error}}
-        <div class="ui black message">
-            <div class="header">
-                Error
-            </div>
-            <p>	{{error}}
-            </p>
-        </div>
-    {{/if}}
-    <table class="ui inverted table" local-class="parameters">
-        <thead>
-        <tr>
-            <th>Vehicle</th>
-            <th>Quantity</th>
-            <th>Departure</th>
-            <th>Arrival</th>
-            <th>Time</th>
-            <th></th>
+	{{#if error}}
+		<div class="ui black message">
+			<div class="header">
+				Error
+			</div>
+			<p>	{{error}}
+			</p>
+		</div>
+	{{/if}}
+	<table class="ui inverted table" local-class="parameters">
+		<thead>
+		<tr>
+			<th>Vehicle</th>
+			<th>Quantity</th>
+			<th>Departure</th>
+			<th>Arrival</th>
+			<th>Time</th>
+			<th></th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td class="middle aligned">Mercedes AMG</td>
+			<td class="middle aligned">2</td>
+			<td class="middle aligned">Paris</td>
+			<td class="middle aligned">Marseille</td>
+			<td class="middle aligned">11:53</td>
+			<td class="middle aligned">
+				<div class="ui buttons">
+					<button class="ui orange button"
+						{{action "buy" vehicle}}>
+						START
+					</button>
+				</div>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<table class="ui inverted table" local-class="preview">
+		<tbody>
+		<tr>
+			<td class="middle aligned">
+				<div local-class="map">
 
-        </tr>
-        </thead>
-        <tbody>
-                <tr>
-                    <td class="middle aligned">Mercedes AMG</td>
-                    <td class="middle aligned">2</td>
-                    <td class="middle aligned">Paris</td>
-                    <td class="middle aligned">Marseille</td>
-                    <td class="middle aligned">11:53</td>
-                    <td class="middle aligned">
-                        <div class="ui buttons">
-                            <button class="ui orange button"
-                                {{action "buy" vehicle}}>
-                                START
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-        </tbody>
-    </table>
-    <table class="ui inverted table" local-class="preview">
-        <tbody>
-        <tr>
-            <td class="middle aligned">
-                <img src="/assets/images/googlemap.png" local-class="map"/>
-            </td>
-            <td class="right aligned" local-class="estimation">
-                <p><br>Estimated Distance : <br><br><b>775 km</b></p>
-                <p>Estimated Duration : <br><br><b>7h30</b></p>
-                <p>Estimated Benefice : <br><br><b>535 €</b></p>
-
-            </td>
-
-        </tr>
-        </tbody>
-    </table>
+				</div>
+			</td>
+			<td class="right aligned" local-class="estimation">
+				<p><br>Estimated Distance : <br><br><b>775 km</b></p>
+				<p>Estimated Duration : <br><br><b>7h30</b></p>
+				<p>Estimated Benefice : <br><br><b>535 €</b></p>
+			</td>
+		</tr>
+		</tbody>
+	</table>
 </div>
-
 
 {{outlet}}

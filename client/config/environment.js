@@ -17,14 +17,21 @@ module.exports = environment => {
       }
     },
     contentSecurityPolicy: {
-      'connect-src': '\'self\' http://localhost:3000',
+      'connect-src': "'self' http://localhost:3000  maps.gstatic.com",
       'default-src': "'none'",
-      'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
-      'font-src': "'self'",
-      'img-src': "'self'",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' *.googleapis.com maps.gstatic.com",
+      'font-src': "'self' fonts.gstatic.com",
+      'img-src': "'self' *.googleapis.com maps.gstatic.com csi.gstatic.com",
       'report-uri':"'localhost'",
-      'style-src': "'self' 'unsafe-inline'",
+      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com maps.gstatic.com",
       'frame-src': "'none'"
+    },
+    googleMap: {
+      // your configuration goes in here
+      libraries: ['places', 'geometry'], // milage varies based on g-maps supported features
+      apiKey: 'AIzaSyDQyUqI_lvtj0ts3Da5nk60xysaPna6Hys',
+      lazyLoad: false, // default
+      language: 'Ja'
     },
     APP: {
       API_HOST: 'http://localhost:3000'
@@ -34,41 +41,39 @@ module.exports = environment => {
     moment: {
       outputFormat: 'L'
     },
+    torii: {
+      providers: {
+        'facebook-oauth2': {
+          apiKey: '600326566837912',
+          scope: 'email, public_profile',
+          clientSecret: 'c72872bf006069482b9e8e4671563e1d',
+          redirectUri: 'http://localhost:4200/'
+        }
+      }
+    },
     'ember-simple-auth': {
       authenticationRoute: 'login',
       routeAfterAuthentication: 'dashboard',
       routeIfAlreadyAuthenticated: 'dashboard'
-    }
-  };
-
-  ENV['ember-toastr'] = {
-    injectAs: 'toast',
-    toastrOptions: {
-      closeButton: true,
-      debug: false,
-      newestOnTop: false,
-      progressBar: true,
-      positionClass: 'toast-bottom-center',
-      preventDuplicates: true,
-      onclick: null,
-      showDuration: '300',
-      hideDuration: '1000',
-      timeOut: '4000',
-      extendedTimeOut: '1000',
-      showEasing: 'swing',
-      hideEasing: 'linear',
-      showMethod: 'fadeIn',
-      hideMethod: 'fadeOut'
-    }
-  };
-
-  ENV['torii'] = {
-    providers: {
-      'facebook-oauth2': {
-        apiKey: '600326566837912',
-        scope: 'email, public_profile',
-        clientSecret: 'c72872bf006069482b9e8e4671563e1d',
-        redirectUri: 'http://localhost:4200/'
+    },
+    'ember-toastr': {
+      injectAs: 'toast',
+      toastrOptions: {
+        closeButton: true,
+        debug: false,
+        newestOnTop: false,
+        progressBar: true,
+        positionClass: 'toast-bottom-center',
+        preventDuplicates: true,
+        onclick: null,
+        showDuration: '300',
+        hideDuration: '1000',
+        timeOut: '4000',
+        extendedTimeOut: '1000',
+        showEasing: 'swing',
+        hideEasing: 'linear',
+        showMethod: 'fadeIn',
+        hideMethod: 'fadeOut'
       }
     }
   };
@@ -93,9 +98,9 @@ module.exports = environment => {
   }
 
   /*
-  if (environment === 'production') {
+   if (environment === 'production') {
 
-  }
-  */
+   }
+   */
   return ENV;
 };
