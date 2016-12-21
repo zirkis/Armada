@@ -41,12 +41,12 @@
 	width: 100%;
 }
 .clock {
-	line-height: 100px;
+	line-height: 110px;
 	font-size: 4.1em;
 	text-align: center;
 	font-family: 'ONEDAY';
 	margin: 0;
-	margin-bottom: 15px;
+	margin-bottom: 20px;
 	padding: 0;
 	height: 100px;
 	background-color: rgba(255,255,255,0.9);
@@ -54,7 +54,7 @@
 	border-radius: 5px;
 }
 .total_cars {
-	line-height: 100px;
+	line-height: 110px;
 	height: 100px;
 	background-color: rgba(255,255,255,0.9);
 	border-radius: 5px 0 0 5px;
@@ -66,13 +66,19 @@
 .number_cars
 {
 	text-align: center;
-	line-height: 50px;
+	line-height: 55px;
 	font-size: 2.8em;
 	font-family: 'ONEDAY';
-	background-color: #D80027;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a90329+0,8f0222+44,6d0019+100;Brown+Red+3D */
+	background: #a90329; /* Old browsers */
+	background: -moz-linear-gradient(top,  #a90329 0%, #8f0222 44%, #6d0019 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #a90329 0%,#8f0222 44%,#6d0019 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #a90329 0%,#8f0222 44%,#6d0019 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 ); /* IE6-9 */
+
 	border-radius: 0 5px 5px 0;
 	height: 100px;
-	margin-bottom: 15px;
+	margin-bottom: 20px;
 }
 .number_cars_key {
 	background-color: #D80027;
@@ -83,7 +89,7 @@
 .unused_cars {
 	min-height: 100px;
 	margin: 0;
-	margin-bottom: 15px;
+	margin-bottom: 20px;
 	padding: 0;
 	background-color: rgba(255,255,255,0.9);
 	border-radius: 5px;
@@ -94,16 +100,16 @@
 	background-color: rgba(255,255,255,0.9);
 	border-radius: 5px;
 	border : 1px rgb(160,245,240) solid;
-	margin-bottom: 15px;
+	margin-bottom: 20px;
 }
 .number_used_cars, .number_unused_cars{
-	line-height: 100px;
+	line-height: 115px;
 	font-size: 4.4em;
 	font-family: 'ONEDAY';
 }
 .number_used_cars_key, .number_unused_cars_key{
-	text-align: center;
-	line-height: 50px;
+	text-align: left;
+	line-height: 52px;
 	font-size: 1.5em;
 	font-family: 'ONEDAY';
 }
@@ -115,9 +121,15 @@
 }
 .view_rides, .plan_trip{
 	text-align: center;
-	line-height: 100px;
+	line-height: 110px;
 	height: 98px;
-	background-color: #D80027;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a90329+0,8f0222+44,6d0019+100;Brown+Red+3D */
+	background: #a90329; /* Old browsers */
+	background: -moz-linear-gradient(top,  #a90329 0%, #8f0222 44%, #6d0019 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #a90329 0%,#8f0222 44%,#6d0019 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #a90329 0%,#8f0222 44%,#6d0019 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 ); /* IE6-9 */
+
 	border-radius: 5px;
 	font-size: 3em;
 	font-family: 'ONEDAY';
@@ -130,7 +142,7 @@
 	border-radius: 5px;
 	border : 1px rgb(160,245,240) solid;
 	text-align: center;
-	margin-bottom: 15px!important;
+	margin-bottom: 20px!important;
 }
 .total_money_label {
 	height: 102px;
@@ -139,17 +151,22 @@
 	padding: 0px;
 	width: 43%;
 	text-align: center;
-	line-height: 50px;
+	line-height: 55px;
 	font-size: 2.5em;
 	font-family: 'ONEDAY';
-	background-color: #D80027;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a90329+0,8f0222+44,6d0019+100;Brown+Red+3D */
+	background: #a90329; /* Old browsers */
+	background: -moz-linear-gradient(top,  #a90329 0%, #8f0222 44%, #6d0019 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #a90329 0%,#8f0222 44%,#6d0019 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #a90329 0%,#8f0222 44%,#6d0019 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 ); /* IE6-9 */
 	border-radius: 5px 0 0 5px ;
 }
 .total_money {
 	height: 100px;
 	width: 55%;
 	text-align: center;
-	line-height: 100px;
+	line-height: 110px;
 	font-size: 3.8em;
 	font-family: 'ONEDAY';
 }
@@ -189,7 +206,13 @@
 	color: black;
 }
 .plan_trip:hover, .view_rides:hover, .buy:hover {
-	background-color: rgb(242,203,48);
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffaf4b+0,ff920a+100;Orange+3D+%231 */
+	background: #ffaf4b; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffaf4b 0%, #ff920a 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #ffaf4b 0%,#ff920a 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #ffaf4b 0%,#ff920a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', endColorstr='#ff920a',GradientType=0 ); /* IE6-9 */
+
 }
 .unused_cars a:visited, .used_cars a:visited, .buy:visited {
 	text-decoration: none;

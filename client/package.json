@@ -55,6 +55,7 @@
     "broccoli-asset-rev": "^2.4.5",
     "ember-ajax": "^2.4.1",
     "ember-bootstrap": "0.11.3",
+    "ember-browserify": "^1.1.13",
     "ember-cli": "^2.9.1",
     "ember-cli-app-version": "^2.0.0",
     "ember-cli-babel": "^5.1.7",
@@ -81,6 +82,7 @@
     "ember-simple-auth": "^1.2.0-beta.1",
     "ember-toastr": "1.4.1",
     "ember-truth-helpers": "1.2.0",
+    "google-distance": "^1.0.1",
     "loader.js": "^4.0.10",
     "semantic-ui-ember": "2.0.0",
     "torii": "^0.8.0-beta.1"

@@ -16,9 +16,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   },
   model() {
     return Ember.RSVP.hash({
-      user: this.get('sessionAccount').getUser(),
-      fleet: this.store.query('fleet',
-        {filter: {simple: {owner: this.get('sessionAccount').get('userId')}}})
+      user: this.get('sessionAccount').getUser()
     });
   }
 });

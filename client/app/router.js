@@ -27,6 +27,9 @@ Router.map(function() {
 
   this.route('404', {path: '/*path'});
 
+  this.route('rides', function() {
+    this.route('plan');
+  });
 });
 
 export default Router;
