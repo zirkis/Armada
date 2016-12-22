@@ -11,9 +11,7 @@ Router.map(function() {
 
   this.route('login');
   this.route('register');
-
-  this.route('user', function() {});
-
+  
   this.route('profile');
 
   this.route('users', function() {
@@ -25,11 +23,10 @@ Router.map(function() {
   });
   this.route('fleets');
 
-  this.route('404', {path: '/*path'});
+  this.route('rides');
+  this.route('rides.plan', {path: '/rides/plan'});
 
-  this.route('rides', function() {
-    this.route('plan');
-  });
+  this.route('404', {path: '/*path'});
 });
 
 export default Router;
