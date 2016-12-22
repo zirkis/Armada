@@ -2,4 +2,84 @@
     <img src="/assets/images/back.png" local-class="back"/>
 {{/link-to}}
 
+<h2 local-class="plan_title">View Rides</h2>
+
+<div local-class="container">
+    {{#if error}}
+        <div class="ui black message">
+            <div class="header">
+                Error
+            </div>
+            <p>	{{error}}
+            </p>
+        </div>
+    {{/if}}
+    <table class="ui inverted table" local-class="parameters">
+        <thead>
+        <tr>
+            <th>Vehicle</th>
+            <th>Quantity</th>
+            <th>Departure</th>
+            <th>Arrival</th>
+            <th>Value</th>
+            <th>Remaining</th>
+            <th>Achievement</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="middle aligned">Mercedes AMG</td>
+            <td class="middle aligned">2</td>
+            <td class="middle aligned">Paris</td>
+            <td class="middle aligned">Marseille</td>
+            <td class="middle aligned">535€</td>
+            <td class="middle aligned">2h51</td>
+            <td class="middle aligned">61%</td>
+            <td class="middle aligned">
+                <div class="ui buttons">
+                    <button class="ui orange button"
+                        {{action "buy" vehicle}}>
+                        <i class="find icon"></i>
+                    </button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="middle aligned">Renault Clio</td>
+            <td class="middle aligned">1</td>
+            <td class="middle aligned">Lorient</td>
+            <td class="middle aligned">Brest</td>
+            <td class="middle aligned">129€</td>
+            <td class="middle aligned">0h23</td>
+            <td class="middle aligned">84%</td>
+            <td class="middle aligned">
+                <div class="ui buttons">
+                    <button class="ui orange button"
+                        {{action "buy" vehicle}}>
+                        <i class="find icon"></i>
+                    </button>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="ui inverted table" local-class="preview">
+        <tbody>
+        <tr>
+            <td class="middle aligned">
+                <div local-class="map">
+                    {{google-map latitude="48.853" longitude="2.35"}}
+                </div>
+            </td>
+            <td class="right aligned" local-class="estimation">
+                <p><br>Distance Traveled: <br><br><b>375 km</b></p>
+                <p>Distance Remaining : <br><br><b>400 km</b></p>
+                <p>Average Speed : <br><br><b>235 km/h</b></p>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
 {{outlet}}
