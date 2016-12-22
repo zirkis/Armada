@@ -31,7 +31,7 @@ module.exports = environment => {
       libraries: ['places', 'geometry'], // milage varies based on g-maps supported features
       apiKey: 'AIzaSyDQyUqI_lvtj0ts3Da5nk60xysaPna6Hys',
       lazyLoad: false, // default
-      language: 'Ja'
+      language: 'Js'
     },
     APP: {
       API_HOST: 'http://localhost:3000'
