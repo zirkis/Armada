@@ -48,7 +48,7 @@ const Validations = buildValidations({
   }
 });
 
-export default DS.Model.extend(Validations,{
+export default DS.Model.extend(Validations, {
   brand: DS.attr('string'),
   make: DS.attr('string'),
   price: DS.attr('number'),

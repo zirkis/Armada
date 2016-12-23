@@ -6,8 +6,7 @@
 	width: 50px;
 	height: 50px;
 }
-.profile_form
-{
+.profile_form {
 	margin: 0 auto;
 	margin-bottom: 10px;
 	background-color: rgba(255,255,255,0.92);
@@ -17,53 +16,45 @@
 	font-family: 'ONEDAY';
 	box-shadow: 0 8px 16px 0 rgba(255,255,255,0.4), 0 6px 20px 0 rgba(255,255,255,0.39);
 }
-.profile_form label
-{
+.profile_form label {
 	font-size: 1.2em;
 	font-weight: normal;
 }
-.profile_show
-{
+.profile_show {
 	width: 49%;
 	text-align: center;
 	padding-left: 1%;
 }
-.profile_edit, .profile_show
-{
+.profile_edit, .profile_show {
 	display: inline-block;
 	vertical-align: top;
 
 }
-.profile_edit
-{
+.profile_edit {
 	width: 49%;
 	border-right: 2px solid black;
 	padding-right: 30px;
 }
-.welcome
-{
+.welcome {
 	margin-bottom: 15px;
 	padding-top:20px;
 	font-size: 2.2em;
 	font-weight: bold;
 	text-align: center;
 }
-.profile_title
-{
+.profile_title {
 	margin-bottom: 15px;
 	padding-top:20px;
 	font-size: 2.2em;
 	font-weight: bold;
 }
-.profilepic
-{
+.profilepic {
 	width: 180px;
 	border-radius: 100px;
 	margin-top: 30px;
 	margin-bottom: 20px;
 }
-.edit_button
-{
+.edit_button {
 	width: 170px;
 	border-radius: 8px;
 	height: 39px;
@@ -78,8 +69,7 @@
 	margin-left: 80px;
 	margin-bottom: 15px;
 }
-.fields
-{
+.fields {
 	height: 30px;
 	width: 100%;
 	border-radius: 3px;
@@ -89,33 +79,27 @@
 	margin-bottom: -10px;
 	margin-top: -10px;
 }
-.profile_info
-{
+.profile_info {
 	text-align: center;
 	margin-bottom: -20px;
 	margin-top: -20px;
 }
-.profile_name
-{
+.profile_name {
 	font-size: 1.5em;
 	margin-bottom: 0px;
 }
-.profile_surname
-{
+.profile_surname {
 	font-size: 1.7em;
 	font-weight: bold;
 	margin-bottom: 0px;
 }
-.profile_email
-{
+.profile_email {
 	font-family: verdana;
 	font-size: 1.15em;
 }
-.email
-{
+.email {
 	font-size: 0.5em;
 }
-.center
-{
+.center {
 	text-align: center;
 }

@@ -33,17 +33,15 @@ export default Ember.Controller.extend({
         .then(vBought => {
           vehicleBought = vBought;
           return this.store.query('fleet',
-            {filter: {simple: {owner: user.get('id') }}});
+            {filter: {simple: {owner: user.get('id')}}});
         })
         .then(fleets => {
           const fleet = fleets.get('firstObject');
-          let vehicles = fleet.get('vehicles');
+          const vehicles = fleet.get('vehicles');
           vehicles.pushObject(vehicleBought);
-          console.log(fleet.data);
           return fleet.save();
         })
         .then(() => {
-          console.log('yooo3');
           user.set('money', user.get('money') - vehicle.get('price'));
           return user.save();
         })

@@ -37,7 +37,8 @@
           "ignore": [
             "ember",
             "client",
-            "ember-simple-auth"
+            "ember-simple-auth",
+						"torii"
           ]
         }
       ]

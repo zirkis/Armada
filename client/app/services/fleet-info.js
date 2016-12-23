@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import Ember from 'ember';
 // import Distance from 'npm:google-distance';
 
@@ -12,14 +13,14 @@ export default Ember.Service.extend({
   rides: null,
   fleetInfo: null,
 
-  // eslint-disable-next-line bject-shorthand
+  // eslint-disable-next-line prefer-arrow-callback
   numberOfVehicles: Ember.computed('vehicles', function () {
     if (this.get('vehicles')) {
       return this.get('vehicles').get('length');
     }
     return 0;
   }),
-  // eslint-disable-next-line bject-shorthand
+  // eslint-disable-next-line prefer-arrow-callback
   availableVehicles: Ember.computed('vehicles', 'rides', function () {
     return 0;
   }),

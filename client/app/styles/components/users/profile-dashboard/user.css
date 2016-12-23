@@ -33,9 +33,7 @@
 	border : 1px rgb(160,245,240) solid;
 	width: 100px;
 	height: 100px;
-	margin-top: 00px;
-}
-.profilepicture {
+	margin-top: 0px;
 	vertical-align: middle;
 }
 .center {
@@ -68,16 +66,13 @@
 	font-size: 6em;
 	font-family: 'ONEDAY';
 }
-.number_cars
-{
+.number_cars {
 	text-align: center;
 	line-height: 45px;
 	font-size: 3em;
 	font-family: 'ONEDAY';
 	padding-top: 40px;
-
 	background-color: #D80027;
-
 	border-radius: 0 5px 5px 0;
 	height: 160px;
 	margin-bottom: 20px;
@@ -131,7 +126,6 @@
 	line-height: 110px;
 	height: 107px;
 	background-color: #D80027;
-
 	border-radius: 5px;
 	font-size: 3.5em;
 	font-family: 'ONEDAY';
@@ -161,7 +155,6 @@
 	font-family: 'ONEDAY';
 	background-color: #D80027;
 	border-radius: 5px 0 0 5px ;
-
 }
 .total_money {
 	height: 130px;
@@ -171,7 +164,6 @@
 	font-size: 3.8em;
 	font-family: 'ONEDAY';
 	padding-top: 30px;
-
 }
 .total_money_label, .total_money {
 	display: inline-block;
@@ -185,14 +177,12 @@
 	border-radius: 5px 0px 0px 5px;
 	font-size: 2.3em;
 	font-family: 'ONEDAY';
-
 }
 .bank_amount {
 	font-size: 3.6em;
 	font-family: 'ONEDAY';
 	text-align: center;
 	height: 100px;
-
 }
 .buy {
 	height: 160px;
@@ -200,7 +190,6 @@
 	border-radius: 5px;
 	border : 1px rgb(160,245,240) solid;
 	margin-left: 15px;
-
 }
 .buy p {
 	text-align: center;
@@ -220,7 +209,6 @@
 	background: -webkit-linear-gradient(top,  #ffaf4b 0%,#ff920a 100%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(to bottom,  #ffaf4b 0%,#ff920a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', endColorstr='#ff920a',GradientType=0 ); /* IE6-9 */
-
 }
 .unused_cars a:visited, .used_cars a:visited, .buy:visited {
 	text-decoration: none;

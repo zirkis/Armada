@@ -29,8 +29,26 @@
 		<tr>
 			<td class="middle aligned">Mercedes AMG</td>
 			<td class="middle aligned">2</td>
-			<td class="middle aligned">Paris</td>
-			<td class="middle aligned">Marseille</td>
+			<td class="middle aligned">
+				<div local-class="input">
+					{{
+					g-autocomplete
+					value=address
+					on-select=(action "didUpdatePlace")
+					on-select-error=(action "invalidUserSelection")
+					}}
+				</div>
+			</td>
+			<td class="middle aligned">
+				<div local-class="input">
+					{{
+					g-autocomplete
+					value=address
+					on-select=(action "didUpdatePlace")
+					on-select-error=(action "invalidUserSelection")
+					}}
+				</div>
+			</td>
 			<td class="middle aligned">11:53</td>
 			<td class="middle aligned">
 				<div class="ui buttons">
@@ -48,7 +66,7 @@
 		<tr>
 			<td class="middle aligned">
 				<div local-class="map">
-                    {{google-map latitude="48.853" longitude="2.35"}}
+					{{google-map latitude="48.853" longitude="2.35"}}
 				</div>
 			</td>
 			<td class="right aligned" local-class="estimation">

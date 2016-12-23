@@ -10,7 +10,7 @@
 }
 .registerscreen {
 	width: 105%;
-  height: 115%;
+	height: 115%;
 }
 .back {
 	position: relative;
@@ -35,16 +35,16 @@
 	box-shadow: 0 8px 16px 0 rgba(255,255,255,0.4), 0 6px 20px 0 rgba(255,255,255,0.39);
 }
 .register_form label {
-  font-size: 1.1em;
-  font-weight: normal;
-  margin-bottom: 0px;
+	font-size: 1.1em;
+	font-weight: normal;
+	margin-bottom: 0px;
 }
 .center {
 	text-align: center;
 }
 .welcome {
 	margin-bottom: 15px;
-  padding-top: 15px;
+	padding-top: 15px;
 	font-size: 2.2em;
 	font-weight: bold;
 }
@@ -55,9 +55,9 @@
 	font-family: 'verdana';
 	font-size: 0.9em;
 	padding-left: 5px;
-  margin-bottom: -10px;
-  margin-top: -10px;}
-
+	margin-bottom: -10px;
+	margin-top: -10px;
+}
 .red {
 	color: red;
 }
@@ -73,5 +73,5 @@
 	color: white;
 	border: none;
 	margin-top: 0px;
-  margin-bottom: 20px;
+	margin-bottom: 20px;
 }

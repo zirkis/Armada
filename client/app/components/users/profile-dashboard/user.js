@@ -9,7 +9,7 @@ export default Ember.Component.extend({
   init() {
     this._super(...arguments);
     this.get('fleetInfo').loadInfo();
-    //this.get('fleetInfo').test();
+    // this.get('fleetInfo').test();
   },
   actions: {
     logout() {

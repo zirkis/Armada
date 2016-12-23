@@ -29,7 +29,7 @@ module.exports = environment => {
     googleMap: {
       // your configuration goes in here
       libraries: ['places', 'geometry'], // milage varies based on g-maps supported features
-      apiKey: 'AIzaSyDQyUqI_lvtj0ts3Da5nk60xysaPna6Hys',
+      apiKey: 'AIzaSyC32lAlY-QGz1gF34mLg5-cis022ZBotco',
       lazyLoad: false, // default
       language: 'Js'
     },

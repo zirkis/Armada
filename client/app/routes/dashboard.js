@@ -11,6 +11,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   title: function () {
     this.get('sessionAccount').getName()
       .then(name => {
+        // eslint-disable-next-line no-undef
         document.title = `Armada -  ${name}`;
       });
   },
