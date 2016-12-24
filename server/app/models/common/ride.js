@@ -1,6 +1,5 @@
 'use strict';
 const mongoose = require('mongoose');
-const distance = require('google-distance');
 mongoose.Promise = require('bluebird');
 
 const Schema = mongoose.Schema;
@@ -25,18 +24,6 @@ module.exports = {
     urlTemplates: {
       self: `${self}/api/rides/{id}`,
       relationship: `${self}/api/rides/{ownerId}/relationships/{path}`
-    },
-    beforeSave: (resource, req, res, superFn) => { // jshint ignore:line
-      distance.get(
-        {
-          origin: 'San Francisco, CA',
-          destination: 'San Diego, CA'
-        },
-        function(err, data) {
-          if (err) return console.log(err);
-          console.log(data);
-        });
-      return resource;
     }
   }
 };

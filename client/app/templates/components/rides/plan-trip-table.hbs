@@ -1,0 +1,91 @@
+<div local-class="container">
+	{{#if error}}
+		<div class="ui black message">
+			<div class="header">
+				Error
+			</div>
+			<p>	{{error}}
+			</p>
+		</div>
+	{{/if}}
+	<table class="ui inverted table" local-class="parameters">
+		<thead>
+		<tr>
+			<th>Vehicle</th>
+			<th>Quantity</th>
+			<th>Departure</th>
+			<th>Arrival</th>
+			<th>Time</th>
+			<th></th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td class="middle aligned">
+				{{#ui-dropdown class="selection fluid"
+				selected=vehicleSelected onChange=(action 'updateVehicle' vehicleSelected)}}
+					<div class="default text">Available vehicle ...</div>
+					<i class="dropdown icon"></i>
+					<div class="menu">
+						{{#each fleetInfo.vehicles as |vehicle|}}
+							<div class="item" data-value="{{vehicle}}">
+								{{vehicle.model}}
+							</div>
+						{{/each}}
+					</div>
+				{{/ui-dropdown}}
+			</td>
+			<td class="middle aligned">
+				{{fleetInfo.numberOfVehicles}}
+			</td>
+			<td class="middle aligned">
+				<div local-class="input">
+					{{
+					g-autocomplete
+					value=departureAddress
+					on-select=(action "didUpdateDeparture")
+					on-select-error=(action "invalidUserSelection")
+					}}
+				</div>
+			</td>
+			<td class="middle aligned">
+				<div local-class="input">
+					{{
+					g-autocomplete
+					value=arrivalAddress
+					on-select=(action "didUpdateArrival")
+					on-select-error=(action "invalidUserSelection")
+					}}
+				</div>
+			</td>
+			<td class="middle aligned">{{ time }}</td>
+			<td class="middle aligned">
+				<div class="ui buttons">
+					<button class="ui orange button"
+						{{action "buy" vehicle}}>
+						START
+					</button>
+				</div>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<table class="ui inverted table" local-class="preview">
+		<tbody>
+		<tr>
+			<td class="middle aligned">
+				<div local-class="map">
+					{{google-map rides=floatInfo.rides}}
+				</div>
+			</td>
+			<td class="right aligned" local-class="estimation">
+				<p><br>Estimated Distance : <br><br><b>775 km</b></p>
+				<p>Estimated Duration : <br><br><b>7h30</b></p>
+				<p>Estimated Benefice : <br><br><b>535 €</b></p>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+</div>
+
+{{yield}}

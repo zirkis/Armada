@@ -1,6 +1,5 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import Ember from 'ember';
-// import Distance from 'npm:google-distance';
 
 const {service} = Ember.inject;
 
@@ -11,6 +10,7 @@ export default Ember.Service.extend({
   name: null,
   vehicles: null,
   rides: null,
+  fleet: null,
   fleetInfo: null,
 
   // eslint-disable-next-line prefer-arrow-callback
@@ -50,24 +50,12 @@ export default Ember.Service.extend({
           {filter: {vehicleId: ids}});
       })
       .then(rides => {
+        console.log(rides);
         this.set('rides', rides);
         this.set('error', false);
       })
       .catch(() => {
         this.set('error', true);
       });
-  },
-  test() {
-    /*
-    Distance.get(
-      {
-        origin: 'San Francisco, CA',
-        destination: 'San Diego, CA'
-      },
-      function(err, data) {
-        if (err) {return console.log(err);}
-        console.log(data);
-      });
-      */
   }
 });

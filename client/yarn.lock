@@ -1469,6 +1469,12 @@ ember-cli-document-title@0.3.3:
   dependencies:
     ember-cli-babel "^5.1.6"
 
+ember-cli-g-maps@0.5.6:
+  version "0.5.6"
+  resolved "https://registry.yarnpkg.com/ember-cli-g-maps/-/ember-cli-g-maps-0.5.6.tgz#ec0a748a33a444f860b98efb1c31b064f9cd7784"
+  dependencies:
+    ember-cli-babel "^5.1.7"
+
 ember-cli-get-component-path-option@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/ember-cli-get-component-path-option/-/ember-cli-get-component-path-option-1.0.0.tgz#0d7b595559e2f9050abed804f1d8eff1b08bc771"
