@@ -3,6 +3,7 @@ import Ember from 'ember';
 
 // eslint-disable-next-line no-undef
 const Google = google;
+const {isEmpty} = Ember;
 
 export default Ember.Component.extend({
   // Data to display
@@ -36,7 +37,7 @@ export default Ember.Component.extend({
   eol: [],
 
   // Insert map in the map-canvas container
-  insertMap: function () {
+  didInsertElement() {
     const container = this.$('.map-canvas')[0];
     const options = {
       zoom: 12,
@@ -54,14 +55,16 @@ export default Ember.Component.extend({
     });
     this.set('map', map);
     this.setRoutes();
-  }.on('didInsertElement'),
-
+  },
   // Set the route on the map
   setRoutes: function () {
     const rides = this.get('rides');
-    if (!rides) {
+    console.log(rides);
+    if (isEmpty(rides)) {
+      console.log('2');
       return;
     }
+    console.log('3');
     const map = this.get('map');
     const departurePlaces = rides.map(ride => {
       return ride.get('departurePlace');

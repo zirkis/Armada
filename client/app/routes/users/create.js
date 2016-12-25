@@ -10,7 +10,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   toast: service(),
   title: 'Create user',
   beforeModel() {
-    this.get('sessionAccount').getRole()
+    return this.get('sessionAccount').getRole()
       .then(role => {
         if (role !== 'admin') {
           this.transitionTo('dashboard');

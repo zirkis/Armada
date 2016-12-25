@@ -24,6 +24,10 @@ module.exports = {
     urlTemplates: {
       self: `${self}/api/rides/{id}`,
       relationship: `${self}/api/rides/{ownerId}/relationships/{path}`
+    },
+    beforeSave: (resource, req, res, superFn) => { // jshint ignore:line
+      resource._attrs.departureTime = Date.now();
+      return resource;
     }
   }
 };

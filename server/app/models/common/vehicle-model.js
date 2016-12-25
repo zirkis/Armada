@@ -11,7 +11,7 @@ const vehicleSchema = new Schema({
   make: {type: String, required: true},
   price: {type: Number, required: true},
   speed: {type: Number, required: true},
-  pictureurl: {type: String, required: true}
+  pictureUrl: {type: String, required: true}
 });
 
 const model = mongoose.model('VehicleModel', vehicleSchema);

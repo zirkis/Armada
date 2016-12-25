@@ -31,7 +31,7 @@ export default Ember.Service.extend({
     }
   ),
   loadInfo() {
-    this.get('store').query('fleet',
+    return this.get('store').query('fleet',
       {filter: {simple: {owner: this.get('sessionAccount').get('userId')}}})
       .then(fleets => {
         const fleet = fleets.get('firstObject');
@@ -50,7 +50,6 @@ export default Ember.Service.extend({
           {filter: {vehicleId: ids}});
       })
       .then(rides => {
-        console.log(rides);
         this.set('rides', rides);
         this.set('error', false);
       })

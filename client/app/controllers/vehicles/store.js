@@ -27,7 +27,6 @@ export default Ember.Controller.extend({
             owner: usr,
             model: vehicle
           });
-
           return vBought.save();
         })
         .then(vBought => {

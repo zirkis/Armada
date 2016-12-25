@@ -3,6 +3,7 @@ import Ember from 'ember';
 
 // eslint-disable-next-line no-undef
 const Google = google;
+
 const {service} = Ember.inject;
 
 export default Ember.Component.extend({
@@ -27,10 +28,6 @@ export default Ember.Component.extend({
     console.log(`Distance: ${distance}`);
     return distance;
   }),
-  init() {
-    this._super(...arguments);
-    return this.get('fleetInfo').loadInfo();
-  },
   actions: {
     didUpdateDeparture(place) {
       this.set('departure', place);

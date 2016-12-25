@@ -7,7 +7,13 @@ const {service} = Ember.inject;
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
   sessionAccount: service('session-account'),
+  fleetInfo: service('fleet-info'),
   beforeModel() {
-    this.get('sessionAccount').loadCurrentUser();
+    return this.get('sessionAccount').loadCurrentUser()
+      .then(user => {
+        if (user.get('role') !== 'admin') {
+          return this.get('fleetInfo').loadInfo();
+        }
+    });
   }
 });

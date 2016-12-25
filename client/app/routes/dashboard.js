@@ -7,17 +7,20 @@ const {service} = Ember.inject;
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   sessionAccount: service('session-account'),
+  fleetInfo: service('fleet-info'),
+  user: null,
   // eslint-disable-next-line bject-shorthand
-  title: function () {
-    this.get('sessionAccount').getName()
+  title: null,
+  beforeModel() {
+    return this.get('sessionAccount').getName()
       .then(name => {
-        // eslint-disable-next-line no-undef
-        document.title = `Armada -  ${name}`;
+        this.set('title', `Armada -  ${name}`);
       });
   },
   model() {
     return Ember.RSVP.hash({
-      user: this.get('sessionAccount').getUser()
+      user: this.get('user'),
+      fleetInfo: this.get('fleetInfo')
     });
   }
 });

@@ -40,7 +40,7 @@ const Validations = buildValidations({
       })
     ]
   },
-  pictureurl: {
+  pictureUrl: {
     description: 'Picture Url',
     validators: [
       validator('presence', true)
@@ -53,5 +53,5 @@ export default DS.Model.extend(Validations, {
   make: DS.attr('string'),
   price: DS.attr('number'),
   speed: DS.attr('number'),
-  pictureurl: DS.attr('string')
+  pictureUrl: DS.attr('string')
 });

@@ -9,19 +9,24 @@ export default ToriiAuthenticator.extend({
   session: service('session'),
   torii: service(),
   authenticate(provider, options) {
+    let data;
     this._assertToriiIsPresent();
 
-    return this.get('torii').open(provider, options || {}).then(data => {
-      return this._createUserIfNotExist(data.user)
-        .then(() => {
-          this._authenticateWithProvider(provider, data);
-          return data;
-        });
-    });
+    return this.get('torii').open(provider, options || {})
+      .then(d => {
+        data = d;
+        return this._createUserIfNotExist(data.user);
+      })
+      .then(() => {
+        this._authenticateWithProvider(provider, data);
+        return data;
+      });
   },
   _createUserIfNotExist(user) {
+    let userRecord = null;
+    const session = this.get('session');
     return new RSVP.Promise((resolve, reject) => {
-      const session = this.get('session');
+
       this._checkIfUserExist(user.email)
         .then(id => {
           if (id) {
@@ -30,11 +35,19 @@ export default ToriiAuthenticator.extend({
             return;
           }
           this._createUser(user)
-            .then(userId => {
-              session.set('data.user_id', userId);
-              resolve(userId);
+            .then(usr => {
+              userRecord = usr;
+              session.set('data.user_id', usr.get('id'));
+              return this._createFleet(usr);
+            })
+            .then(() => {
+              resolve(session.get('data.user_id'));
             })
             .catch(err => {
+              if(userRecord) {
+                userRecord.destroy();
+              }
+              session.set('data.user_id', null);
               reject(err);
             });
         });
@@ -59,44 +72,25 @@ export default ToriiAuthenticator.extend({
     });
   },
   _createFleet(user) {
-    return new RSVP.Promise((resolve, reject) => {
-      const fleetRecord = this.get('store').createRecord('fleet', {
-        name: 'My fleet',
-        owner: user
-      });
-      fleetRecord.save()
-        .then(fleet => {
-          resolve(fleet);
-        })
-        .catch(err => {
-          reject(err);
-        });
+    const fleetRecord = this.get('store').createRecord('fleet', {
+      name: 'My fleet',
+      owner: user
     });
+    return fleetRecord.save();
   },
   _createUser(user) {
-    return new RSVP.Promise((resolve, reject) => {
-      const userRecord = this.get('store').createRecord('user', {
-        role: 'user',
-        name: user.name,
-        surname: user.name,
-        email: user.email,
-        money: 12000
-      });
-      userRecord.save()
-        .then(usr => {
-          return this._createFleet(usr);
-        })
-        .then(() => {
-          resolve();
-        })
-        .catch(err => {
-          reject(err);
-        });
+    const userRecord = this.get('store').createRecord('user', {
+      role: 'user',
+      name: user.name,
+      surname: user.name,
+      email: user.email,
+      money: 12000
     });
+    return userRecord.save();
   },
   invalidate(data) {
     const session = this.get('session');
-    session.set('data.userId', null);
+    session.set('data.user_id', null);
     return this.get('torii').close(this._provider, data).then(() => {
       delete this._provider;
     });
