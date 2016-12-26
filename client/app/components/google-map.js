@@ -59,12 +59,9 @@ export default Ember.Component.extend({
   // Set the route on the map
   setRoutes: function () {
     const rides = this.get('rides');
-    console.log(rides);
     if (isEmpty(rides)) {
-      console.log('2');
       return;
     }
-    console.log('3');
     const map = this.get('map');
     const departurePlaces = rides.map(ride => {
       return ride.get('departurePlace');

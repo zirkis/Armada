@@ -8,7 +8,6 @@ const {service} = Ember.inject;
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   sessionAccount: service('session-account'),
   fleetInfo: service('fleet-info'),
-  user: null,
   // eslint-disable-next-line bject-shorthand
   title: null,
   beforeModel() {
@@ -19,7 +18,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   },
   model() {
     return Ember.RSVP.hash({
-      user: this.get('user'),
+      user: this.get('sessionAccount').getUser(),
       fleetInfo: this.get('fleetInfo')
     });
   }
