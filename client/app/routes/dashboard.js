@@ -10,7 +10,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   fleetInfo: service('fleet-info'),
   // eslint-disable-next-line bject-shorthand
   title: null,
-  beforeModel() {
+  beforeModel(transition) {
+    this._super(transition);
     return this.get('sessionAccount').getName()
       .then(name => {
         this.set('title', `Armada -  ${name}`);

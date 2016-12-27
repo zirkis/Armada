@@ -30,6 +30,8 @@ export default Ember.Service.extend({
         .catch(() => {
           if (session.get('isAuthenticated')) {
             session.invalidate();
+          } else {
+            session.set('data.user_id', null);
           }
           return null;
         });
@@ -44,12 +46,18 @@ export default Ember.Service.extend({
   },
   getRole() {
     return this.loadCurrentUser().then(user => {
-      return user.get('role');
+      if (user) {
+        return user.get('role');
+      }
+      return null;
     });
   },
   getName() {
     return this.loadCurrentUser().then(user => {
-      return user.get('name');
+      if (user) {
+        return user.get('name');
+      }
+      return null;
     });
   }
 });

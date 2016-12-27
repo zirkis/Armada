@@ -9,7 +9,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   sessionAccount: service('session-account'),
   toast: service(),
   title: 'Create user',
-  beforeModel() {
+  beforeModel(transition) {
+    this._super(transition);
     return this.get('sessionAccount').getRole()
       .then(role => {
         if (role !== 'admin') {

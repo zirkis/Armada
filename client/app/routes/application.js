@@ -11,9 +11,10 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
   beforeModel() {
     return this.get('sessionAccount').loadCurrentUser()
       .then(user => {
-        if (user.get('role') !== 'admin') {
+        if (user && user.get('role') !== 'admin') {
+          console.log(user);
           return this.get('fleetInfo').loadInfo();
         }
-    });
+      });
   }
 });

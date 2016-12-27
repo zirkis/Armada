@@ -5,7 +5,8 @@ const {service} = Ember.inject;
 
 export default Ember.Route.extend({
   sessionAccount: service('session-account'),
-  beforeModel() {
+  beforeModel(transition) {
+    this._super(transition);
     return this.get('sessionAccount').getUser()
       .then(user => {
         this.set('user', user);

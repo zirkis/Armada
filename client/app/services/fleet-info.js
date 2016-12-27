@@ -31,26 +31,34 @@ export default Ember.Service.extend({
     }
   ),
   loadInfo() {
+    let vehiclesId = null;
     return this.get('store').query('fleet',
       {filter: {simple: {owner: this.get('sessionAccount').get('userId')}}})
       .then(fleets => {
         const fleet = fleets.get('firstObject');
-        this.set('fleet', fleet);
 
         if (!fleet) {
           this.set('error', true);
           return;
         }
         this.set('name', fleet.get('name'));
-        this.set('vehicles', fleet.get('vehicles'));
-        const ids = fleet.get('vehicles').map(vehicle => {
+        const vehiclesId = fleet.get('vehicles').map(vehicle => {
           return vehicle.get('id');
         });
         return this.get('store').query('ride',
-          {filter: {vehicleId: ids}});
+          {filter: {vehicleId: vehiclesId}});
       })
       .then(rides => {
         this.set('rides', rides);
+        return this.get('store').query('vehicle-bought', {
+          filter: {id: vehiclesId}
+        });
+      })
+      .then(vehiclesBought => {
+        const vehiclesModel = vehiclesBought.map(vehicle => {
+          return vehicle.get('model');
+        });
+        this.set('vehicles', vehiclesModel);
         this.set('error', false);
       })
       .catch(() => {
