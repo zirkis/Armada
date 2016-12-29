@@ -7,8 +7,7 @@ export default Ember.Controller.extend({
         ride.get('departurePlace').place.formatted_address);
       ride.set('arrivalPlace',
         ride.get('arrivalPlace').place.formatted_address);
-      console.log(ride.toJSON());
-      // ride.save();
+      ride.save();
     }
   }
 });

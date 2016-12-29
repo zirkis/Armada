@@ -16,7 +16,9 @@ const checkAvailability = (lastRide) => {
   if (!lastRide)  {
     return true;
   }
-  return false;
+  // Diff in micro sec
+  const timeSincedeparture = Date.now() - lastRide.get('departureTime');
+  return lastRide.get('travelTime') > timeSincedeparture/(1000);
 };
 
 // TODO          CHECK IF VEHICLE IS USED
@@ -40,7 +42,6 @@ export default Ember.Service.extend({
     const vehiclesLastRide = vehicles.map(vehicle => {
       return lastRide(rides, vehicle.get('id'));
     });
-
     return vehiclesLastRide.filter(vehicleLastRide => {
       return !checkAvailability(vehicleLastRide);
     });

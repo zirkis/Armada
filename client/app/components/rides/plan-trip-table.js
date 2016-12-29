@@ -16,6 +16,7 @@ export default Ember.Component.extend({
   arrivalAddress: null,
   estimatedDistance: 'NA',
   estimatedDuration: 'NA',
+  estimatedBenefice: 'NA',
   calculDuration() {
     const ride = this.get('ride');
     if (!ride.get('departurePlace') || !ride.get('arrivalPlace') ||
@@ -32,9 +33,15 @@ export default Ember.Component.extend({
       if (status === Google.maps.DirectionsStatus.OK) {
         const leg = result.routes[0].legs[0];
         const distance = leg.distance; // en metre
-        // const vehicle = ride.get('vehicleId');
+        const duration = leg.duration;
+        const speed = ride.get('vehicleId.model.speed');
+        const coeff = speed / 100;
+        const benef = (distance.value / 100);
+
+        ride.set('travelTime', duration.value);
         this.set('estimatedDistance', distance.text);
-        this.set('estimatedDuration', distance.value);
+        this.set('estimatedDuration', `${duration.text} * ${coeff}`);
+        this.set('estimatedBenefice', benef);
       }
     });
 
@@ -64,7 +71,7 @@ export default Ember.Component.extend({
     },
     start(ride) {
       if (!ride.get('departurePlace') || !ride.get('arrivalPlace') ||
-        !ride.get('vehicleSelected')) {
+        !ride.get('vehicleId') || !ride.get('travelTime')) {
         return;
       }
       this.sendAction('start', ride);
