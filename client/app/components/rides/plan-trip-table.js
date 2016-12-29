@@ -7,7 +7,6 @@ const Google = google;
 const {service} = Ember.inject;
 
 export default Ember.Component.extend({
-  test: {si: 'o', y: 15},
   store: service('store'),
   ride: null,
   vehicleSelected: null,

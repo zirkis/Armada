@@ -12,17 +12,15 @@ const lastRide = (rides, vehicleBought) => {
   }
   return null;
 };
-const checkAvailability = (lastRide) => {
-  if (!lastRide)  {
+const isRideDone = (ride) => {
+  if (!ride)  {
     return true;
   }
   // Diff in micro sec
-  const timeSincedeparture = Date.now() - lastRide.get('departureTime');
-  return lastRide.get('travelTime') > timeSincedeparture/(1000);
+  const timeSincedeparture = Date.now() - ride.get('departureTime');
+  return ride.get('travelTime') <= (timeSincedeparture/1000);
 };
 
-// TODO          CHECK IF VEHICLE IS USED
-// TODO          FIND A GOOD WAY TO FORMAT AVAILABLE VEHICLES
 export default Ember.Service.extend({
   store: service('store'),
   sessionAccount: service('session-account'),
@@ -30,7 +28,6 @@ export default Ember.Service.extend({
   name: null,
   vehicles: null,
   rides: null,
-  fleetInfo: null,
 
   // eslint-disable-next-line prefer-arrow-callback
   usedVehicles: Ember.computed('vehicles', 'rides', function () {
@@ -43,7 +40,7 @@ export default Ember.Service.extend({
       return lastRide(rides, vehicle.get('id'));
     });
     return vehiclesLastRide.filter(vehicleLastRide => {
-      return !checkAvailability(vehicleLastRide);
+      return !isRideDone(vehicleLastRide);
     });
 
   }),
@@ -59,7 +56,25 @@ export default Ember.Service.extend({
         return lastRide(rides, vehicle.get('id'));
       });
       return vehiclesLastRide.filter(vehicleLastRide => {
-        return checkAvailability(vehicleLastRide);
+        return isRideDone(vehicleLastRide);
+      });
+    }
+  ),
+  rideInProgress: Ember.computed('rides',
+    // eslint-disable-next-line bject-shorthand
+    function () {
+      const rides = this.get('rides');
+      return rides.filter(ride => {
+        return !isRideDone(ride);
+      });
+    }
+  ),
+  rideDone: Ember.computed('rides',
+    // eslint-disable-next-line bject-shorthand
+    function () {
+      const rides = this.get('rides');
+      return rides.filter(ride => {
+        return isRideDone(ride);
       });
     }
   ),

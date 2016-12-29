@@ -14,7 +14,7 @@
 			<th>Vehicle</th>
 			<th>Departure</th>
 			<th>Arrival</th>
-			<th>{{fleetInfo.vehicles.length}}</th>
+			<th></th>
 			<th></th>
 		</tr>
 		</thead>
@@ -26,7 +26,7 @@
 					<div class="default text">Available vehicle ...</div>
 					<i class="dropdown icon"></i>
 					<div class="menu">
-						{{#each fleetInfo.vehicles as |vehicle|}}
+						{{#each fleetInfo.availableVehicles as |vehicle|}}
 							<div class="item" data-value={{vehicle.id}}>
 								{{vehicle.model.brand}} - {{vehicle.model.make}}
 							</div>
@@ -71,7 +71,7 @@
 		<tr>
 			<td class="middle aligned">
 				<div local-class="map">
-					{{google-map rides=fleetInfo.rides}}
+					{{google-map rides=fleetInfo.rideInProgress}}
 				</div>
 			</td>
 			<td class="right aligned" local-class="estimation">
