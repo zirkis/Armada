@@ -3,6 +3,26 @@ import Ember from 'ember';
 
 const {service} = Ember.inject;
 
+const lastRide = (rides, vehicleBought) => {
+  const vehiculeRides = rides.filter(ride => {
+    return ride.get('vehicleId').get('id') === vehicleBought;
+  });
+  if (vehiculeRides) {
+    return vehiculeRides.sortBy('departureTime')[vehiculeRides.length-1];
+  }
+  return null;
+};
+const checkAvailability = (lastRide) => {
+  if (!lastRide)  {
+    return true;
+  }
+  // Diff in micro sec
+  const timeSincedeparture = Date.now() - lastRide.get('departureTime');
+  return lastRide.get('travelTime') > timeSincedeparture/(1000);
+};
+
+// TODO          CHECK IF VEHICLE IS USED
+// TODO          FIND A GOOD WAY TO FORMAT AVAILABLE VEHICLES
 export default Ember.Service.extend({
   store: service('store'),
   sessionAccount: service('session-account'),
@@ -10,24 +30,37 @@ export default Ember.Service.extend({
   name: null,
   vehicles: null,
   rides: null,
-  fleet: null,
   fleetInfo: null,
 
   // eslint-disable-next-line prefer-arrow-callback
-  numberOfVehicles: Ember.computed('vehicles', function () {
-    if (this.get('vehicles')) {
-      return this.get('vehicles').get('length');
+  usedVehicles: Ember.computed('vehicles', 'rides', function () {
+    const rides = this.get('rides');
+    const vehicles = this.get('vehicles');
+    if (!vehicles) {
+      return [];
     }
-    return 0;
+    const vehiclesLastRide = vehicles.map(vehicle => {
+      return lastRide(rides, vehicle.get('id'));
+    });
+    return vehiclesLastRide.filter(vehicleLastRide => {
+      return !checkAvailability(vehicleLastRide);
+    });
+
   }),
-  // eslint-disable-next-line prefer-arrow-callback
-  availableVehicles: Ember.computed('vehicles', 'rides', function () {
-    return 0;
-  }),
-  usedVehicles: Ember.computed('numberOfVehicles', 'availableVehicles',
+  availableVehicles: Ember.computed('vehicles', 'rides',
     // eslint-disable-next-line bject-shorthand
     function () {
-      return this.get('numberOfVehicles') - this.get('availableVehicles');
+      const rides = this.get('rides');
+      const vehicles = this.get('vehicles');
+      if (!vehicles) {
+        return [];
+      }
+      const vehiclesLastRide = vehicles.map(vehicle => {
+        return lastRide(rides, vehicle.get('id'));
+      });
+      return vehiclesLastRide.filter(vehicleLastRide => {
+        return checkAvailability(vehicleLastRide);
+      });
     }
   ),
   loadInfo() {
@@ -42,7 +75,7 @@ export default Ember.Service.extend({
           return;
         }
         this.set('name', fleet.get('name'));
-        const vehiclesId = fleet.get('vehicles').map(vehicle => {
+        vehiclesId = fleet.get('vehicles').map(vehicle => {
           return vehicle.get('id');
         });
         return this.get('store').query('ride',
@@ -50,15 +83,13 @@ export default Ember.Service.extend({
       })
       .then(rides => {
         this.set('rides', rides);
+
         return this.get('store').query('vehicle-bought', {
           filter: {id: vehiclesId}
         });
       })
       .then(vehiclesBought => {
-        const vehiclesModel = vehiclesBought.map(vehicle => {
-          return vehicle.get('model');
-        });
-        this.set('vehicles', vehiclesModel);
+        this.set('vehicles', vehiclesBought);
         this.set('error', false);
       })
       .catch(() => {

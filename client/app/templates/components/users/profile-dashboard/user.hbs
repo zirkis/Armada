@@ -25,7 +25,7 @@
 		</div>
 
 		<div class="col-sm-offset-0 col-sm-4" local-class="total_cars">
-			{{ fleetInfo.numberOfVehicles }}
+			{{ fleetInfo.vehicles.length }}
 		</div>
 		<div class="col-sm-3" local-class="number_cars">
 			Total<br>Fleet
@@ -36,7 +36,7 @@
 	<div class="row">
 		<div local-class="unused_cars">
 			<div class="col-sm-2" local-class="number_unused_cars">
-				{{ fleetInfo.availableVehicles }}
+				{{ fleetInfo.availableVehicles.length }}
 			</div>
 			<div class="col-sm-3 " local-class="number_unused_cars_key">
 				Unused<br>Vehicules
@@ -53,7 +53,7 @@
 	<div class="row">
 		<div local-class="used_cars">
 			<div class="col-sm-2" local-class="number_used_cars">
-				{{ fleetInfo.usedVehicles }}
+				{{ fleetInfo.usedVehicles.length }}
 			</div>
 			<div class="col-sm-3" local-class="number_used_cars_key">
 				used<br>  Vehicules

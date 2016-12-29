@@ -7,44 +7,74 @@ const Google = google;
 const {service} = Ember.inject;
 
 export default Ember.Component.extend({
+  test: {si: 'o', y: 15},
+  store: service('store'),
+  ride: null,
+  vehicleSelected: null,
   fleetInfo: service('fleet-info'),
   departureAddress: null,
-  departure: null,
   arrivalAddress: null,
-  arrival: null,
-  vehicleSelected: null,
-  vehicleSpeed: 1,
-  benefice : 0,
-  revenueperkm : 0.78,
-  distanceTotal: Ember.computed('departure', 'arrival', function () {
-    const departure = this.get('departure');
-    const arrival = this.get('arrival');
-    if (!departure || !arrival) {
-      return 0;
+  estimatedDistance: 'NA',
+  estimatedDuration: 'NA',
+  estimatedBenefice: 'NA',
+  calculDuration() {
+    const ride = this.get('ride');
+    if (!ride.get('departurePlace') || !ride.get('arrivalPlace') ||
+      !this.get('vehicleSelected')) {
+      return;
     }
-    const p1 = new Google.maps.LatLng(departure.lat, departure.lng);
-    const p2 = new Google.maps.LatLng(arrival.lat, arrival.lng);
-    const distance =
-      (Google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 1000)
-        .toFixed(2);
-    console.log(distance);
-    console.log(`Distance: ${distance}`);
-    return Math.round(distance);
-  }),
+    const directionsService = new Google.maps.DirectionsService();
+    const request = {
+      origin: ride.get('departurePlace'),
+      destination: ride.get('arrivalPlace'),
+      travelMode: Google.maps.TravelMode.DRIVING
+    };
+    directionsService.route(request, (result, status) => {
+      if (status === Google.maps.DirectionsStatus.OK) {
+        const leg = result.routes[0].legs[0];
+        const distance = leg.distance; // en metre
+        const duration = leg.duration;
+        const speed = ride.get('vehicleId.model.speed');
+        const coeff = speed / 100;
+        const benef = (distance.value / 100);
+
+        ride.set('travelTime', duration.value);
+        this.set('estimatedDistance', distance.text);
+        this.set('estimatedDuration', `${duration.text} * ${coeff}`);
+        this.set('estimatedBenefice', benef);
+      }
+    });
+
+  },
   actions: {
     didUpdateDeparture(place) {
-      this.set('departure', place);
+      const ride = this.get('ride');
+      ride.set('departurePlace', place);
+      this.calculDuration();
     },
     didUpdateArrival(place) {
-      this.set('arrival', place);
+      const ride = this.get('ride');
+      ride.set('arrivalPlace', place);
+      this.calculDuration();
     },
     updateVehicle(component, id, value) { // jshint ignore:line
-      console.log(id);
+      const ride = this.get('ride');
       this.set('vehicleSelected', id);
-      this.set('vehicleSpeed', parseInt(value.split('>')[1].split('<')[0]));
+      ride.set('vehicleId', this.get('store').peekRecord('vehicle-bought', id));
+      this.calculDuration();
     },
-    invalidUserSelection() {
+    invalidDepartureSelection() {
 
+    },
+    invalidArrivalSelection() {
+
+    },
+    start(ride) {
+      if (!ride.get('departurePlace') || !ride.get('arrivalPlace') ||
+        !ride.get('vehicleId') || !ride.get('travelTime')) {
+        return;
+      }
+      this.sendAction('start', ride);
     }
   }
 });
