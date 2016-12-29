@@ -8,7 +8,7 @@ const self = process.env.SERVER_IP;
 
 // eslint-disable-next-line new-cap
 const rideSchema = new Schema({
-  vehicleId: {type: ObjectId, ref: 'Fleet', required: true},
+  vehicleId: {type: ObjectId, ref: 'VehicleBought', required: true},
   departurePlace: {type: String, required: true},
   departureTime: {type: Date, default: Date.now, required: true},
   travelTime: {type: Number, required: true},

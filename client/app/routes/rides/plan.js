@@ -16,21 +16,7 @@ export default Ember.Route.extend({
       });
   },
   model() {
-    /*
-     this.get('store')
-     .query('vehicle-bought', {simple: {id: '585f102160d97e33a233acb4'}})
-     .then(vehicles => {
-     const ride = this.get('store').createRecord('ride', {
-     vehicleId: vehicles.get('firstObject'),
-     departurePlace: 'Paris',
-     travelTime: 135,
-     arrivalPlace: 'Marseille'
-     });
-     ride.save();
-
-     });
-     */
-    return true;
+    return this.get('store').createRecord('ride');
   }
 
 });

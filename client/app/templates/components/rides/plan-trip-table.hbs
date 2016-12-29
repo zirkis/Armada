@@ -12,10 +12,9 @@
 		<thead>
 		<tr>
 			<th>Vehicle</th>
-			<th>Quantity</th>
 			<th>Departure</th>
 			<th>Arrival</th>
-			<th>Time</th>
+			<th>{{fleetInfo.vehicles.length}}</th>
 			<th></th>
 		</tr>
 		</thead>
@@ -28,15 +27,12 @@
 					<i class="dropdown icon"></i>
 					<div class="menu">
 						{{#each fleetInfo.vehicles as |vehicle|}}
-							<div class="item" data-value="{{vehicle}}">
-								{{vehicle.brand}} - {{vehicle.make}}
+							<div class="item" data-value={{vehicle.id}}>
+								{{vehicle.model.brand}} - {{vehicle.model.make}}
 							</div>
 						{{/each}}
 					</div>
 				{{/ui-dropdown}}
-			</td>
-			<td class="middle aligned">
-				{{fleetInfo.numberOfVehicles}}
 			</td>
 			<td class="middle aligned">
 				<div local-class="input">
@@ -44,7 +40,7 @@
 					g-autocomplete
 					value=departureAddress
 					on-select=(action "didUpdateDeparture")
-					on-select-error=(action "invalidUserSelection")
+					on-select-error=(action "invalidDepartureSelection")
 					}}
 				</div>
 			</td>
@@ -54,7 +50,7 @@
 					g-autocomplete
 					value=arrivalAddress
 					on-select=(action "didUpdateArrival")
-					on-select-error=(action "invalidUserSelection")
+					on-select-error=(action "invalidArrivalSelection")
 					}}
 				</div>
 			</td>
@@ -62,7 +58,7 @@
 			<td class="middle aligned">
 				<div class="ui buttons">
 					<button class="ui orange button"
-						{{action "buy" vehicle}}>
+						{{action "start" ride}}>
 						START
 					</button>
 				</div>
@@ -79,8 +75,8 @@
 				</div>
 			</td>
 			<td class="right aligned" local-class="estimation">
-				<p><br>Estimated Distance : <br><br><b>775 km</b></p>
-				<p>Estimated Duration : <br><br><b>7h30</b></p>
+				<p><br>Estimated Distance : <br><br><b>{{ estimatedDistance }}</b></p>
+				<p>Estimated Duration : <br><br><b>{{ estimatedDuration }}</b></p>
 				<p>Estimated Benefice : <br><br><b>535 €</b></p>
 			</td>
 		</tr>

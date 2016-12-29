@@ -3,6 +3,59 @@ import Ember from 'ember';
 
 // eslint-disable-next-line no-undef
 const Google = google;
+
+Google.maps.Polyline.prototype.GetPointAtDistance = function(metres) {
+  // some awkward special cases
+  if (metres === 0) {return this.getPath().getAt(0);}
+  if (metres < 0) {return null;}
+  if (this.getPath().getLength() < 2) {return null;}
+  var dist=0;
+  var olddist=0;
+  for (var i=1; (i < this.getPath().getLength() && dist < metres); i++) {
+    olddist = dist;
+    dist += Google.maps.geometry.spherical.computeDistanceBetween(
+      this.getPath().getAt(i),
+      this.getPath().getAt(i-1)
+    );
+  }
+  if (dist < metres) {
+    return null;
+  }
+  var p1= this.getPath().getAt(i-2);
+  var p2= this.getPath().getAt(i-1);
+  var m = (metres-olddist)/(dist-olddist);
+  return new Google.maps.LatLng( p1.lat() + (p2.lat()-p1.lat())*m, p1.lng() + (p2.lng()-p1.lng())*m);
+};
+Google.maps.LatLng.prototype.kmTo = function(a) {
+  var e = Math, ra = e.PI/180;
+  var b = this.lat() * ra, c = a.lat() * ra, d = b - c;
+  var g = this.lng() * ra - a.lng() * ra;
+  var f = 2 * e.asin(e.sqrt(e.pow(e.sin(d/2), 2) + e.cos(b) * e.cos
+      (c) * e.pow(e.sin(g/2), 2)));
+  return f * 6378.137;
+};
+
+Google.maps.Polyline.prototype.inKm = function(n) {
+  var a = this.getPath(n), len = a.getLength(), dist = 0;
+  for (var i=0; i < len-1; i++) {
+    dist += a.getAt(i).kmTo(a.getAt(i+1));
+  }
+  return dist;
+};
+Google.maps.Polyline.prototype.GetIndexAtDistance = function(metres) {
+  // some awkward special cases
+  if (metres === 0) {return this.getPath().getAt(0);}
+  if (metres < 0) {return null;}
+  var dist=0;
+  var olddist=0;
+  for (var i=1; (i < this.getPath().getLength() && dist < metres); i++) {
+    olddist = dist;
+    dist += this.getPath().getAt(i).kmTo(this.getPath().getAt(i-1));
+  }
+  if (dist < metres) {return null;}
+  return i;
+};
+
 const {isEmpty} = Ember;
 
 export default Ember.Component.extend({
@@ -34,7 +87,7 @@ export default Ember.Component.extend({
   lastVertex: 1,
   stepnum: 0,
   step: 50, // 5; // metres
-  tick: 100, // milliseconds
+  tick: 2000000, // milliseconds
   eol: [],
 
   // Insert map in the map-canvas container
@@ -58,7 +111,7 @@ export default Ember.Component.extend({
     this.setRoutes();
   },
   // Set the route on the map
-  setRoutes: function () {
+  setRoutes() {
     const rides = this.get('rides');
     if (isEmpty(rides)) {
       return;
@@ -93,7 +146,7 @@ export default Ember.Component.extend({
         this.makeRouteCallback(i, directionsDisplay[i], rendererOptions));
     }
   },
-  makeRouteCallback: function (routeNum, disp, rendererOptions) {
+  makeRouteCallback(routeNum, disp, rendererOptions) {
     const map = this.get('map');
     const polyline = this.get('polyline');
     const poly2 = this.get('poly2');
@@ -104,13 +157,11 @@ export default Ember.Component.extend({
     this.set('bounds', bounds);
 
     if (polyline[routeNum] && (polyline[routeNum].getMap() != null)) {
-      this.startAnimation(routeNum);
+      // this.startAnimation(routeNum);
       return;
     }
-    return function (response, status) {
-
+    return (response, status) => {
       if (status === Google.maps.DirectionsStatus.OK) {
-        // let route = response.routes[0];
         startLocation[routeNum] = {};
         endLocation[routeNum] = {};
 
@@ -119,13 +170,11 @@ export default Ember.Component.extend({
           strokeColor: '#FFFF00',
           strokeWeight: 3
         });
-
         poly2[routeNum] = new Google.maps.Polyline({
           path: [],
           strokeColor: '#FFFF00',
           strokeWeight: 3
         });
-
 
         // For each route, display summary information.
         // LEGS contains all the infos we need: distance, duration (useless
@@ -141,9 +190,8 @@ export default Ember.Component.extend({
           if (i === 0) {
             startLocation[routeNum].latlng = legs[i].start_location;
             startLocation[routeNum].address = legs[i].start_address;
-            //marker = Google.maps.Marker({map:map,position: startLocation.latlng});
-            // marker[routeNum] = this.createMarker(legs[i].start_location, 'start',
-            // legs[i].start_address, "green");
+            marker[routeNum] = this.createMarker(legs[i].start_location, 'start',
+              legs[i].start_address, "green");
           }
           endLocation[routeNum].latlng = legs[i].end_location;
           endLocation[routeNum].address = legs[i].end_address;
@@ -158,15 +206,14 @@ export default Ember.Component.extend({
             }
           }
         }
+        polyline[routeNum].setMap(map);
+        map.fitBounds(bounds);
+        // this.startAnimation(routeNum);
       }
-      polyline[routeNum].setMap(map);
-      map.fitBounds(bounds);
-      //this.startAnimation(routeNum);
-    }; // else alert("Directions request failed: "+status);
+    };
   },
   createMarker(latlng, label, html) {
     const map = this.get('map');
-    // alert("createMarker("+latlng+","+label+","+html+","+color+")");
     const contentString = '<b>'+label+'</b><br>'+html;
     const marker = new Google.maps.Marker({
       position: latlng,
@@ -182,48 +229,46 @@ export default Ember.Component.extend({
     });
     return marker;
   },
-  startAnimation: function (index) {
-    console.log('coucou');
+  startAnimation(index) {
     const map = this.get('map');
     const eol = this.get('eol');
     const poly2 = this.get('poly2');
     const polyline = this.get('polyline');
     const timerHandle = this.get('timerHandle');
-
+    const tick = this.get('tick');
     if (timerHandle[index]) {clearTimeout(timerHandle[index]);}
-    eol[index]=polyline[index].Distance();
+    eol[index]=polyline[index].inKm();
     map.setCenter(polyline[index].getPath().getAt(0));
 
-    poly2[index] = new Google.maps.Polyline(
-      {
-        path: [polyline[index].getPath().getAt(0)],
-        strokeColor:"#FFFF00",
-        strokeWeight:3
-      });
+    poly2[index] = new Google.maps.Polyline({
+      path: [polyline[index].getPath().getAt(0)],
+      strokeColor:"#FFFF00",
+      strokeWeight:3
+    });
     // Allow time for the initial map display
-    timerHandle[index] = setTimeout("animate("+index+",50)",2000);
+    setTimeout(this.animate(index, 1550), 3 * tick);
+    timerHandle[index] = setTimeout(this.animate(index, 550), tick);
   },
-  animate: function (index, d) {
+  animate(index, d) {
+    console.log('couou');
+    const map = this.get('map');
     const eol = this.get('eol');
     const polyline = this.get('polyline');
-    const timerHandle = this.get('timerHandle');
     const marker = this.get('marker');
     const endLocation = this.get('endLocation');
     const step = this.get('step');
+    const timerHandle = this.get('timerHandle');
     const tick = this.get('tick');
-
     if (d > eol[index]) {
       marker[index].setPosition(endLocation[index].latlng);
       return;
     }
-    let p = polyline[index].GetPointAtDistance(d);
-
-    //map.panTo(p);
+    const p = polyline[index].GetPointAtDistance(d);
+    map.panTo(p);
     marker[index].setPosition(p);
-    //this.updatePoly(index,d);
-    timerHandle[index] = setTimeout("animate("+index+","+(d+step)+")", tick);
+    this.updatePoly(index, d);
   },
-  updatePoly: function (i, d) {
+  updatePoly(i, d) {
     const poly2 = this.get('poly2');
     const polyline = this.get('polyline');
     const lastVertex = this.get('lastVertex');
@@ -233,7 +278,7 @@ export default Ember.Component.extend({
     if (poly2[i].getPath().getLength() > 20) {
       poly2[i] =
         new Google.maps.Polyline([polyline[i].getPath().getAt(lastVertex-1)]);
-      // map.addOverlay(poly2)
+      map.addOverlay(poly2);
     }
 
     if (polyline[i].GetIndexAtDistance(d) < lastVertex+2) {

@@ -7,40 +7,67 @@ const Google = google;
 const {service} = Ember.inject;
 
 export default Ember.Component.extend({
+  test: {si: 'o', y: 15},
+  store: service('store'),
+  ride: null,
+  vehicleSelected: null,
   fleetInfo: service('fleet-info'),
   departureAddress: null,
-  departure: null,
   arrivalAddress: null,
-  arrival: null,
-  vehicleSelected: null,
-  time: Ember.computed('departure', 'arrival', function () {
-    const departure = this.get('departure');
-    const arrival = this.get('arrival');
-    if (!departure || !arrival) {
-      return 'NA';
+  estimatedDistance: 'NA',
+  estimatedDuration: 'NA',
+  calculDuration() {
+    const ride = this.get('ride');
+    if (!ride.get('departurePlace') || !ride.get('arrivalPlace') ||
+      !this.get('vehicleSelected')) {
+      return;
     }
-    const p1 = new Google.maps.LatLng(departure.lat, departure.lng);
-    const p2 = new Google.maps.LatLng(arrival.lat, arrival.lng);
-    const distance =
-      (Google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 1000)
-        .toFixed(2);
-    console.log(distance);
-    console.log(`Distance: ${distance}`);
-    return distance;
-  }),
+    const directionsService = new Google.maps.DirectionsService();
+    const request = {
+      origin: ride.get('departurePlace'),
+      destination: ride.get('arrivalPlace'),
+      travelMode: Google.maps.TravelMode.DRIVING
+    };
+    directionsService.route(request, (result, status) => {
+      if (status === Google.maps.DirectionsStatus.OK) {
+        const leg = result.routes[0].legs[0];
+        const distance = leg.distance; // en metre
+        // const vehicle = ride.get('vehicleId');
+        this.set('estimatedDistance', distance.text);
+        this.set('estimatedDuration', distance.value);
+      }
+    });
+
+  },
   actions: {
     didUpdateDeparture(place) {
-      this.set('departure', place);
+      const ride = this.get('ride');
+      ride.set('departurePlace', place);
+      this.calculDuration();
     },
     didUpdateArrival(place) {
-      this.set('arrival', place);
+      const ride = this.get('ride');
+      ride.set('arrivalPlace', place);
+      this.calculDuration();
     },
     updateVehicle(component, id, value) { // jshint ignore:line
-      console.log(id);
+      const ride = this.get('ride');
       this.set('vehicleSelected', id);
+      ride.set('vehicleId', this.get('store').peekRecord('vehicle-bought', id));
+      this.calculDuration();
     },
-    invalidUserSelection() {
+    invalidDepartureSelection() {
 
+    },
+    invalidArrivalSelection() {
+
+    },
+    start(ride) {
+      if (!ride.get('departurePlace') || !ride.get('arrivalPlace') ||
+        !ride.get('vehicleSelected')) {
+        return;
+      }
+      this.sendAction('start', ride);
     }
   }
 });
