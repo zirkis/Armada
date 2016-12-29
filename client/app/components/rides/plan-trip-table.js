@@ -13,11 +13,14 @@ export default Ember.Component.extend({
   arrivalAddress: null,
   arrival: null,
   vehicleSelected: null,
-  time: Ember.computed('departure', 'arrival', function () {
+  vehicleSpeed: 1,
+  benefice : 0,
+  revenueperkm : 0.78,
+  distanceTotal: Ember.computed('departure', 'arrival', function () {
     const departure = this.get('departure');
     const arrival = this.get('arrival');
     if (!departure || !arrival) {
-      return 'NA';
+      return 0;
     }
     const p1 = new Google.maps.LatLng(departure.lat, departure.lng);
     const p2 = new Google.maps.LatLng(arrival.lat, arrival.lng);
@@ -26,7 +29,7 @@ export default Ember.Component.extend({
         .toFixed(2);
     console.log(distance);
     console.log(`Distance: ${distance}`);
-    return distance;
+    return Math.round(distance);
   }),
   actions: {
     didUpdateDeparture(place) {
@@ -38,6 +41,7 @@ export default Ember.Component.extend({
     updateVehicle(component, id, value) { // jshint ignore:line
       console.log(id);
       this.set('vehicleSelected', id);
+      this.set('vehicleSpeed', parseInt(value.split('>')[1].split('<')[0]));
     },
     invalidUserSelection() {
 

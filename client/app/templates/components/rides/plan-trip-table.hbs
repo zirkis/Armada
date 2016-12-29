@@ -30,7 +30,8 @@
 						{{#each fleetInfo.vehicles as |vehicle|}}
 							<div class="item" data-value="{{vehicle}}">
 								{{vehicle.brand}} - {{vehicle.make}}
-							</div>
+                                <span style="display: none;">{{vehicle.speed}}</span>
+                            </div>
 						{{/each}}
 					</div>
 				{{/ui-dropdown}}
@@ -58,7 +59,7 @@
 					}}
 				</div>
 			</td>
-			<td class="middle aligned">{{ time }}</td>
+			<td class="middle aligned"> NA </td>
 			<td class="middle aligned">
 				<div class="ui buttons">
 					<button class="ui orange button"
@@ -79,9 +80,12 @@
 				</div>
 			</td>
 			<td class="right aligned" local-class="estimation">
-				<p><br>Estimated Distance : <br><br><b>775 km</b></p>
-				<p>Estimated Duration : <br><br><b>7h30</b></p>
-				<p>Estimated Benefice : <br><br><b>535 €</b></p>
+				<p><br>Estimated Distance : <br><br><b>{{ distanceTotal }} km</b></p>
+				<p>Estimated Duration : <br><br><b>
+                    {{floor (div distanceTotal vehicleSpeed)}} H
+                    {{mult (sub (div distanceTotal vehicleSpeed) (floor (div distanceTotal vehicleSpeed))) 60}} M
+                </b></p>
+				<p>Estimated Benefice : <br><br><b>{{mult distanceTotal revenueperkm}} €</b></p>
 			</td>
 		</tr>
 		</tbody>
