@@ -45,7 +45,7 @@ export default Ember.Controller.extend({
           return user.save();
         })
         .then(() => {
-          this.get('toast').success('Your car have been added to your fleet');
+          this.get('toast').success('Your car has been added to your fleet');
         })
         .catch(err => {
           console.log(err);
