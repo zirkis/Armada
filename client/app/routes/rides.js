@@ -4,4 +4,5 @@ import AuthenticatedRouteMixin
   from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
+  title: 'View rides'
 });

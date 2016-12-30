@@ -2,7 +2,7 @@
 import Ember from 'ember';
 
 // eslint-disable-next-line no-undef
-const Google = google;
+const Google = window.google;
 
 Google.maps.Polyline.prototype.GetPointAtDistance = function(metres) {
   // some awkward special cases
@@ -134,7 +134,7 @@ export default Ember.Component.extend({
     let request = null;
 
     for (let i = 0; i < departurePlaces.length; i++) {
-      console.log(`${departurePlaces[i]} => ${arrivalPlaces[i]}`);
+      // console.log(`${departurePlaces[i]} => ${arrivalPlaces[i]}`);
 
       request = {
         origin: departurePlaces[i],
@@ -214,6 +214,7 @@ export default Ember.Component.extend({
   },
   createMarker(latlng, label, html) {
     const map = this.get('map');
+    const infowindow = this.get('infowindow');
     const contentString = '<b>'+label+'</b><br>'+html;
     const marker = new Google.maps.Marker({
       position: latlng,
@@ -250,15 +251,14 @@ export default Ember.Component.extend({
     timerHandle[index] = setTimeout(this.animate(index, 550), tick);
   },
   animate(index, d) {
-    console.log('couou');
     const map = this.get('map');
     const eol = this.get('eol');
     const polyline = this.get('polyline');
     const marker = this.get('marker');
     const endLocation = this.get('endLocation');
-    const step = this.get('step');
-    const timerHandle = this.get('timerHandle');
-    const tick = this.get('tick');
+    // const step = this.get('step');
+    // const timerHandle = this.get('timerHandle');
+    // const tick = this.get('tick');
     if (d > eol[index]) {
       marker[index].setPosition(endLocation[index].latlng);
       return;
@@ -267,8 +267,10 @@ export default Ember.Component.extend({
     map.panTo(p);
     marker[index].setPosition(p);
     this.updatePoly(index, d);
+    // timerHandle[index] = setTimeout(this.animate(index, 550), tick);
   },
   updatePoly(i, d) {
+    const map = this.get('map');
     const poly2 = this.get('poly2');
     const polyline = this.get('polyline');
     const lastVertex = this.get('lastVertex');

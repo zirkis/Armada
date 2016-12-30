@@ -36,13 +36,16 @@ export default Ember.Service.extend({
     if (!vehicles) {
       return [];
     }
-    const vehiclesLastRide = vehicles.map(vehicle => {
+    const latestRidesVehicles = vehicles.map(vehicle => {
       return lastRide(rides, vehicle.get('id'));
     });
-    return vehiclesLastRide.filter(vehicleLastRide => {
-      return !isRideDone(vehicleLastRide);
+    const latestInProgressRideVehicles = latestRidesVehicles
+      .filter(latestRidesVehicle => {
+      return !isRideDone(latestRidesVehicle);
     });
-
+    return latestInProgressRideVehicles.map(ride => {
+      return ride.get('vehicleId');
+    });
   }),
   availableVehicles: Ember.computed('vehicles', 'rides',
     // eslint-disable-next-line bject-shorthand
@@ -52,11 +55,15 @@ export default Ember.Service.extend({
       if (!vehicles) {
         return [];
       }
-      const vehiclesLastRide = vehicles.map(vehicle => {
+      const latestRidesVehicles = vehicles.map(vehicle => {
         return lastRide(rides, vehicle.get('id'));
       });
-      return vehiclesLastRide.filter(vehicleLastRide => {
-        return isRideDone(vehicleLastRide);
+      const latestDoneRideVehicles = latestRidesVehicles
+        .filter(latestRidesVehicle => {
+          return isRideDone(latestRidesVehicle);
+        });
+      return latestDoneRideVehicles.map(ride => {
+        return ride.get('vehicleId');
       });
     }
   ),
@@ -104,6 +111,7 @@ export default Ember.Service.extend({
         });
       })
       .then(vehiclesBought => {
+        console.log('LOADED');
         this.set('vehicles', vehiclesBought);
         this.set('error', false);
       })
