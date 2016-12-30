@@ -47,7 +47,12 @@ export default Ember.Component.extend({
     const speed = ride.get('vehicleId.model.speed');
     const coeff = speed / 100;
     const duration = leg.duration;
-    this.set('estimatedDuration', `${duration.text.replace('heure','H').replace('minute','M').replace(/s/g,'')}`);
+    this.set('estimatedDuration', `${duration.text
+      .replace('jour','J')
+      .replace('heure','H')
+      .replace('minute','M')
+      .replace(/s/g,'')
+    }`);
     ride.set('travelTime', duration.value);
   },
   setDistanceBenefice(leg) {

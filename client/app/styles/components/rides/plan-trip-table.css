@@ -25,6 +25,9 @@
 .parameters td {
 	font-size: 1.1em;
 }
+.input{
+	font-size: 1.1em;
+}
 .map {
 	width: 650px;
 	border-radius: 12px;
@@ -42,4 +45,12 @@
 }
 .input {
 	color: black;
+}
+
+input[type="text"]
+{
+	height: 40px;
+	width: 300px;
+	padding: 15px;
+	border-radius: 6px;
 }
