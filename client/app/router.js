@@ -21,7 +21,6 @@ Router.map(function() {
     this.route('store');
     this.route('create');
   });
-  this.route('fleets');
 
   this.route('rides');
   this.route('rides.plan', {path: '/rides/plan'});

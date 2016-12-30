@@ -16,6 +16,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         if (user.get('role') === 'admin') {
           this.transitionTo('dashboard');
         }
+        return this.controllerFor('rides.plan').get('fleetInfo').loadInfo();
       });
   },
   model() {

@@ -5,7 +5,7 @@ const {service} = Ember.inject;
 
 const lastRide = (rides, vehicleBought) => {
   const vehiculeRides = rides.filter(ride => {
-    return ride.get('vehicleId').get('id') === vehicleBought;
+    return ride.get('vehicleId.id') === vehicleBought;
   });
   if (vehiculeRides) {
     return vehiculeRides.sortBy('departureTime')[vehiculeRides.length-1];
@@ -30,40 +30,42 @@ export default Ember.Service.extend({
   rides: null,
 
   // eslint-disable-next-line prefer-arrow-callback
-  usedVehicles: Ember.computed('vehicles', 'rides', function () {
+  availableVehicles: Ember.computed('vehicles', 'rides', function () {
+    let usedVehicles = [];
+    let temp = null;
     const rides = this.get('rides');
     const vehicles = this.get('vehicles');
-    if (!vehicles) {
-      return [];
+    if (!vehicles || !rides) {
+      return usedVehicles;
     }
-    const latestRidesVehicles = vehicles.map(vehicle => {
-      return lastRide(rides, vehicle.get('id'));
-    });
+    const latestRidesVehicles = vehicles
+      .map(vehicle => {
+        temp = vehicle;
+        return lastRide(rides, vehicle.get('id'));
+      })
+      .filter(ride => {
+        if(!ride) {
+          usedVehicles.push(temp);
+        }
+        return ride;
+      });
     const latestInProgressRideVehicles = latestRidesVehicles
       .filter(latestRidesVehicle => {
-      return !isRideDone(latestRidesVehicle);
-    });
-    return latestInProgressRideVehicles.map(ride => {
+        return !isRideDone(latestRidesVehicle);
+      });
+    const moreUsedVehicles = latestInProgressRideVehicles.map(ride => {
       return ride.get('vehicleId');
     });
+    return usedVehicles.concat(moreUsedVehicles);
+
   }),
-  availableVehicles: Ember.computed('vehicles', 'rides',
+  usedVehicles: Ember.computed('availableVehicles',
     // eslint-disable-next-line bject-shorthand
     function () {
-      const rides = this.get('rides');
       const vehicles = this.get('vehicles');
-      if (!vehicles) {
-        return [];
-      }
-      const latestRidesVehicles = vehicles.map(vehicle => {
-        return lastRide(rides, vehicle.get('id'));
-      });
-      const latestDoneRideVehicles = latestRidesVehicles
-        .filter(latestRidesVehicle => {
-          return isRideDone(latestRidesVehicle);
-        });
-      return latestDoneRideVehicles.map(ride => {
-        return ride.get('vehicleId');
+      const availableVehicles = this.get('availableVehicles');
+      return vehicles.filter(vehicle => {
+        return (availableVehicles.indexOf(vehicle) !== -1  ? true : false);
       });
     }
   ),
@@ -71,6 +73,9 @@ export default Ember.Service.extend({
     // eslint-disable-next-line bject-shorthand
     function () {
       const rides = this.get('rides');
+      if (!rides) {
+        return [];
+      }
       return rides.filter(ride => {
         return !isRideDone(ride);
       });
@@ -80,6 +85,9 @@ export default Ember.Service.extend({
     // eslint-disable-next-line bject-shorthand
     function () {
       const rides = this.get('rides');
+      if (!rides) {
+        return [];
+      }
       return rides.filter(ride => {
         return isRideDone(ride);
       });

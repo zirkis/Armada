@@ -7,7 +7,7 @@ const {inject:{service}, RSVP}= Ember;
 
 export default Ember.Component.extend({
   store: service('store'),
-  fleetInfo: service('fleet-info'),
+  fleetInfo: null,
   ride: null,
   vehicleSelected: null,
   departureAddress: null,
