@@ -20,19 +20,24 @@ export default ToriiAuthenticator.extend({
       .then(() => {
         this._authenticateWithProvider(provider, data);
         return data;
+      })
+      .catch(err => {
+        console.log(err);
       });
   },
   _createUserIfNotExist(user) {
-    let userRecord = null;
+    if (!this._hasAllInformation(user)) {
+      return RSVP.Promise.reject('User need more information');
+    }
     const session = this.get('session');
-    return new RSVP.Promise((resolve, reject) => {
+    let userRecord = null;
 
+    return new RSVP.Promise((resolve, reject) => {
       this._checkIfUserExist(user.email)
         .then(id => {
           if (id) {
             session.set('data.user_id', id);
-            resolve(id);
-            return;
+            return resolve(id);
           }
           this._createUser(user)
             .then(usr => {
@@ -52,6 +57,12 @@ export default ToriiAuthenticator.extend({
             });
         });
     });
+  },
+  _hasAllInformation(user) {
+    if (!user || !user.email || user.email === '' || !user.name) {
+      return false;
+    }
+    return true;
   },
   _checkIfUserExist(email) {
     if (!email) {

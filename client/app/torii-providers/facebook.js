@@ -2,8 +2,7 @@
 import Ember from 'ember';
 import {configurable} from 'torii/configuration';
 import FacebookOauth2Provider from 'torii/providers/facebook-oauth2';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import ENV from 'client/config/environment';
+import ENV from '../config/environment';
 
 export default FacebookOauth2Provider.extend({
   scope: configurable('scope', 'email, public_profile'),

@@ -17,7 +17,7 @@ const userSchema = new Schema({
   email: {type: Email, required: true, unique: true},
   password: {type: String/* , set: Data.prototype.saltySha1 */},
   role: {type: String, enum: ['admin', 'user'], required: true},
-  money: {type: Number, required: true, default: 0},
+  money: {type: Number},
   token: {type: String}
 });
 
