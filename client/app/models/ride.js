@@ -5,5 +5,6 @@ export default DS.Model.extend({
   departurePlace: DS.attr('string'),
   departureTime: DS.attr('date'),
   travelTime: DS.attr('number'),
-  arrivalPlace: DS.attr('string')
+  arrivalPlace: DS.attr('string'),
+  benefice: DS.attr('number')
 });

@@ -15,7 +15,6 @@ export default Ember.Component.extend({
   estimatedDistance: 'NA',
   estimatedDuration: 'NA',
   estimatedBenefice: 'NA',
-
   getRideInfo() {
     const ride = this.get('ride');
     if (!ride.get('departurePlace') || !ride.get('arrivalPlace')) {
@@ -66,6 +65,8 @@ export default Ember.Component.extend({
 
     const benef = Math.trunc(distance.value / 1000 * 0.89);
     this.set('estimatedBenefice', `${benef} €`);
+    ride.set('benefice', benef);
+
   },
   actions: {
     didUpdateDeparture(place) {
