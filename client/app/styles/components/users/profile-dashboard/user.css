@@ -26,8 +26,13 @@
 	border : 1px black solid;
 	border-radius: 40px;
 	margin-top: 40px;
-
+	z-index: 3;
 }
+
+.settings_icon:hover, .logout_icon:hover {
+	cursor: pointer;
+}
+
 .profilepicture {
 	border-radius: 100px;
 	border : 1px rgb(160,245,240) solid;

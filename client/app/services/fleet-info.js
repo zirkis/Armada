@@ -63,7 +63,7 @@ export default Ember.Service.extend({
           return isRideDone(latestRidesVehicle);
         });
       return latestDoneRideVehicles.map(ride => {
-        return ride.get('vehicleId');
+        //return ride.get('vehicleId');
       });
     }
   ),
