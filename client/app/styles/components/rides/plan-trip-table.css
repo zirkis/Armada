@@ -1,3 +1,11 @@
+.container {
+	width: 1000px;
+	margin: 0 auto;
+	margin-top: -30px;
+	font-family: 'ONEDAY';
+	border : 5px solid rgb(54,54,54);
+	background-color: rgb(54,54,54);
+}
 .plan_title {
 	text-align: center;
 	color: white;
@@ -11,18 +19,14 @@
 .preview {
 	margin-top: -13px;
 }
-.container {
-	width: 1000px;
-	margin: 0 auto;
-	font-family: 'ONEDAY';
-	border : 5px solid rgb(54,54,54);
-	background-color: rgb(54,54,54);
-}
 .container th {
 	font-size: 1.4em;
 	font-weight: bold;
 }
 .parameters td {
+	font-size: 1.1em;
+}
+.input{
 	font-size: 1.1em;
 }
 .map {
@@ -42,4 +46,12 @@
 }
 .input {
 	color: black;
+}
+
+input[type="text"]
+{
+	height: 40px;
+	width: 300px;
+	padding: 15px;
+	border-radius: 6px;
 }

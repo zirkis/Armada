@@ -15,7 +15,6 @@ export default Ember.Component.extend({
   estimatedDistance: 'NA',
   estimatedDuration: 'NA',
   estimatedBenefice: 'NA',
-
   getRideInfo() {
     const ride = this.get('ride');
     if (!ride.get('departurePlace') || !ride.get('arrivalPlace')) {
@@ -47,7 +46,12 @@ export default Ember.Component.extend({
     const speed = ride.get('vehicleId.model.speed');
     const coeff = speed / 100;
     const duration = leg.duration;
-    this.set('estimatedDuration', `${duration.text.replace('heure','H').replace('minute','M').replace(/s/g,'')}`);
+    this.set('estimatedDuration', `${duration.text
+      .replace('jour','J')
+      .replace('heure','H')
+      .replace('minute','M')
+      .replace(/s/g,'')
+    }`);
     ride.set('travelTime', duration.value);
   },
   setDistanceBenefice(leg) {
@@ -61,6 +65,8 @@ export default Ember.Component.extend({
 
     const benef = Math.trunc(distance.value / 1000 * 0.89);
     this.set('estimatedBenefice', `${benef} €`);
+    ride.set('benefice', benef);
+
   },
   actions: {
     didUpdateDeparture(place) {
