@@ -34,7 +34,7 @@
 				{{/ui-dropdown}}
 			</td>
 			<td class="middle aligned">
-				<div local-class="input">
+				<div local-class="input-auto-complet">
 					{{
 					g-autocomplete
 					value=departureAddress
@@ -44,7 +44,7 @@
 				</div>
 			</td>
 			<td class="middle aligned">
-				<div local-class="input">
+				<div local-class="input-auto-complet">
 					{{
 					g-autocomplete
 					value=arrivalAddress
@@ -69,12 +69,20 @@
 		<tr>
 			<td class="middle aligned">
 				<div local-class="map">
-					{{my-google-map rides=fleetInfo.rideInProgress}}
+					{{my-google-map ride=ride}}
 				</div>
 			</td>
 			<td class="right aligned" local-class="estimation">
 				<p><br>Estimated Distance : <br><br><b>{{ estimatedDistance }}</b></p>
-				<p>Estimated Duration : <br><br><b>{{ estimatedDuration }}</b></p>
+				<p>Estimated Duration : <br><br>
+					<b>
+						{{#if (eq estimatedDuration 'NA')}}
+							NA
+						{{else}}
+							{{rides.duration estimatedDuration}}
+						{{/if}}
+					</b>
+				</p>
 				<p>Estimated Benefice : <br><br><b>{{ estimatedBenefice }}</b></p>
 			</td>
 		</tr>

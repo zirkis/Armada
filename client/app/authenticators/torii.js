@@ -66,7 +66,7 @@ export default ToriiAuthenticator.extend({
   },
   _checkIfUserExist(email) {
     if (!email) {
-      return Promise.resolve(null);
+      return RSVP.Promise.resolve(null);
     }
     return new RSVP.Promise(resolve => {
       this.get('store').query('user', {

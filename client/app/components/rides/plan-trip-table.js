@@ -35,7 +35,6 @@ export default Ember.Component.extend({
         reject('Directions status KO');
       });
     });
-
   },
   setDuration(leg) {
     const ride = this.get('ride');
@@ -44,20 +43,15 @@ export default Ember.Component.extend({
       return;
     }
     const speed = ride.get('vehicleId.model.speed');
-    const coeff = speed / 100;
-    const duration = leg.duration;
-    this.set('estimatedDuration', `${duration.text
-      .replace('jour','J')
-      .replace('heure','H')
-      .replace('minute','M')
-      .replace(/s/g,'')
-    }`);
-    ride.set('travelTime', duration.value);
+    const distance = leg.distance.value;
+    let duration = (distance / 1000) / speed; // hour
+    duration = duration * 3600;
+    this.set('estimatedDuration', duration);
+    ride.set('travelDuration', duration);
   },
   setDistanceBenefice(leg) {
     const ride = this.get('ride');
-    if (!ride.get('departurePlace') || !ride.get('arrivalPlace') ||
-      !this.get('vehicleSelected')) {
+    if (!ride.get('departurePlace') || !ride.get('arrivalPlace')) {
       return;
     }
     const distance = leg.distance; // en metre
@@ -77,9 +71,7 @@ export default Ember.Component.extend({
           this.setDistanceBenefice(leg);
           this.setDuration(leg);
         })
-        .catch(err => {
-          console.log(err);
-        });
+        .catch(() => {});
     },
     didUpdateArrival(place) {
       const ride = this.get('ride');
@@ -89,9 +81,7 @@ export default Ember.Component.extend({
           this.setDistanceBenefice(leg);
           this.setDuration(leg);
         })
-        .catch(err => {
-          console.log(err);
-        });
+        .catch(() => {});
     },
     updateVehicle(component, id, value) { // jshint ignore:line
       const ride = this.get('ride');
@@ -102,9 +92,7 @@ export default Ember.Component.extend({
           this.setDistanceBenefice(leg);
           this.setDuration(leg);
         })
-        .catch(err => {
-          console.log(err);
-        });
+        .catch(() => {});
     },
     invalidDepartureSelection() {
 
@@ -114,7 +102,7 @@ export default Ember.Component.extend({
     },
     start(ride) {
       if (!ride.get('departurePlace') || !ride.get('arrivalPlace') ||
-        !ride.get('vehicleId') || !ride.get('travelTime')) {
+        !ride.get('vehicleId') || !ride.get('travelDuration')) {
         return;
       }
       this.sendAction('start', ride);

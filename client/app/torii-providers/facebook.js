@@ -33,7 +33,6 @@ export default FacebookOauth2Provider.extend({
             });
         })
         .then(res => {
-          console.log(res);
           authData.user = res;
           return authData;
         });

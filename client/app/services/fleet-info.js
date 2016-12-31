@@ -18,7 +18,7 @@ const isRideDone = (ride) => {
   }
   // Diff in micro sec
   const timeSincedeparture = Date.now() - ride.get('departureTime');
-  return ride.get('travelTime') < (timeSincedeparture/1000);
+  return ride.get('travelDuration') < (timeSincedeparture/1000);
 };
 
 export default Ember.Service.extend({
@@ -26,18 +26,18 @@ export default Ember.Service.extend({
   sessionAccount: service('session-account'),
   error: false,
   name: null,
-  vehicles: null,
-  rides: null,
+  vehicles: [],
+  rides: [],
 
   // eslint-disable-next-line prefer-arrow-callback
   availableVehicles: Ember.computed('vehicles', 'rides', function () {
     let availableVehicles = [];
     const rides = this.get('rides');
     const vehicles = this.get('vehicles');
-    if (!vehicles) {
+    if (!vehicles || isEmpty(vehicles)) {
       return availableVehicles;
     }
-    if (!rides) {
+    if (!rides || isEmpty(rides)) {
       return vehicles;
     }
     const latestRidesVehicles = vehicles
@@ -58,6 +58,7 @@ export default Ember.Service.extend({
     const moreAvailableVehicles = latestDoneRideVehicles.map(ride => {
       return ride.get('vehicleId');
     });
+
     const availableVehiclesId = availableVehicles
       .concat(moreAvailableVehicles)
       .map(vehicle => {
@@ -72,6 +73,9 @@ export default Ember.Service.extend({
     // eslint-disable-next-line bject-shorthand
     function () {
       const vehicles = this.get('vehicles');
+      if (!vehicles || isEmpty(vehicles)) {
+        return [];
+      }
       const availableVehicles = this.get('availableVehicles');
       return vehicles.filter(vehicle => {
         return (availableVehicles.indexOf(vehicle) === -1  ? true : false);
@@ -82,7 +86,7 @@ export default Ember.Service.extend({
     // eslint-disable-next-line bject-shorthand
     function () {
       const rides = this.get('rides');
-      if (!rides) {
+      if (!rides || isEmpty(rides)) {
         return [];
       }
       return rides.filter(ride => {
@@ -94,7 +98,7 @@ export default Ember.Service.extend({
     // eslint-disable-next-line bject-shorthand
     function () {
       const rides = this.get('rides');
-      if (!rides) {
+      if (!rides || isEmpty(rides)) {
         return [];
       }
       return rides.filter(ride => {

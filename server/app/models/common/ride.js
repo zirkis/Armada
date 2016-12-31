@@ -11,8 +11,9 @@ const rideSchema = new Schema({
   vehicleId: {type: ObjectId, ref: 'VehicleBought', required: true},
   departurePlace: {type: String, required: true},
   departureTime: {type: Date, default: Date.now, required: true},
-  travelTime: {type: Number, required: true},
-  arrivalPlace: {type: String, required: true}
+  travelDuration: {type: Number, required: true},
+  arrivalPlace: {type: String, required: true},
+  benefice: {type: Number, required: true}
 });
 
 const model = mongoose.model('Ride', rideSchema);
