@@ -8,7 +8,9 @@ const {isEmpty} = Ember;
 
 export default Ember.Component.extend({
   ride: null,
-  rideChanged: Ember.observer('ride', function() {
+  rideChanged: Ember.observer('ride',
+    'ride.departurePlace',
+    'ride.arrivalPlace', function() {
     Ember.run.once(this, 'drawPolyline');
   }),
   // Insert map in the map-canvas container
