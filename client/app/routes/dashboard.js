@@ -11,9 +11,16 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   title: null,
   beforeModel(transition) {
     this._super(transition);
-    return this.get('sessionAccount').getName()
-      .then(name => {
-        this.set('title', `Armada -  ${name}`);
+    const fleetInfo = this.controllerFor('dashboard').get('fleetInfo');
+    return this.get('sessionAccount').getUser()
+      .then(user => {
+        if (!user) {
+          return;
+        }
+        this.set('title', `Armada -  ${user.get('name')}`);
+        if (user.get('role') !== 'admin') {
+          return fleetInfo.loadInfo();
+        }
       });
   },
   model() {

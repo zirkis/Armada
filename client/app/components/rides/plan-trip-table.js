@@ -89,7 +89,6 @@ export default Ember.Component.extend({
       ride.set('vehicleId', this.get('store').peekRecord('vehicle-bought', id));
       this.getRideInfo()
         .then(leg => {
-          this.setDistanceBenefice(leg);
           this.setDuration(leg);
         })
         .catch(() => {});
