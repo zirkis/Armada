@@ -10,7 +10,7 @@ const self = process.env.SERVER_IP;
 const vehicleBougthSchema = new Schema({
   model: {type: ObjectId, ref: 'VehicleModel', required: true},
   owner: {type: ObjectId, ref: 'User', required: true},
-  boughtOn: {type: Date, default: Date.now, required: true},
+  boughtOn: {type: Date, default: Date.now, required: true}
 });
 
 const model = mongoose.model('VehicleBought', vehicleBougthSchema);
@@ -23,7 +23,7 @@ module.exports = {
       self: `${self}/api/vehicle-boughts/{id}`,
       relationship: `${self}/api/vehicle-boughts/{ownerId}/relationships/{path}`
     },
-    beforeSave: (resource, req, res, superFn) => { // jshint ignore:line
+    beforeSave: resource => { // jshint ignore:line
       resource._attrs.boughtOn = Date.now();
       return resource;
     }

@@ -12,7 +12,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     return this.store.createRecord('vehicle-model');
   },
   actions: {
-    createVehicle: function(vehicle) {
+    createVehicle(vehicle) {
       vehicle.save()
         .then(() => {
           const toast = this.get('toast');

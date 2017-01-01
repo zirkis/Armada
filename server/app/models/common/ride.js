@@ -26,7 +26,7 @@ module.exports = {
       self: `${self}/api/rides/{id}`,
       relationship: `${self}/api/rides/{ownerId}/relationships/{path}`
     },
-    beforeSave: (resource, req, res, superFn) => { // jshint ignore:line
+    beforeSave: resource => { // jshint ignore:line
       resource._attrs.departureTime = Date.now();
       return resource;
     }

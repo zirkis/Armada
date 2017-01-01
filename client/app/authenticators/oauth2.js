@@ -1,5 +1,7 @@
 import OAuth2PasswordGrant
   from 'ember-simple-auth/authenticators/oauth2-password-grant';
+
+// eslint-disable-next-line import/no-unresolved
 import ENV from '../config/environment';
 
 export default OAuth2PasswordGrant.extend({

@@ -8,17 +8,17 @@ const lastRide = (rides, vehicleBought) => {
     return ride.get('vehicleId.id') === vehicleBought;
   });
   if (!isEmpty(vehiculeRides)) {
-    return vehiculeRides.sortBy('departureTime')[vehiculeRides.length-1];
+    return vehiculeRides.sortBy('departureTime')[vehiculeRides.length - 1];
   }
   return null;
 };
-const isRideDone = (ride) => {
-  if (!ride)  {
+const isRideDone = ride => {
+  if (!ride) {
     return true;
   }
   // Diff in micro sec
   const timeSincedeparture = Date.now() - ride.get('departureTime');
-  return ride.get('travelDuration') < (timeSincedeparture/1000);
+  return ride.get('travelDuration') < (timeSincedeparture / 1000);
 };
 
 export default Ember.Service.extend({
@@ -31,7 +31,7 @@ export default Ember.Service.extend({
 
   // eslint-disable-next-line prefer-arrow-callback
   availableVehicles: Ember.computed('vehicles', 'rides', function () {
-    let availableVehicles = [];
+    const availableVehicles = [];
     const rides = this.get('rides');
     const vehicles = this.get('vehicles');
     if (!vehicles || isEmpty(vehicles)) {
@@ -43,7 +43,7 @@ export default Ember.Service.extend({
     const latestRidesVehicles = vehicles
       .map(vehicle => {
         const lRide = lastRide(rides, vehicle.get('id'));
-        if(!lRide) {
+        if (!lRide) {
           availableVehicles.push(vehicle);
         }
         return lRide;
@@ -65,9 +65,8 @@ export default Ember.Service.extend({
         return vehicle.get('id');
       });
     return vehicles.filter(vehicle => {
-      return (availableVehiclesId.indexOf(vehicle.get('id')) !== -1  ? true : false);
+      return availableVehiclesId.indexOf(vehicle.get('id')) !== -1;
     });
-
   }),
   usedVehicles: Ember.computed('availableVehicles',
     // eslint-disable-next-line bject-shorthand
@@ -78,7 +77,7 @@ export default Ember.Service.extend({
       }
       const availableVehicles = this.get('availableVehicles');
       return vehicles.filter(vehicle => {
-        return (availableVehicles.indexOf(vehicle) === -1  ? true : false);
+        return availableVehicles.indexOf(vehicle) === -1;
       });
     }
   ),

@@ -1,6 +1,7 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import Ember from 'ember';
 
-export function ridesTimeRemaining(params/*, hash*/) {
+export function ridesTimeRemaining(params/* , hash */) {
   const departureTime = params[0];
   const travelDuration = params[1];
   const arrivalTime = (departureTime / 1000) + travelDuration;
@@ -11,14 +12,13 @@ export function ridesTimeRemaining(params/*, hash*/) {
   let timeRemaining = '';
   if (Math.floor(timeRemainingSec / 86400)) {
     timeRemaining += `${Math.floor(timeRemainingSec / 86400)} J `;
-    timeRemainingSec = timeRemainingSec - Math.floor(timeRemainingSec / 86400) * 86400;
+    timeRemainingSec -= Math.floor(timeRemainingSec / 86400) * 86400;
   }
   if (Math.floor(timeRemainingSec / 3600)) {
     timeRemaining += `${Math.floor(timeRemainingSec / 3600)} H `;
-    timeRemainingSec = timeRemainingSec - Math.floor(timeRemainingSec / 3600) * 3600;
+    timeRemainingSec -= Math.floor(timeRemainingSec / 3600) * 3600;
   }
   timeRemaining += `${Math.floor(timeRemainingSec / 60)} M`;
-  // timeRemainingSec = timeRemainingSec - Math.floor(timeRemainingSec / 60) * 60;
   return timeRemaining;
 }
 

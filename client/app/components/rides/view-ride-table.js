@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import Ember from 'ember';
 
 export default Ember.Component.extend({
@@ -6,8 +7,8 @@ export default Ember.Component.extend({
   typeRide: 'inProgress',
   nextTick: null,
   refreshTick: true,
-  tick: function() {
-    const nextTick = Ember.run.later(this, function() {
+  tick() {
+    const nextTick = Ember.run.later(this, function () {
       this.set('refreshTick', !this.get('refreshTick'));
       this.tick();
     }, 5000);

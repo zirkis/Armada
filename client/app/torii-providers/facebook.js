@@ -2,6 +2,8 @@
 import Ember from 'ember';
 import {configurable} from 'torii/configuration';
 import FacebookOauth2Provider from 'torii/providers/facebook-oauth2';
+
+// eslint-disable-next-line import/no-unresolved
 import ENV from '../config/environment';
 
 export default FacebookOauth2Provider.extend({
@@ -9,7 +11,7 @@ export default FacebookOauth2Provider.extend({
   fetch(data) {
     return data;
   },
-  open: function () {
+  open() {
     return this._super().then(authData => {
       if (authData.authorizationCode && authData.authorizationCode === '200') {
         // indication that the user hit 'cancel', not 'ok'

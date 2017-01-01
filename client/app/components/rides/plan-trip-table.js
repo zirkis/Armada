@@ -1,9 +1,10 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import Ember from 'ember';
 
+// eslint-disable-next-line no-undef
 const Google = window.google;
 
-const {inject:{service}, RSVP}= Ember;
+const {inject: {service}, RSVP} = Ember;
 
 export default Ember.Component.extend({
   store: service('store'),
@@ -44,8 +45,8 @@ export default Ember.Component.extend({
     }
     const speed = ride.get('vehicleId.model.speed');
     const distance = leg.distance.value;
-    let duration = (distance / 1000) / speed; // hour
-    duration = duration * 3600;
+    let duration = distance / (1000 * speed); // hour
+    duration *= 3600;
     this.set('estimatedDuration', duration);
     ride.set('travelDuration', duration);
   },
@@ -60,7 +61,6 @@ export default Ember.Component.extend({
     const benef = Math.trunc(distance.value / 1000 * 0.89);
     this.set('estimatedBenefice', `${benef} €`);
     ride.set('benefice', benef);
-
   },
   actions: {
     didUpdateDeparture(place) {
@@ -83,7 +83,7 @@ export default Ember.Component.extend({
         })
         .catch(() => {});
     },
-    updateVehicle(component, id, value) { // jshint ignore:line
+    updateVehicle(component, id) { // jshint ignore:line
       const ride = this.get('ride');
       this.set('vehicleSelected', id);
       ride.set('vehicleId', this.get('store').peekRecord('vehicle-bought', id));
@@ -104,6 +104,12 @@ export default Ember.Component.extend({
         !ride.get('vehicleId') || !ride.get('travelDuration')) {
         return;
       }
+      this.set('vehicleSelected', null);
+      this.set('departureAddress', null);
+      this.set('arrivalAddress', null);
+      this.set('estimatedDistance', 'NA');
+      this.set('estimatedDuration', 'NA');
+      this.set('estimatedBenefice', 'NA');
       this.sendAction('start', ride);
     }
   }

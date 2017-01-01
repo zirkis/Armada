@@ -1,6 +1,9 @@
 import DS from 'ember-data';
-import ENV from '../config/environment';
+// eslint-disable-next-line import/no-unresolved
 import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
+
+// eslint-disable-next-line import/no-unresolved
+import ENV from '../config/environment';
 
 export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
   namespace: 'api',

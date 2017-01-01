@@ -49,7 +49,7 @@ export default ToriiAuthenticator.extend({
               resolve(session.get('data.user_id'));
             })
             .catch(err => {
-              if(userRecord) {
+              if (userRecord) {
                 userRecord.destroy();
               }
               session.set('data.user_id', null);
