@@ -6,7 +6,7 @@
 			{{/link-to}}
 		</div>
 		<div class="col-sm-10" local-class="white_text">
-			<img src="/assets/images/profilepicture.jpg" local-class="profilepicture">
+			<img src="/assets/images/admin.jpeg" local-class="profilepicture">
 			{{ user.name }}
 		</div>
 		<div class="col-sm-1" local-class="rigth_align">
@@ -17,10 +17,14 @@
 	<br>
 
 	{{#link-to 'vehicles.create'}}
-		Create new vehicles
+        <div local-class="new_vehicule_button">Create new vehicles
+            <img src="/assets/images/caricon.png" local-class="car_icon">
+        </div>
 	{{/link-to}}
 	{{#link-to 'users.create'}}
-		Create new user
+        <div local-class="new_user_button">Create new user
+            <img src="/assets/images/usericon.png" local-class="user_icon">
+        </div>
 	{{/link-to}}
 
 </section>
