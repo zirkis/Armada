@@ -3,6 +3,10 @@ Manage your fleet from a touch.
 Autonomous vehicle fleet management simulation, Client/Server app coded in JS with the Ember framework.
 By HAOUI Benjamin & DIDELOT Kevin. 
 
+## Prerequisites
+
+Look in each subfolders the prerequisites (client/server)
+
 ## Installation
 
 * `git clone <repository-url>` this repository
@@ -13,13 +17,38 @@ By HAOUI Benjamin & DIDELOT Kevin.
 
 ## Run
 
+Open two terminal and go to the root directory then:
+
+* `cd <root-directory>`
+
+### First terminal:
+
 * `cd client`
 * `yarn start`
-* `cd ../server`
+
+### Second terminal
+
+* `cd server`
 * `yarn start`
+
+### Access
+
+admin: admin
+
+### Fonctionnality
+
+#### Admin
+
+[Add vehicles](https://github.com/zirkis/LILO/blob/master/docs/addVehicles.md)
+
+#### Standard user
+
+[Buy vehicles](https://github.com/zirkis/LILO/blob/master/docs/buyVehicles.md)
+
+[Plan a trip](https://github.com/zirkis/LILO/blob/master/docs/planATrip.md)
+
+[View rides](https://github.com/zirkis/LILO/blob/master/docs/viewRides.md)
 
 ## Screenshots
 
-![alt tag](https://github.com/zirkis/Armada/blob/master/img/dashboard.png)
-![alt tag](https://github.com/zirkis/Armada/blob/master/img/profile.png)
-![alt tag](https://github.com/zirkis/Armada/blob/master/img/store.png)
+[Screenshots](https://github.com/zirkis/LILO/blob/master/docs/screenshots.md)

@@ -13,7 +13,7 @@ const self = process.env.SERVER_IP;
 // eslint-disable-next-line new-cap
 const userSchema = new Schema({
   surname: {type: String, required: true},
-  name: {type: String, required: true},
+  name: {type: String, required: true, unique: true},
   email: {type: Email, required: true, unique: true},
   password: {type: String/* , set: Data.prototype.saltySha1 */},
   role: {type: String, enum: ['admin', 'user'], required: true},
