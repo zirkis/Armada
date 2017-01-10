@@ -39,16 +39,16 @@ admin: admin
 
 #### Admin
 
-[Add vehicles](https://github.com/zirkis/LILO/blob/master/docs/addVehicles.md)
+[Add vehicles](https://github.com/zirkis/Armada/blob/master/docs/addVehicles.md)
 
 #### Standard user
 
-[Buy vehicles](https://github.com/zirkis/LILO/blob/master/docs/buyVehicles.md)
+[Buy vehicles](https://github.com/zirkis/Armada/blob/master/docs/buyVehicles.md)
 
-[Plan a trip](https://github.com/zirkis/LILO/blob/master/docs/planATrip.md)
+[Plan a trip](https://github.com/zirkis/Armada/blob/master/docs/planATrip.md)
 
-[View rides](https://github.com/zirkis/LILO/blob/master/docs/viewRides.md)
+[View rides](https://github.com/zirkis/Armada/blob/master/docs/viewRides.md)
 
 ## Screenshots
 
-[Screenshots](https://github.com/zirkis/LILO/blob/master/docs/screenshots.md)
+[Screenshots](https://github.com/zirkis/Armada/blob/master/docs/screenshots.md)
