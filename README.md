@@ -9,7 +9,8 @@ Look in each subfolders the prerequisites (client/server)
 
 ## Installation
 
-* `git clone <repository-url>` this repository
+* `git clone <repository-url> <name-repo>` this repository
+* `cd <name-repo>`
 * `cd client`
 * `yarn install` (or `npm`)
 * `cd ../server`
